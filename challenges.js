@@ -224,5 +224,76 @@ function limit(binary, lmt) {
       lmt -= 1;
       return binary(a, b);
     }
+    return undefined; // be explicit
+  }
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function genFrom that
+  produces a generator that will
+  produces a series of values
+
+  var index = genFrom(0);
+
+  index() // 0
+  index() // 1
+  index() // 2
+*/
+
+function genFrom(x) {
+  return function() {
+    var next = x;
+    x += 1;
+    return next;
+  }
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function genTo that
+  takes a generator and an end
+  limit, and returns a generator
+  that will produce numbers up
+  to that limit
+
+  var index = genTo(genFrom(1), 3);
+
+  index() // 1
+  index() // 2
+  index() // undefined
+*/
+
+function genTo(gen, lmt) {
+  return function(x) {
+    var next = gen(x);
+    if (next < lmt) {
+      return next;
+    }
+    return undefined; // be explicit
+  }
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function genFromTo that
+  produces a generator that will
+  produce values in a range
+
+  var index = genFromTo(0, 3);
+  index() // 0
+  index() // 1
+  index() // 2
+  index() // undefined
+*/
+
+function genFromTo(min, max) {
+  return function() {
+    var next = min;
+    if (next < max) {
+      min += 1;
+      return next;
+    }
+    return undefined; // be explicit
   }
 }

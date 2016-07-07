@@ -2,39 +2,46 @@
 <head>
   <style>
 
-    .result {
+    body {
+      background: #e3e3e3;
+    }
+
+    .test-wrapper {
+      background: white;
       border-radius: 2px;
-      border: 1px solid #e3e3e3;
+      border: 1px solid #cccccc;
+      box-shadow: 1px 1px 1px 0px gray;
+      font-family: monospace;
       margin-bottom: 5px;
       padding: 10px;
+
     }
 
-    .result p {
-      display: inline-block;
-    }
-
-    .result .label {
+    .test-wrapper .test {
       border-radius: 2px;
-      font-family: monospace;
+      margin-bottom: 5px;
       padding: 5px;
     }
 
-    .result.passed {
+    .test-wrapper .test.passed {
       background: #008000;
       color: #ADFF2F;
     }
-    .result.passed .label {
-      background: #ADFF2F;
-      color: #008000;
-    }
 
-    .result.failed {
+    .test-wrapper .test.failed {
       background: #800000;
       color: #F08080;
     }
-    .result.failed .label {
-      background: #F08080;
-      color: #800000;
+
+    .test-wrapper .test div {
+    	display: inline-block;
+    }
+
+    .test-wrapper .test .label {
+      background: #e3e3e3;
+      border-radius: 2px;
+      color: black;
+      padding: 2px;
     }
 
   </style>
