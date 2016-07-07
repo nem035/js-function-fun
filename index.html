@@ -1,0 +1,47 @@
+<html>
+<head>
+  <style>
+
+    .result {
+      border-radius: 2px;
+      border: 1px solid #e3e3e3;
+      margin-bottom: 5px;
+      padding: 10px;
+    }
+
+    .result p {
+      display: inline-block;
+    }
+
+    .result .label {
+      border-radius: 2px;
+      font-family: monospace;
+      padding: 5px;
+    }
+
+    .result.passed {
+      background: #008000;
+      color: #ADFF2F;
+    }
+    .result.passed .label {
+      background: #ADFF2F;
+      color: #008000;
+    }
+
+    .result.failed {
+      background: #800000;
+      color: #F08080;
+    }
+    .result.failed .label {
+      background: #F08080;
+      color: #800000;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>Crockford Function Challenges</h2>
+  <script src="./challenges.js"></script>
+  <script src="./challenges-test.js"></script>
+</body>
+</html>
