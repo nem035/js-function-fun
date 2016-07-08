@@ -227,3 +227,86 @@ con() // 1
 con() // 5
 con() // 6
 con() // undefined
+
+// ------------------------------------------------------------
+/*
+  Write a function revocable that
+  takes a function, and returns an
+  object containing an invoke
+  function that can invoke function
+  that disables the invoke function
+
+  var rev = revocable(add);
+
+  rev.invoke(3, 4); // 7
+  rev.revoke();
+  rev.invoke(5, 7); // undefined
+*/
+
+function revocable(func) {
+  return {
+    invoke() {
+      return typeof func === 'function' ? func(...arguments) : undefined;
+    },
+    revoke() {
+      func = undefined;
+    }
+  }
+}
+
+// test
+var rev = revocable(add);
+
+rev.invoke(3, 4, 5); // 3 + 4 + 5 = 12
+rev.revoke();
+rev.invoke(5, 7); // undefined
+
+// ------------------------------------------------------------
+/*
+  Write a function m that
+  takes a value and an
+  optional source string
+  and returns them in an
+  object
+
+  JSON.stringify(m(1))
+  // '{"value":1,"source":"1"}'
+
+  JSON.stringify(m(Math.PI, "pi"))
+  // '{"value":3.14159...,"source":"pi"}'
+*/
+
+function m(value, source) {
+  return {
+    value,
+    source: typeof source === 'string' ? source : String(value)
+  };
+}
+
+// test
+JSON.stringify(m(1)) === '{"value":1,"source":"1"}'
+JSON.stringify(m(Math.PI, "pi")) === `{"value":${Math.PI},"source":"pi"}`
+
+// ------------------------------------------------------------
+/*
+  Write a function addm that
+  adds two m objects and
+  returns an m object
+
+  JSON.stringify(addm(m(3), m(4)))
+  // '{"value":7,"source":"(3+4)"}'
+
+  JSON.stringify(addm(m(1), m(Math.PI, "pi")))
+  // '{"value":4.14159...,"source":"(1+pi)"'
+*/
+
+function addm(m1, m2) {
+  return m(
+    m1.value + m2.value,
+    `(${m1.source}+${m2.source})`
+  );
+}
+
+// test
+JSON.stringify(addm(m(3), m(4))) === `{"value":${3 + 4},"source":"(3+4)"}`
+JSON.stringify(addm(m(1), m(Math.PI, "pi"))) === `{"value":${1 + Math.PI},"source":"(1+pi)"}`
