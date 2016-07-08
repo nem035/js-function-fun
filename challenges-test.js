@@ -286,3 +286,291 @@ test('element2', [{
   expected: undefined,
   text: "fifth call: element2(['a', 'b', 'c', 'd']) === undefined"
 }]);
+
+// collect
+var array = [];
+var col = collect(genFromTo(0, 2), array);
+
+test('collect', [{
+  result: col(),
+  expected: 0,
+  text: "first call: collect(genFromTo(0, 2), array) === 0"
+}, {
+  result: array[0],
+  expected: 0,
+  text: "first call: collect(genFromTo(0, 2), array) === array[0] === 0"
+}, {
+  result: col(),
+  expected: 1,
+  text: "second call: collect(genFromTo(0, 2), array) === 1"
+}, {
+  result: array[1],
+  expected: 1,
+  text: "second call: collect(genFromTo(0, 2), array) === array[1] === 1"
+}, {
+  result: col(),
+  expected: undefined,
+  text: "third call: collect(genFromTo(0, 2), array) === undefined"
+}]);
+
+// filter
+var third = function(val) {
+  return val % 3 === 0;
+}
+var fil = filter(genFromTo(0, 5), third);
+
+test('filter', [{
+  result: fil(),
+  expected: 0,
+  text: "first call: filter(genFromTo(0, 5), third) === 0"
+}, {
+  result: fil(),
+  expected: 3,
+  text: "second call: filter(genFromTo(0, 5), third) === 3"
+}, {
+  result: fil(),
+  expected: undefined,
+  text: "third call: filter(genFromTo(0, 5), third) === undefined"
+}]);
+
+// concat
+var con = concat(genFromTo(0, 3), genFromTo(0, 2));
+
+test('concat', [{
+  result: con(),
+  expected: 0,
+  text: 'first call: concat(genFromTo(0, 3), genFromTo(0, 2)) === 0'
+}, {
+  result: con(),
+  expected: 1,
+  text: 'second call: concat(genFromTo(0, 3), genFromTo(0, 2)) === 1'
+}, {
+  result: con(),
+  expected: 2,
+  text: 'third call: concat(genFromTo(0, 3), genFromTo(0, 2)) === 2'
+}, {
+  result: con(),
+  expected: 0,
+  text: 'fourth call: concat(genFromTo(0, 3), genFromTo(0, 2)) === 0'
+}, {
+  result: con(),
+  expected: 1,
+  text: 'fifth call: concat(genFromTo(0, 3), genFromTo(0, 2)) === 1'
+}, {
+  result: con(),
+  expected: undefined,
+  text: 'sixth call: concat(genFromTo(0, 3), genFromTo(0, 2)) === undefined'
+}]);
+
+// gensymf
+var genG = gensymf('G');
+var genH = gensymf('H');
+
+test('gensymf', [{
+  result: genG(),
+  expected: 'G1',
+  text: "first call gensymf('G') === 'G1'"
+}, {
+  result: genG(),
+  expected: 'G2',
+  text: "second call gensymf('G') === 'G2'"
+}, {
+  result: genH(),
+  expected: 'H1',
+  text: "first call gensymf('H') === 'H1'"
+}, {
+  result: genH(),
+  expected: 'H2',
+  text: "second call gensymf('H') === 'H2'"
+}]);
+
+// gensymff
+var gensymf2 = gensymff(inc1, 0);
+var genGG = gensymf2('GG');
+var genHH = gensymf2('HH');
+
+test('gensymff', [{
+  result: genGG(),
+  expected: 'GG1',
+  text: "first call gensymff(inc, 0)('GG') === 'GG1'"
+}, {
+  result: genGG(),
+  expected: 'GG2',
+  text: "second call gensymff(inc, 0)('GG') === 'GG2'"
+}, {
+  result: genHH(),
+  expected: 'HH1',
+  text: "first call gensymff(inc, 0)('HH') === 'HH1'"
+}, {
+  result: genHH(),
+  expected: 'HH2',
+  text: "second call gensymff(inc, 0)('HH') === 'HH2'"
+}]);
+
+// fibonaccif1
+var fib = fibonaccif1(0, 1);
+test('fibonaccif1', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif1(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif1(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif1(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif1(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif1(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif1(0, 1) === 5'
+}]);
+
+// fibonaccif2
+var fib = fibonaccif2(0, 1);
+test('fibonaccif2', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif2(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif2(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif2(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif2(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif2(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif2(0, 1) === 5'
+}]);
+
+// fibonaccif3
+var fib = fibonaccif3(0, 1);
+test('fibonaccif3', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif3(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif3(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif3(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif3(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif3(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif3(0, 1) === 5'
+}]);
+
+// fibonaccif4
+var fib = fibonaccif4(0, 1);
+test('fibonaccif4', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif4(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif4(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif4(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif4(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif4(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif4(0, 1) === 5'
+}]);
+
+// fibonaccif5
+var fib = fibonaccif5(0, 1);
+test('fibonaccif5', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif5(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif5(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif5(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif5(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif5(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif5(0, 1) === 5'
+}]);
+
+// fibonaccif6
+var fib = fibonaccif6(0, 1);
+test('fibonaccif6', [{
+  result: fib(),
+  expected: 0,
+  text: 'first call: fibonaccif6(0, 1) === 0'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'second call: fibonaccif6(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 1,
+  text: 'third call: fibonaccif6(0, 1) === 1'
+}, {
+  result: fib(),
+  expected: 2,
+  text: 'fourth call: fibonaccif6(0, 1) === 2'
+}, {
+  result: fib(),
+  expected: 3,
+  text: 'fifth call: fibonaccif6(0, 1) === 3'
+}, {
+  result: fib(),
+  expected: 5,
+  text: 'sixth call: fibonaccif6(0, 1) === 5'
+}]);

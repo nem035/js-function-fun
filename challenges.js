@@ -8,11 +8,6 @@ function identity(x) {
   return x;
 }
 
-// Other possibility:
-// var identity = function identity(x) {
-//   return x;
-// }
-
 // ------------------------------------------------------------
 /*
   Write three binary functions,
@@ -62,7 +57,7 @@ function identityf(x) {
 function addf(a) {
   return function(b) {
     return add(a, b);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -81,8 +76,8 @@ function liftf(binary) {
   return function(a) {
     return function(b) {
       return binary(a, b);
-    }
-  }
+    };
+  };
 }
 
 // ------------------------------------------------------------
@@ -101,7 +96,7 @@ function liftf(binary) {
 function curry(binary, a) {
   return function(b) {
     return binary(a, b);
-  }
+  };
 }
 
 // Other possibility
@@ -155,7 +150,7 @@ function inc4(x) {
 function twice(binary) {
   return function(x) {
     return binary(x, x)
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -171,7 +166,7 @@ function twice(binary) {
 function reverse(binary) {
   return function(a, b) {
     return binary(b, a);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -187,7 +182,7 @@ function reverse(binary) {
 function composeu(unary1, unary2) {
   return function(x) {
     return unary2(unary1(x));
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -203,7 +198,7 @@ function composeu(unary1, unary2) {
 function composeb(func1, func2) {
   return function(a, b, c) {
     return func2(func1(a, b), c);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -225,7 +220,7 @@ function limit(binary, lmt) {
       return binary(a, b);
     }
     return undefined; // be explicit
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -246,7 +241,7 @@ function genFrom(x) {
     var next = x;
     x += 1;
     return next;
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -271,7 +266,7 @@ function genTo(gen, lmt) {
       return next;
     }
     return undefined; // be explicit
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -307,11 +302,11 @@ function genFromTo(min, max) {
   ele() // undefined
 */
 
-function element(arr, gen) {
+function element(array, gen) {
   return function() {
     var index = gen();
-    return index !== undefined ? arr[index] : undefined;
-  }
+    return index !== undefined ? array[index] : undefined;
+  };
 }
 
 // ------------------------------------------------------------
@@ -333,12 +328,251 @@ function element(arr, gen) {
   ele() // 'd'
   ele() // undefined
 */
-function element2(arr, gen) {
+function element2(array, gen) {
   if (typeof gen !== 'function') {
-    gen = genFromTo(0, arr.length);
+    gen = genFromTo(0, array.length);
   }
   return function() {
     var index = gen();
-    return index !== undefined ? arr[index] : undefined;
+    return index !== undefined ? array[index] : undefined;
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function collect that takes a
+  generator and an array and produces
+  a function that will collect the results
+  in the array
+
+  var array = [];
+  var col = collect(genFromTo(0, 2), array);
+
+  col() // 0
+  col() // 1
+  col() // undefined
+  array // [0, 1]
+*/
+
+function collect(gen, array) {
+  return function() {
+    var next = gen();
+    if (next !== undefined) {
+      array.push(next);
+    }
+    return next;
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function filter that takes a
+  generator and a predicate and produces
+  a generator that produces only the
+  values approved by the predicate
+
+  var third = function(val) {
+    return val % 3 === 0;
   }
+  var fil = filter(genFromTo(0, 5), third);
+
+  fill() // 0
+  fill() // 3
+  fill() // undefined
+*/
+
+function filter(gen, predicate) {
+  return function() {
+    var next;
+    do {
+      next = gen();
+    } while (next !== undefined && !predicate(next));
+    return next;
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function concat that takes
+  two generators and produces a generator
+  that combines the sequences
+
+  var con = concat(genFromTo(0, 3), genFromTo(0, 2));
+  con() // 0
+  con() // 1
+  con() // 2
+  con() // 0
+  con() // 1
+  con() // undefined
+*/
+
+function concat(gen1, gen2) {
+  return function() {
+    var next = gen1();
+    if (next === undefined) {
+      next = gen2();
+    }
+    return next;
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function gensymf that
+  makes a function that generates
+  unique symbols
+
+  var genG = gensymf('G');
+  var genH = gensymf('H');
+
+  genG() // 'G1'
+  genH() // 'H1'
+  genG() // 'G2'
+  genH() // 'H2'
+*/
+
+function gensymf(symbol) {
+  var index = genFrom(1);
+  return function() {
+    return symbol + index();
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function gensymff that
+  takes a unary function and a
+  seed and returns a gensymf
+
+  var gensymf = gensymff(inc, 0);
+  var genG = gensymf('G');
+  var genH = gensymf('H');
+
+  genG() // 'G1'
+  genH() // 'H1'
+  genG() // 'G2'
+  genH() // 'H2'
+*/
+
+function gensymff(unary, seed) {
+  return function(symbol) {
+    var index = seed;
+    return function() {
+      index = unary(index);
+      return symbol + index;
+    }
+  };
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function fibonaccif that
+  returns a generator that will
+  return the next fibonacci number
+
+  var fib = fibonaccif(0, 1);
+  fib() // 0
+  fib() // 1
+  fib() // 2
+  fib() // 3
+  fib() // 5
+  fib() // 8
+*/
+
+function fibonaccif1(first, second) {
+  var firstUsed = false;
+  var secondUsed = false;
+  return function() {
+
+    if (!firstUsed) {
+      firstUsed = true;
+      return first;
+    }
+
+    if (!secondUsed) {
+      secondUsed = true;
+      return second;
+    }
+
+    var next = first + second;
+    first = second;
+    second = next;
+
+    return next;
+  };
+}
+
+function fibonaccif2(first, second) {
+  var i = 0;
+  return function() {
+    var next;
+    if (i === 0) {
+      i = 1;
+      return first;
+    }
+    if (i === 1) {
+      i = 2;
+      return second;
+    }
+    next = first + second;
+    first = second;
+    second = next;
+    return next;
+  };
+}
+
+function fibonaccif3(first, second) {
+  var i = 0;
+  return function() {
+    var next;
+    switch (i) {
+      case 0:
+        i = 1;
+        return first;
+      case 1:
+        i = 2;
+        return second;
+      default:
+        next = first + second;
+        first = second;
+        second = next;
+        return next;
+    }
+  };
+}
+
+function fibonaccif4(first, second) {
+  return function() {
+    var next = first;
+    first = second;
+    second += next;
+    return next;
+  };
+}
+
+function fibonaccif5(first, second) {
+  return concat(
+    concat(
+      limit(identityf(first), 1),
+      limit(identityf(second), 1)
+    ),
+    function fibonacci() {
+      var next = first + second;
+      first = second;
+      second = next;
+      return next;
+    }
+  );
+}
+
+function fibonaccif6(first, second) {
+  return concat(
+    element([ first, second ]),
+    function fibonacci() {
+      var next = first + second;
+      first = second;
+      second = next;
+      return next;
+    }
+  );
 }

@@ -59,10 +59,10 @@ curry(mul, 2, 3, 4)(1, 2, 3) // (2 * 3 * 4) * 1 * 2 * 3 = 144
   passes its argument to the
   initial function twice
 
-  var doubl = twice(add);
+  let doubl = twice(add);
   doubl(11) // 22
 
-  var square = twice(mul);
+  let square = twice(mul);
   square(11) // 121
 */
 
@@ -83,7 +83,7 @@ twice(mul)(1, 2, 3) // (1 * 2 * 3) * 1 * 2 * 3 = 36
   reverses the arguments of the
   given function
 
-  var bus = reverse(sub);
+  let bus = reverse(sub);
   bus(3, 2) // -1
 */
 
@@ -127,7 +127,7 @@ composeu(twice(add), twice(mul), curry(add, 3))(5) // ((5 + 5) * (5 + 5)) + 3 = 
   be called a limited numbers
   of times
 
-  var addLimited = limit(add, 2);
+  let addLimited = limit(add, 2);
   addLimited(1, 2, 3) // first call: 6
   addLimited(3, 4)    // second call: 7
   addLimited(10, 20)  // third call: undefined
@@ -142,7 +142,88 @@ function limit(func, lmt) {
   }
 }
 
-var addLimited = limit(add, 2);
+const addLimited = limit(add, 2);
 addLimited(1, 2, 3) // first call: 6
 addLimited(3, 4)    // second call: 7
 addLimited(10, 20)  // third call: undefined
+
+// ------------------------------------------------------------
+/*
+  Write a function filter that takes a
+  generator and a predicate and produces
+  a generator that produces only the
+  values approved by the predicate
+
+  let third = function(val) {
+    return val % 3 === 0;
+  }
+  let fil = filter(genFromTo(0, 5), third);
+
+  fill() // 0
+  fill() // 3
+  fill() // undefined
+*/
+
+// The reason this is an ES6-exclusive improvement
+// is because in ES6, tail-recursion is optimized
+// http://benignbemine.github.io/2015/07/19/es6-tail-calls/
+function filter(gen, predicate) {
+  return function recurse() {
+    let next = gen();
+    if (next === undefined || predicate(next)) {
+      return next;
+    }
+    return recurse();
+  }
+}
+
+// test
+let third = function(val) {
+  return val % 3 === 0;
+}
+let fil = filter(genFromTo(0, 5), third);
+
+fill() // 0
+fill() // 3
+fill() // undefined
+
+// ------------------------------------------------------------
+/*
+  Write a function concat that takes
+  two generators and produces a generator
+  that combines the sequences
+
+  var con = concat(genFromTo(0, 3), genFromTo(0, 2));
+  con() // 0
+  con() // 1
+  con() // 2
+  con() // 0
+  con() // 1
+  con() // undefined
+*/
+
+function concat(...gens) {
+  let next = element(gens);
+  let gen = next();
+  return function recurse() {
+    let value = gen();
+    if (value === undefined) {
+      gen = next();
+      if (gen !== undefined) {
+        return recurse();
+      }
+    }
+    return value;
+  }
+}
+
+// test
+var con = concat(genFromTo(0, 3), genFromTo(0, 2), genFromTo(5, 7));
+con() // 0
+con() // 1
+con() // 2
+con() // 0
+con() // 1
+con() // 5
+con() // 6
+con() // undefined
