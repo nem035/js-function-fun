@@ -288,12 +288,57 @@ function genTo(gen, lmt) {
 */
 
 function genFromTo(min, max) {
+  return genTo(genFrom(min), max);
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function element that
+  takes an array and a generator
+  and returns a generator that will
+  produce elements from the array
+
+  var ele = element([
+    'a', 'b', 'c', 'd'
+  ], genFromTo(1, 3));
+
+  ele() // 'b'
+  ele() // 'c'
+  ele() // undefined
+*/
+
+function element(arr, gen) {
   return function() {
-    var next = min;
-    if (next < max) {
-      min += 1;
-      return next;
-    }
-    return undefined; // be explicit
+    var index = gen();
+    return index !== undefined ? arr[index] : undefined;
+  }
+}
+
+// ------------------------------------------------------------
+/*
+  Write a function element2 that is a
+  modified element function so that
+  the generator argument is optional.
+  If a generator is not provided, then
+  each of the elements of the array
+  will be produced.
+
+  var ele = element2([
+    'a', 'b', 'c', 'd'
+  ]);
+
+  ele() // 'a'
+  ele() // 'b'
+  ele() // 'c'
+  ele() // 'd'
+  ele() // undefined
+*/
+function element2(arr, gen) {
+  if (typeof gen !== 'function') {
+    gen = genFromTo(0, arr.length);
+  }
+  return function() {
+    var index = gen();
+    return index !== undefined ? arr[index] : undefined;
   }
 }

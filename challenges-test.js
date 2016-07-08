@@ -14,20 +14,18 @@ function test(name, tests) {
     let resultClass;
     let resultHTML;
 
-    if (result !== expected) {
-      resultHTML = `
-        <div><span class="result">${text}</span></div>
-        <div>Expected <span class="label">${expected}</span>, got <span class="label">${result}</span>
-      `;
-      resultClass = 'failed';
+    if (result === expected) {
+      resultHTML = text;
+      resultClass = 'passed';
     } else {
       resultHTML = `
-        <div><span class="result">${text}</span></div>
+        <span>${text}</span>
+        Expected <span class="label">${expected}</span>, got <span class="label">${result}</span>
       `;
-      resultClass = 'passed';
+      resultClass = 'failed';
     }
 
-    resultNode.innerHTML = resultHTML;
+    resultNode.innerHTML = `<div class="result">${resultHTML}</div>`;
     resultNode.className += ` ${resultClass}`;
 
     resultWrapper.appendChild(resultNode);
@@ -243,4 +241,48 @@ test('genFromTo', [{
   result: index(),
   expected: undefined,
   text: 'fourth call: genFromTo(0, 3) === undefined'
+}]);
+
+// element with a generator
+var ele = element([
+  'a', 'b', 'c', 'd'
+], genFromTo(1, 3));
+test('element', [{
+  result: ele(),
+  expected: 'b',
+  text: "first call: element(['a', 'b', 'c', 'd'], genFromTo(1, 3)) === 'b'"
+}, {
+  result: ele(),
+  expected: 'c',
+  text: "second call: element(['a', 'b', 'c', 'd'], genFromTo(1, 3)) === 'c'"
+}, {
+  result: ele(),
+  expected: undefined,
+  text: "third call: element(['a', 'b', 'c', 'd'], genFromTo(1, 3)) === undefined"
+}]);
+
+// element2
+var ele = element2([
+  'a', 'b', 'c', 'd'
+]);
+test('element2', [{
+  result: ele(),
+  expected: 'a',
+  text: "first call: element2(['a', 'b', 'c', 'd']) === 'a'"
+}, {
+  result: ele(),
+  expected: 'b',
+  text: "second call: element2(['a', 'b', 'c', 'd']) === 'b'"
+}, {
+  result: ele(),
+  expected: 'c',
+  text: "third call: element2(['a', 'b', 'c', 'd']) === 'c'"
+}, {
+  result: ele(),
+  expected: 'd',
+  text: "fourth call: element2(['a', 'b', 'c', 'd']) === 'd'"
+}, {
+  result: ele(),
+  expected: undefined,
+  text: "fifth call: element2(['a', 'b', 'c', 'd']) === undefined"
 }]);
