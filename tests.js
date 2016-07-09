@@ -38,168 +38,168 @@ function test(name, tests) {
 test('identity', [{
   result: identity(3),
   expected: 3,
-  text: 'identity(3) === 3'
-}]);
+  text: 'identity(3) === ',
+},]);
 
 // addBinary, subBinary, mul
 test('addBinary', [{
   result: addBinary(1, 2),
   expected: 1 + 2,
-  text: 'addBinary(1, 2) === ' + (1 + 2)
-}]);
+  text: 'addBinary(1, 2) === ' + (1 + 2),
+},]);
 test('subBinary', [{
   result: subBinary(1, 2),
   expected: 1 - 2,
-  text: 'subBinary(1, 2) === ' + (1 - 2)
-}]);
+  text: 'subBinary(1, 2) === ' + (1 - 2),
+},]);
 test('mulBinary', [{
   result: mulBinary(1, 2),
   expected: 1 * 2,
-  text: 'mulBinary(1, 2) === ' + (1 * 2)
-}]);
+  text: 'mulBinary(1, 2) === ' + (1 * 2),
+},]);
 
 // add, sub, mul
 test('add', [{
   result: add(1, 2, 4),
   expected: 1 + 2 + 4,
-  text: 'add(1, 2, 4) === ' + (1 + 2 + 4)
-}]);
+  text: 'add(1, 2, 4) === ' + (1 + 2 + 4),
+},]);
 test('sub', [{
   result: sub(1, 2, 4),
   expected: 1 - 2 - 4,
-  text: 'sub(1, 2, 4) === ' + (1 - 2 - 4)
-}]);
+  text: 'sub(1, 2, 4) === ' + (1 - 2 - 4),
+},]);
 test('mul', [{
   result: mul(1, 2, 4),
   expected: 1 * 2 * 4,
-  text: 'mul(1, 2, 4) === ' + (1 * 2 * 4)
-}]);
+  text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
+},]);
 
 // acc
 test('acc', [{
   result: acc((a, b) => a + b, 0)(1, 2, 4),
   expected: 1 + 2 + 4,
-  text: 'acc((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4)
+  text: 'acc((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
 }, {
   result: acc((a, b) => a * b, 1)(1, 2, 4),
   expected: 1 * 2 * 4,
-  text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4)
-}]);
+  text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
+},]);
 
 // identityf
 test('identityf', [{
   result: identityf(3)(),
   expected: 3,
-  text: 'identityf(3)() === ' + 3
-}]);
+  text: 'identityf(3)() === ' + 3,
+},]);
 
 // addf
 test('addf', [{
   result: addf(3)(4),
   expected: 3 + 4,
-  text: 'addf(3)(4) === ' + (3 + 4)
-}]);
+  text: 'addf(3)(4) === ' + (3 + 4),
+},]);
 
 // liftf
 test('liftf', [{
   result: liftf(add)(3)(4),
   expected: 3 + 4,
-  text: 'liftf(add)(3)(4) === ' + (3 + 4)
+  text: 'liftf(add)(3)(4) === ' + (3 + 4),
 }, {
   result: liftf(sub)(3)(4),
   expected: 3 - 4,
-  text: 'liftf(sub)(3)(4) === ' + (3 - 4)
+  text: 'liftf(sub)(3)(4) === ' + (3 - 4),
 }, {
   result: liftf(mul)(3)(4),
   expected: 3 * 4,
-  text: 'liftf(mul)(3)(4) === ' + (3 * 4)
-}]);
+  text: 'liftf(mul)(3)(4) === ' + (3 * 4),
+},]);
 
 // curryBinary
 test('curryBinary', [{
   result: curryBinary(add, 3)(4),
   expected: 3 + 4,
-  text: 'curryBinary(add, 3)(4) === ' + (3 + 4)
+  text: 'curryBinary(add, 3)(4) === ' + (3 + 4),
 }, {
   result: curryBinary(sub, 3)(4),
   expected: 3 - 4,
-  text: 'curryBinary(sub, 3)(4) === ' + (3 - 4)
+  text: 'curryBinary(sub, 3)(4) === ' + (3 - 4),
 }, {
   result: curryBinary(mul, 3)(4),
   expected: 3 * 4,
-  text: 'curryBinary(mul, 3)(4) === ' + (3 * 4)
-}]);
+  text: 'curryBinary(mul, 3)(4) === ' + (3 * 4),
+},]);
 
 // curryBinary2
 test('curryBinary2', [{
   result: curryBinary2(add, 3)(4),
   expected: 3 + 4,
-  text: 'curryBinary2(add, 3)(4) === ' + (3 + 4)
+  text: 'curryBinary2(add, 3)(4) === ' + (3 + 4),
 }, {
   result: curryBinary2(sub, 3)(4),
   expected: 3 - 4,
-  text: 'curryBinary2(sub, 3)(4) === ' + (3 - 4)
+  text: 'curryBinary2(sub, 3)(4) === ' + (3 - 4),
 }, {
   result: curryBinary2(mul, 3)(4),
   expected: 3 * 4,
-  text: 'curryBinary2(mul, 3)(4) === ' + (3 * 4)
-}]);
+  text: 'curryBinary2(mul, 3)(4) === ' + (3 * 4),
+},]);
 
 // curry
 test('curry', [{
   result: curry(add, 1, 2, 4)(4, 2, 1),
   expected: 1 + 2 + 4 + 4 + 2 + 1,
-  text: 'curry(add, 1, 2, 4)(4, 2, 1) === ' + (1 + 2 + 4 + 4 + 2 + 1)
+  text: 'curry(add, 1, 2, 4)(4, 2, 1) === ' + (1 + 2 + 4 + 4 + 2 + 1),
 }, {
   result: curry(sub, 1, 2, 4)(4, 2, 1),
   expected: 1 - 2 - 4 - 4 - 2 - 1,
-  text: 'curry(sub, 1, 2, 4)(4, 2, 1) === ' + (1 - 2 - 4 - 4 - 2 - 1)
+  text: 'curry(sub, 1, 2, 4)(4, 2, 1) === ' + (1 - 2 - 4 - 4 - 2 - 1),
 }, {
   result: curry(mul, 1, 2, 4)(4, 2, 1),
   expected: 1 * 2 * 4 * 4 * 2 * 1,
-  text: 'curry(mul, 1, 2, 4)(4, 2, 1) === ' + (1 * 2 * 4 * 4 * 2 * 1)
-}]);
+  text: 'curry(mul, 1, 2, 4)(4, 2, 1) === ' + (1 * 2 * 4 * 4 * 2 * 1),
+},]);
 
 // inc
 test('inc', [{
   result: inc(5),
   expected: 5 + 1,
-  text: 'inc(5) === 5 + 1'
+  text: 'inc(5) === 5 + 1',
 }, {
   result: inc(inc(5)),
   expected: 5 + 1 + 1,
-  text: 'inc(inc(5)) === 5 + 1 + 1'
-}]);
+  text: 'inc(inc(5)) === 5 + 1 + 1',
+},]);
 
 test('inc2', [{
   result: inc2(5),
   expected: 5 + 1,
-  text: 'inc2(5) === 5 + 1'
+  text: 'inc2(5) === 5 + 1',
 }, {
   result: inc2(inc2(5)),
   expected: 5 + 1 + 1,
-  text: 'inc2(inc2(5)) === 5 + 1 + 1'
-}]);
+  text: 'inc2(inc2(5)) === 5 + 1 + 1',
+},]);
 
 test('inc3', [{
   result: inc3(5),
   expected: 5 + 1,
-  text: 'inc3(5) === 5 + 1'
+  text: 'inc3(5) === 5 + 1',
 }, {
   result: inc3(inc3(5)),
   expected: 5 + 1 + 1,
-  text: 'inc3(inc3(5)) === 5 + 1 + 1'
-}]);
+  text: 'inc3(inc3(5)) === 5 + 1 + 1',
+},]);
 
 test('inc4', [{
   result: inc4(5),
   expected: 5 + 1,
-  text: 'inc4(5) === 5 + 1'
+  text: 'inc4(5) === 5 + 1',
 }, {
   result: inc4(inc4(5)),
   expected: 5 + 1 + 1,
-  text: 'inc4(inc4(5)) === 5 + 1 + 1'
-}]);
+  text: 'inc4(inc4(5)) === 5 + 1 + 1',
+},]);
 
 // twiceUnary
 test('twiceUnary', [{

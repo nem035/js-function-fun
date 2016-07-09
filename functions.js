@@ -73,9 +73,9 @@ function mul(...nums) {
 */
 
 function acc(func, start) {
-  return function(...args) {
+  return function (...args) {
     return args.reduce((total, curr, idx) => func(total, curr, idx), start);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -89,7 +89,7 @@ function acc(func, start) {
   three(); // 3
 */
 function identityf(x) {
-  return function() {
+  return function () {
     return identity(x);
   };
 }
@@ -102,7 +102,7 @@ function identityf(x) {
   addf(3)(4) // 7
 */
 function addf(a) {
-  return function(b) {
+  return function (b) {
     return addBinary(a, b);
   };
 }
@@ -120,8 +120,8 @@ function addf(a) {
   liftf(mul)(5)(6) // 30
 */
 function liftf(binary) {
-  return function(a) {
-    return function(b) {
+  return function (a) {
+    return function (b) {
       return binary(a, b);
     };
   };
@@ -141,7 +141,7 @@ function liftf(binary) {
   curry(mul, 5)(6); // 30
 */
 function curryBinary(binary, a) {
-  return function(b) {
+  return function (b) {
     return binary(a, b);
   };
 }
@@ -162,9 +162,9 @@ function curryBinary2(binary, a) {
 */
 
 function curry(func, ...outerArgs) {
-  return function(...innerArgs) {
+  return function (...innerArgs) {
     return func(...outerArgs, ...innerArgs);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -211,8 +211,8 @@ function inc4(x) {
 */
 
 function twiceUnary(binary) {
-  return function(x) {
-    return binary(x, x)
+  return function (x) {
+    return binary(x, x);
   };
 }
 
@@ -239,9 +239,9 @@ let square = twiceUnary(mul);
   doubleSum(1, 2, 4) // 1 + 2 + 4 + 1 + 2 + 4 = 14
 */
 function twice(func) {
-  return function(...args) {
+  return function (...args) {
     return func(...args, ...args);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -255,7 +255,7 @@ function twice(func) {
 */
 
 function reverseBinary(binary) {
-  return function(a, b) {
+  return function (a, b) {
     return binary(b, a);
   };
 }
@@ -270,9 +270,9 @@ function reverseBinary(binary) {
 */
 
 function reverse(func) {
-  return function(...args) {
+  return function (...args) {
     return func(...args.reverse());
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -286,7 +286,7 @@ function reverse(func) {
 */
 
 function composeuTwo(unary1, unary2) {
-  return function(x) {
+  return function (x) {
     return unary2(unary1(x));
   };
 }
@@ -301,9 +301,9 @@ function composeuTwo(unary1, unary2) {
 */
 
 function composeu(...funcs) {
-  return function(x) {
+  return function (x) {
     return funcs.reduce((result, func) => func(result), x);
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -317,7 +317,7 @@ function composeu(...funcs) {
 */
 
 function composeb(func1, func2) {
-  return function(a, b, c) {
+  return function (a, b, c) {
     return func2(func1(a, b), c);
   };
 }
@@ -335,11 +335,12 @@ function composeb(func1, func2) {
 */
 
 function limitBinary(binary, lmt) {
-  return function(a, b) {
+  return function (a, b) {
     if (lmt > 0) {
       lmt -= 1;
       return binary(a, b);
     }
+
     return undefined; // be explicit
   };
 }
@@ -356,11 +357,12 @@ function limitBinary(binary, lmt) {
 */
 
 function limit(func, lmt) {
-  return function(...args) {
+  return function (...args) {
     if (lmt > 0) {
       lmt -= 1;
       return func(...args);
     }
+
     return undefined; // be explicit
   };
 }
@@ -379,7 +381,7 @@ function limit(func, lmt) {
 */
 
 function genFrom(x) {
-  return function() {
+  return function () {
     let next = x;
     x += 1;
     return next;
@@ -402,11 +404,12 @@ function genFrom(x) {
 */
 
 function genTo(gen, lmt) {
-  return function(x) {
+  return function (x) {
     let next = gen(x);
     if (next < lmt) {
       return next;
     }
+
     return undefined; // be explicit
   };
 }
@@ -445,7 +448,7 @@ function genFromTo(min, max) {
 */
 
 function elementGen(array, gen) {
-  return function() {
+  return function () {
     let index = gen();
     return index !== undefined ? array[index] : undefined;
   };
@@ -474,6 +477,7 @@ function element(array, gen) {
   if (typeof gen !== 'function') {
     gen = genFromTo(0, array.length);
   }
+
   return elementGen(array, gen);
 }
 
@@ -494,11 +498,12 @@ function element(array, gen) {
 */
 
 function collect(gen, array) {
-  return function() {
+  return function () {
     let next = gen();
     if (next !== undefined) {
       array.push(next);
     }
+
     return next;
   };
 }
@@ -510,7 +515,7 @@ function collect(gen, array) {
   a generator that produces only the
   values approved by the predicate
 
-  let third = function(val) {
+  let third = function (val) {
     return val % 3 === 0;
   }
   let fil = filter(genFromTo(0, 5), third);
@@ -521,7 +526,7 @@ function collect(gen, array) {
 */
 
 function filter(gen, predicate) {
-  return function() {
+  return function () {
     let next;
     do {
       next = gen();
@@ -552,8 +557,9 @@ function filterTail(gen, predicate) {
     if (next === undefined || predicate(next)) {
       return next;
     }
+
     return recurse();
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -574,11 +580,12 @@ function filterTail(gen, predicate) {
 */
 
 function concatTwo(gen1, gen2) {
-  return function() {
+  return function () {
     let next = gen1();
     if (next === undefined) {
       next = gen2();
     }
+
     return next;
   };
 }
@@ -603,9 +610,8 @@ function concat(...gens) {
       }
     });
     return value;
-  }
+  };
 }
-
 
 // ------------------------------------------------------------
 /*
@@ -632,8 +638,9 @@ function concatTail(...gens) {
         return recurse();
       }
     }
+
     return value;
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -653,7 +660,7 @@ function concatTail(...gens) {
 
 function gensymf(symbol) {
   let index = genFrom(1);
-  return function() {
+  return function () {
     return `${symbol}${index()}`;
   };
 }
@@ -675,12 +682,12 @@ function gensymf(symbol) {
 */
 
 function gensymff(unary, seed) {
-  return function(symbol) {
+  return function (symbol) {
     let index = seed;
-    return function() {
+    return function () {
       index = unary(index);
       return `${symbol}${index}`;
-    }
+    };
   };
 }
 
@@ -702,7 +709,7 @@ function gensymff(unary, seed) {
 function fibonaccif(first, second) {
   let firstUsed = false;
   let secondUsed = false;
-  return function() {
+  return function () {
 
     if (!firstUsed) {
       firstUsed = true;
@@ -723,11 +730,12 @@ function fibonaccif(first, second) {
 
 function fibonaccif2(first, second) {
   let i = 0;
-  return function() {
+  return function () {
     if (i === 0) {
       i = 1;
       return first;
     }
+
     if (i === 1) {
       i = 2;
       return second;
@@ -742,7 +750,7 @@ function fibonaccif2(first, second) {
 
 function fibonaccif3(first, second) {
   let i = 0;
-  return function() {
+  return function () {
     let next;
     switch (i) {
       case 0:
@@ -761,14 +769,13 @@ function fibonaccif3(first, second) {
 }
 
 function fibonaccif4(first, second) {
-  return function() {
+  return function () {
     let next = first;
     first = second;
     second += next;
     return next;
   };
 }
-
 
 function fibonaccif5(first, second) {
   const identityLmt = x => limit(identityf(x), 1);
@@ -786,7 +793,7 @@ function fibonaccif5(first, second) {
 
 function fibonaccif6(first, second) {
   return concat(
-    element([ first, second ]),
+    element([first, second]),
     function fibonacci() {
       let next = first + second;
       first = second;
@@ -820,10 +827,11 @@ function counter(i) {
       i += 1;
       return i;
     },
+
     down() {
       i -= 1;
       return i;
-    }
+    },
   };
 }
 
@@ -848,9 +856,10 @@ function revocableBinary(binary) {
     invoke(a, b) {
       return typeof binary === 'function' ? binary(a, b) : undefined;
     },
+
     revoke() {
       binary = undefined;
-    }
+    },
   };
 }
 
@@ -872,9 +881,10 @@ function revocable(func) {
     invoke() {
       return typeof func === 'function' ? func(...arguments) : undefined;
     },
+
     revoke() {
       func = undefined;
-    }
+    },
   };
 }
 
@@ -911,7 +921,7 @@ function extract(array, prop) {
 function m(value, source) {
   return {
     value,
-    source: typeof source === 'string' ? source : String(value)
+    source: typeof source === 'string' ? source : String(value),
   };
 }
 
@@ -970,7 +980,7 @@ function addm(...ms) {
 */
 
 function liftmBinaryM(binary, op) {
-  return function(m1, m2) {
+  return function (m1, m2) {
     return m(
       binary(m1.value, m2.value),
       `(${m1.source}${op}${m2.source})`
@@ -992,18 +1002,20 @@ function liftmBinaryM(binary, op) {
 */
 
 function liftmBinary(binary, op) {
-  return function(a, b) {
+  return function (a, b) {
     if (typeof a === 'number') {
       a = m(a);
     }
+
     if (typeof b === 'number') {
       b = m(b);
     }
+
     return m(
       binary(a.value, b.value),
       '(' + a.source + op + b.source + ')'
     );
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -1023,7 +1035,7 @@ function liftmBinary(binary, op) {
 
 function liftm(func, op) {
   const toMs = args => args.map(arg => typeof arg === 'number' ? m(arg) : arg);
-  return function(...args) {
+  return function (...args) {
     const ms = toMs(args);
     const msValues = extract(ms, 'value');
     const msSources = extract(ms, 'source');
@@ -1046,9 +1058,10 @@ function liftm(func, op) {
 
 function exp(value) {
   if (Array.isArray(value)) {
-    const [ func, ...args ] = value;
+    const [func, ...args] = value;
     return func(...args);
   }
+
   return value;
 }
 
@@ -1073,9 +1086,10 @@ function exp(value) {
 
 function expn(value) {
   if (Array.isArray(value)) {
-    const [ func, ...args ] = value;
+    const [func, ...args] = value;
     return func(...args.map(expn));
   }
+
   return value;
 }
 
@@ -1098,12 +1112,13 @@ function addg(value) {
     return value;
   }
 
-  return function(next) {
+  return function (next) {
     if (next === undefined) {
       return value;
     }
+
     return addg(value + next);
-  }
+  };
 }
 
 function addg2(first) {
@@ -1111,9 +1126,11 @@ function addg2(first) {
     if (next === undefined) {
       return first;
     }
+
     first += next;
     return more;
   }
+
   if (first !== undefined) {
     return more;
   }
@@ -1136,13 +1153,15 @@ function liftg(binary) {
     if (value === undefined) {
       return value;
     }
+
     return function (next) {
       if (next === undefined) {
         return value;
       }
+
       return op(binary(value, next));
-    }
-  }
+    };
+  };
 }
 
 function liftg2(binary) {
@@ -1151,28 +1170,32 @@ function liftg2(binary) {
       if (next === undefined) {
         return first;
       }
+
       first = binary(first, next);
       return more;
     }
+
     if (first !== undefined) {
       return more;
     }
-  }
+  };
 }
 
 function liftg3(binary) {
-  return function(first) {
+  return function (first) {
     if (first === undefined) {
       return first;
     }
+
     return function more(next) {
       if (next === undefined) {
         return first;
       }
+
       first = binary(first, next);
       return more;
-    }
-  }
+    };
+  };
 }
 
 // ------------------------------------------------------------
@@ -1191,14 +1214,16 @@ function arrayg(value) {
   if (value === undefined) {
     return array;
   }
+
   array.push(value);
   return function op(next) {
     if (next === undefined) {
       return array;
     }
+
     array.push(next);
     return op;
-  }
+  };
 }
 
 function arrayg2(first) {
@@ -1207,9 +1232,11 @@ function arrayg2(first) {
     if (next === undefined) {
       return array;
     }
+
     array.push(next);
     return more;
   }
+
   return more(first);
 }
 
@@ -1217,12 +1244,13 @@ function arrayg3(first) {
   if (first === undefined) {
     return [];
   }
+
   return liftg(
-    function(array, value) {
+    function (array, value) {
       array.push(value);
       return array;
     }
-  )([ first ]);
+  )([first]);
 }
 
 // ------------------------------------------------------------
@@ -1238,9 +1266,9 @@ function arrayg3(first) {
 */
 
 function continuizeu(unary) {
-  return function(cb, arg) {
+  return function (cb, arg) {
     return cb(unary(arg));
-  }
+  };
 }
 
 // ------------------------------------------------------------
@@ -1256,7 +1284,7 @@ function continuizeu(unary) {
 */
 
 function continuize(any) {
-  return function(cb, ...x) {
+  return function (cb, ...x) {
     return cb(any(...x));
-  }
+  };
 }
