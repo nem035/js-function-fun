@@ -205,7 +205,7 @@ test('inc4', [{
 test('twiceUnary', [{
   result: twiceUnary(add)(11),
   expected: 11 + 11,
-  text: 'twiceUnary(add)(11) === ' + (11 + 11)
+  text: 'twiceUnary(add)(11) === ' + (11 + 11),
 }, {
   result: twiceUnary(sub)(11),
   expected: 11 - 11,
@@ -241,20 +241,20 @@ test('twice', [{
   result: twice(mul)(1, 2, 4),
   expected: 1 * 2 * 4 * 1 * 2 * 4,
   text: 'twice(mul)(1, 2, 4) === ' + (1 * 2 * 4 * 1 * 2 * 4)
-}])
+}]);
 
 // reverseBinary
 test('reverseBinary', [{
-  result: reverseBinary(sub)(3, 2),
+  result: reverseBinary(subBinary)(3, 2),
   expected: 2 - 3,
-  text: 'reverseBinary(sub)(3, 2) === ' + (2 - 3)
+  text: 'reverseBinary(subBinary)(3, 2) === ' + (2 - 3)
 }]);
 
 // reverse
 test('reverse', [{
   result: reverse(sub)(1, 2, 4),
   expected: 4 - 2 - 1,
-  text: 'reverse(sub)(1, 2, 4) === ' + (4 - 2 -1)
+  text: 'reverse(sub)(1, 2, 4) === ' + (4 - 2 - 1)
 }]);
 
 // composeuTwo
