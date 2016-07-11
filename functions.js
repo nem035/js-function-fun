@@ -1469,3 +1469,105 @@ function vector() {
     store
   });
 }
+
+/**
+Let's assume your `vector`
+implementation looks like
+something like this:
+
+<pre>function vector() {
+  var array = [];
+  return {
+    append: function append(v) {
+      array.push(v);
+    },
+    get: function get(i) {
+      return array[i];
+    },
+    store: function store(i, v) {
+      array[i] = v;
+    }
+  };
+}
+}</pre>
+
+Can you spot any security concerns with
+this approach? Mainly, can we get access
+to the `array` outside of `vector`?
+
+*Note*: the issue has nothing to do with
+prototypes and we can assume that global
+prototypes cannot be altered.
+
+*Hint: Think about using `this` in a
+method invocation. Can we override a
+method of `vector`?
+
+How would you rewrite `vector` to deal
+with this issue?
+*/
+function exploit() {
+  var data;
+  var v = vector();
+
+  // override `push` method
+  // and extract `this`
+  v.store('push', function() {
+    data = this;
+  });
+
+  // call `append` so `push`
+  // gets called and we get
+  // the data
+  v.append();
+
+  console.log(this);
+}
+
+function vectorSafe() {
+  var array = [];
+  return {
+    append: function append(v) {
+      array[array.length] = v;
+    },
+    get: function get(i) {
+      return array[+i];
+    },
+    store: function store(i, v) {
+      array[+i] = v;
+    }
+  };
+}
+
+/**
+Make a function `pubsub` that
+makes a public/subscribe object.
+It will reliably deliver all
+publications to all subscribers
+in the right order
+
+@example
+let ps = pubsub();
+ps.subscribe(log);
+ps.publish('It works!') // log('It works!')
+*/
+function pubsub() {
+  const subscribers = [];
+
+  const publish = function(publication) {
+    subscribers.forEach(sub => {
+      setTimeout(() => {
+        sub(publication);
+      });
+    });
+  };
+
+  const subscribe = function(subscriber) {
+    subscribers.push(subscriber);
+  };
+
+  return Object.freeze({
+    publish,
+    subscribe
+  });
+}
