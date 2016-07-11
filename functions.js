@@ -1506,9 +1506,8 @@ method of `vector`?
 How would you rewrite `vector` to deal
 with this issue?
 */
-function exploit() {
+function exploit(v) {
   var data;
-  var v = vector();
 
   // override `push` method
   // and extract `this`
@@ -1521,7 +1520,8 @@ function exploit() {
   // the data
   v.append();
 
-  console.log(this);
+  // return the hidden array from vector
+  return data;
 }
 
 function vectorSafe() {
@@ -1554,6 +1554,10 @@ ps.publish('It works!') // log('It works!')
 function pubsub() {
   const subscribers = [];
 
+  const size = function() {
+    return subscribers.length;
+  };
+
   const publish = function(publication) {
     subscribers.forEach(sub => {
       setTimeout(() => {
@@ -1568,6 +1572,7 @@ function pubsub() {
 
   return Object.freeze({
     publish,
+    size,
     subscribe
   });
 }

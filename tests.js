@@ -1067,3 +1067,58 @@ test('vector', [{
   expected: 8,
   text: 'vector test 2'
 }]);
+
+// vector exploit
+let data = exploit(v);
+test('vector exploit', [{
+  result: Array.isArray(data) &&
+    data.length === 2 &&
+    data[0] === v.get(0) &&
+    data[1] === v.get(1),
+  expected: true,
+  text: 'vector expoit works'
+}]);
+
+// vectorSafe
+let vSafe = vectorSafe();
+vSafe.append(7);
+vSafe.store(1, 8);
+test('vectorSafe', [{
+  result: vSafe.get(0),
+  expected: 7,
+  text: 'vectorSafe test 1'
+}, {
+  result: vSafe.get(1),
+  expected: 8,
+  text: 'vectorSafe test 2'
+}]);
+
+// vector exploit
+let dataTwo = exploit(vSafe);
+test('vector exploit', [{
+  result: dataTwo === undefined,
+  expected: true,
+  text: 'vectorSafe exploit is fixed'
+}]);
+
+// pubsub
+let ps = pubsub();
+test('pubsub', [{
+  result: (function() {
+    ps.publish = undefined;
+    return typeof ps.publish;
+  })(),
+  expected: 'function',
+  text: 'pubsub methods are safe'
+}, {
+  result: (function() {
+    ps.subscribe(() => console.log('still here'));
+    ps.subscribe(function() {
+      this.length = 0;
+    });
+    ps.publish();
+    return ps.size();
+  })(),
+  expected: 2,
+  text: 'pubsub `this` is safe'
+}]);
