@@ -1,7 +1,7 @@
 /**
-  Write a function `identity` that
-  takes an argument and returns
-  that argument
+Write a function `identity` that
+takes an argument and returns
+that argument
 
 @example
 identity(3) // 3
@@ -14,9 +14,9 @@ function identity(x) {
 }
 
 /**
-  Write a binary function `addBinary`
-  that takes two numbers and returns
-  their sum
+Write a binary function `addBinary`
+that takes two numbers and returns
+their sum
 
 @example
 addBinary(3, 4) // 3 + 4 = 7
@@ -30,9 +30,9 @@ function addBinary(a, b) {
 }
 
 /**
-  Write a binary function `subBinary`
-  that takes two numbers and returns
-  their difference
+Write a binary function `subBinary`
+that takes two numbers and returns
+their difference
 
 @example
 subBinary(3, 4) // 3 - 4 = -1
@@ -46,9 +46,9 @@ function subBinary(a, b) {
 }
 
 /**
-  Write a binary function `mulBinary`
-  that takes two numbers and returns
-  their product
+Write a binary function `mulBinary`
+that takes two numbers and returns
+their product
 
 @example
 mulBinary(3, 4) // 3 * 4 = -1
@@ -62,9 +62,9 @@ function mulBinary(a, b) {
 }
 
 /**
-  Write a function `add` that
-  is generalized for any
-  amount of arguments
+Write a function `add` that
+is generalized for any
+amount of arguments
 
 @example
 add(1, 2, 4) // 1 + 2 + 4 = 7
@@ -77,9 +77,9 @@ function add(...nums) {
 }
 
 /**
-  Write a function `sub` that
-  is generalized for any
-  amount of arguments
+Write a function `sub` that
+is generalized for any
+amount of arguments
 
 @example
 sub(1, 2, 4) // 1 - 2 - 4 = -5
@@ -92,9 +92,9 @@ function sub(first, ...rest) {
 }
 
 /**
-  Write a function `mul` that
-  is generalized for any
-  amount of arguments
+Write a function `mul` that
+is generalized for any
+amount of arguments
 
 @example
 mul(1, 2, 4) // 1 * 2 * 4 = 8
@@ -107,12 +107,12 @@ function mul(...nums) {
 }
 
 /**
-  Write a function `acc` that
-  takes a function and a
-  starting value and returns
-  a function that runs the
-  initial function on each
-  argument
+Write a function `acc` that
+takes a function and a
+starting value and returns
+a function that runs the
+initial function on each
+argument
 
 @example
 let add = acc((total, curr) => total + curr, 0);
@@ -132,10 +132,10 @@ function acc(func, start) {
 }
 
 /**
-  Write a function `identityf`
-  that takes an argument and
-  returns a function that
-  returns that argument
+Write a function `identityf`
+that takes an argument and
+returns a function that
+returns that argument
 
 @example
 let three = identityf(3);
@@ -151,8 +151,8 @@ function identityf(x) {
 }
 
 /**
-  Write a function `addf` that
-  adds from two invocations
+Write a function `addf` that
+adds from two invocations
 
 @example
 addf(3)(4) // 7
@@ -167,10 +167,10 @@ function addf(a) {
 }
 
 /**
-  Write a function `liftf` that
-  takes a binary function, and
-  makes it callable with two
-  invocations
+Write a function `liftf` that
+takes a binary function, and
+makes it callable with two
+invocations
 
 @example
 let addf = liftf(add);
@@ -190,11 +190,11 @@ function liftf(binary) {
 }
 
 /**
-  Write a function `curryBinary` that
-  takes a binary function and
-  an argument, and returns a
-  function that can take a
-  second argument
+Write a function `curryBinary` that
+takes a binary function and
+an argument, and returns a
+function that can take a
+second argument
 
 @example
 let add3 = curryBinary(add, 3);
@@ -211,9 +211,9 @@ function curryBinary(binary, a) {
 }
 
 /**
-  Write a function `curry` that
-  is generalized for any amount
-  of arguments
+Write a function `curry` that
+is generalized for any amount
+of arguments
 
 @example
 curry(add, 1, 2, 4)(4, 2, 1) = 1 + 2 + 4 + 4 + 2 + 1 = 14
@@ -231,9 +231,9 @@ function curry(func, ...outer) {
 }
 
 /**
-  Without writting any new functions,
-  show multiple ways to create the `inc`
-  function
+Without writting any new functions,
+show multiple ways to create the `inc`
+function
 
 @example
 inc(5)      // 6
@@ -259,11 +259,11 @@ function inc4(x) {
 }
 
 /**
-  Write a function `twiceUnary`
-  that takes a binary function
-  and returns a unary function
-  that passes its argument to
-  the binary function twice
+Write a function `twiceUnary`
+that takes a binary function
+and returns a unary function
+that passes its argument to
+the binary function twice
 
 @example
 let doubl = twiceUnary(addBinary);
@@ -282,8 +282,8 @@ function twiceUnary(binary) {
 }
 
 /**
-  Use the function `twiceUnary` to
-  create the `doubl` function
+Use the function `twiceUnary` to
+create the `doubl` function
 
 @example
 doubl(11) // 22
@@ -296,8 +296,8 @@ function doubl(x) {
 }
 
 /**
-  Use the function `twiceUnary` to
-  create the `square` function
+Use the function `twiceUnary` to
+create the `square` function
 
 @example
 square(11) // 121
@@ -310,9 +310,9 @@ function square(x) {
 }
 
 /**
-  Write a function `twice` that
-  is generalized for any amount
-  of arguments
+Write a function `twice` that
+is generalized for any amount
+of arguments
 
 @example
 let doubleSum = twice(add);
@@ -328,9 +328,9 @@ function twice(func) {
 }
 
 /**
-  Write a function `reverseBinary` that
-  reverses the arguments of a
-  binary function
+Write a function `reverseBinary` that
+reverses the arguments of a
+binary function
 
 @example
 let bus = reverseBinary(subBinary);
@@ -346,9 +346,9 @@ function reverseBinary(binary) {
 }
 
 /**
-  Write a function `reverse` that
-  is generalized for any amount
-  of arguments
+Write a function `reverse` that
+is generalized for any amount
+of arguments
 
 @example
 reverse(sub)(1, 2, 4) // 4 - 2 - 1 = 1
@@ -363,10 +363,10 @@ function reverse(func) {
 }
 
 /**
-  Write a function `composeuTwo` that
-  takes two unary functions and
-  returns a unary function that
-  calls them both
+Write a function `composeuTwo` that
+takes two unary functions and
+returns a unary function that
+calls them both
 
 @example
 composeuTwo(doubl, square)(5) // 100
@@ -382,9 +382,9 @@ function composeuTwo(unary1, unary2) {
 }
 
 /**
-  Write a function `composeu` that
-  is generalized for any amount
-  of arguments
+Write a function `composeu` that
+is generalized for any amount
+of arguments
 
 @example
 composeu(doubl, square, identity, curry(add, 1, 2))(5) // (5 + 5) * (5 + 5) + 1 + 2 = 103
@@ -399,10 +399,10 @@ function composeu(...funcs) {
 }
 
 /**
-  Write a function `composeb` that
-  takes two binary functions and
-  returns a function that calls
-  them both
+Write a function `composeb` that
+takes two binary functions and
+returns a function that calls
+them both
 
 @example
 composeb(add, mul)(2, 3, 7) // 35
@@ -418,10 +418,10 @@ function composeb(binary1, binary2) {
 }
 
 /**
-  Write a function `limitBinary`
-  that allows a binary function
-  to be called a limited number
-  of times
+Write a function `limitBinary`
+that allows a binary function
+to be called a limited number
+of times
 
 @example
 let addLmtBinary = limitBinary(addBinary, 1);
@@ -444,9 +444,9 @@ function limitBinary(binary, lmt) {
 }
 
 /**
-  Write a function `limit` that
-  is generalized for any amount
-  of arguments
+Write a function `limit` that
+is generalized for any amount
+of arguments
 
 @example
 let addLmt = limit(add, 1);
@@ -469,9 +469,9 @@ function limit(func, lmt) {
 }
 
 /**
-  Write a function `genFrom` that
-  produces a generator that will
-  produces a series of values
+Write a function `genFrom` that
+produces a generator that will
+produces a series of values
 
 @example
 let index = genFrom(0);
@@ -492,11 +492,11 @@ function genFrom(x) {
 }
 
 /**
-  Write a function `genTo` that
-  takes a generator and an end
-  limit, and returns a generator
-  that will produce numbers up
-  to that limit
+Write a function `genTo` that
+takes a generator and an end
+limit, and returns a generator
+that will produce numbers up
+to that limit
 
 @example
 let index = genTo(genFrom(1), 3);
@@ -521,9 +521,9 @@ function genTo(gen, lmt) {
 }
 
 /**
-  Write a function `genFromTo` that
-  produces a generator that will
-  produce values in a range
+Write a function `genFromTo` that
+produces a generator that will
+produce values in a range
 
 @example
 let index = genFromTo(0, 3);
@@ -541,10 +541,10 @@ function genFromTo(start, end) {
 }
 
 /**
-  Write a function `elementGen` that
-  takes an array and a generator
-  and returns a generator that will
-  produce elements from the array
+Write a function `elementGen` that
+takes an array and a generator
+and returns a generator that will
+produce elements from the array
 
 @example
 let ele = elementGen([
@@ -567,12 +567,12 @@ function elementGen(array, gen) {
 }
 
 /**
-  Write a function `element` that is a
-  modified `elementGen` function so that
-  the generator argument is optional.
-  If a generator is not provided, then
-  each of the elements of the array
-  will be produced.
+Write a function `element` that is a
+modified `elementGen` function so that
+the generator argument is optional.
+If a generator is not provided, then
+each of the elements of the array
+will be produced.
 
 @example
 let ele = element([
@@ -598,10 +598,10 @@ function element(array, gen) {
 }
 
 /**
-  Write a function `collect` that takes a
-  generator and an array and produces
-  a function that will collect the results
-  in the array
+Write a function `collect` that takes a
+generator and an array and produces
+a function that will collect the results
+in the array
 
 @example
 let array = [];
@@ -628,10 +628,10 @@ function collect(gen, array) {
 }
 
 /**
-  Write a function `filter` that takes a
-  generator and a predicate and produces
-  a generator that produces only the
-  values approved by the predicate
+Write a function `filter` that takes a
+generator and a predicate and produces
+a generator that produces only the
+values approved by the predicate
 
 @example
 let third = function (val) {
@@ -658,8 +658,8 @@ function filter(gen, predicate) {
 }
 
 /**
-  Write a function `filterTail` that uses
-  tail-recursion to perform the filtering
+Write a function `filterTail` that uses
+tail-recursion to perform the filtering
 
 @example
 let third = val => val % 3 === 0;
@@ -689,9 +689,9 @@ function filterTail(gen, predicate) {
 }
 
 /**
-  Write a function `concatTwo` that takes
-  two generators and produces a generator
-  that combines the sequences
+Write a function `concatTwo` that takes
+two generators and produces a generator
+that combines the sequences
 
 @example
 let con = concatTwo(genFromTo(0, 3), genFromTo(0, 2));
@@ -718,9 +718,9 @@ function concatTwo(gen1, gen2) {
 }
 
 /**
-  Write a function `concat` that
-  is generalized for any amount
-  of arguments
+Write a function `concat` that
+is generalized for any amount
+of arguments
 
 @example
 let con = concat(genFromTo(0, 3), genFromTo(0, 2), genFromTo(5, 7));
@@ -753,8 +753,8 @@ function concat(...gens) {
 }
 
 /**
-  Write a function `concatTail` that uses
-  tail-recursion to perform the concating
+Write a function `concatTail` that uses
+tail-recursion to perform the concating
 
 @example
 let con = concatTail(genFromTo(0, 3), genFromTo(0, 2), genFromTo(5, 7));
@@ -787,9 +787,9 @@ function concatTail(...gens) {
 }
 
 /**
-  Write a function `gensymf` that
-  makes a function that generates
-  unique symbols
+Write a function `gensymf` that
+makes a function that generates
+unique symbols
 
 @example
 let genG = gensymf('G');
@@ -811,9 +811,9 @@ function gensymf(symbol) {
 }
 
 /**
-  Write a function `gensymff` that
-  takes a unary function and a
-  seed and returns a `gensymf`
+Write a function `gensymff` that
+takes a unary function and a
+seed and returns a `gensymf`
 
 @example
 let gensymf = gensymff(inc, 0);
@@ -840,9 +840,9 @@ function gensymff(unary, seed) {
 }
 
 /**
-  Write a function `fibonaccif` that
-  returns a generator that will
-  return the next fibonacci number
+Write a function `fibonaccif` that
+returns a generator that will
+return the next fibonacci number
 
 @example
 let fib = fibonaccif(0, 1);
@@ -955,11 +955,11 @@ function fibonaccif6(first, second) {
 }
 
 /**
-  Write a function `counter` that
-  returns an object containing
-  two functions that implement
-  an up/down counter, hiding
-  the counter
+Write a function `counter` that
+returns an object containing
+two functions that implement
+an up/down counter, hiding
+the counter
 
 @example
 let obj = counter(10);
@@ -989,12 +989,12 @@ function counter(i) {
 }
 
 /**
-  Write a function `revocableBinary`
-  that takes a binary function, and
-  returns an object containing an
-  `invoke` function that can invoke a
-  function and a `revoke` function
-  that disables the `invoke` function
+Write a function `revocableBinary`
+that takes a binary function, and
+returns an object containing an
+`invoke` function that can invoke a
+function and a `revoke` function
+that disables the `invoke` function
 
 @example
 let rev = revocableBinary(addBinary);
@@ -1019,9 +1019,9 @@ function revocableBinary(binary) {
 }
 
 /**
-  Write a function `revocable` that
-  is generalized for any amount of
-  arguments
+Write a function `revocable` that
+is generalized for any amount of
+arguments
 
 @example
 let rev = revocable(add);
@@ -1046,11 +1046,11 @@ function revocable(func) {
 }
 
 /**
-  Write a function `extract` that
-  takes an array of objects and an
-  object property name and converts
-  each object in the array by
-  extracting that property
+Write a function `extract` that
+takes an array of objects and an
+object property name and converts
+each object in the array by
+extracting that property
 
 @example
 let people = [{ name: 'john'}, { name: 'bob' }];
@@ -1065,11 +1065,11 @@ function extract(array, prop) {
 }
 
 /**
-  Write a function `m` that
-  takes a value and an
-  optional source string
-  and returns them in an
-  object
+Write a function `m` that
+takes a value and an
+optional source string
+and returns them in an
+object
 
 @example
 JSON.stringify(m(1))
@@ -1090,9 +1090,9 @@ function m(value, source) {
 }
 
 /**
-  Write a function `addmTwo` that
-  adds two `m` objects and
-  returns an `m` object
+Write a function `addmTwo` that
+adds two `m` objects and
+returns an `m` object
 
 @example
 JSON.stringify(addmTwo(m(3), m(4)))
@@ -1113,9 +1113,9 @@ function addmTwo(m1, m2) {
 }
 
 /**
-  Write a function `addm` that
-  is generalized for any amount of
-  arguments
+Write a function `addm` that
+is generalized for any amount of
+arguments
 
 @example
 JSON.stringify(addm(m(1), m(2), m(4))) // '{"value":7,"source":"(1+2+4)"}'
@@ -1133,10 +1133,10 @@ function addm(...ms) {
 }
 
 /**
-  Write a function `liftmBinaryM` that
-  takes a binary function and
-  a string and returns a function
-  that acts on `m` objects
+Write a function `liftmBinaryM` that
+takes a binary function and
+a string and returns a function
+that acts on `m` objects
 
 @example
 let addmBinary = liftmBinaryM(addBinary, '+');
@@ -1161,10 +1161,10 @@ function liftmBinaryM(binary, op) {
 }
 
 /**
-  Write a function `liftmBinary` that
-  is a modified function `liftmBinaryM`
-  that can accept arguments that
-  are either numbers or m objects
+Write a function `liftmBinary` that
+is a modified function `liftmBinaryM`
+that can accept arguments that
+are either numbers or m objects
 
 @example
 let addmBinary = liftmBinary(addBinary, '+')
@@ -1194,9 +1194,9 @@ function liftmBinary(binary, op) {
 }
 
 /**
-  Write a function `liftm` that
-  is generalized for any amount of
-  arguments
+Write a function `liftm` that
+is generalized for any amount of
+arguments
 
 @example
 let addm = liftm(add, '+');
@@ -1224,9 +1224,9 @@ function liftm(func, op) {
 }
 
 /**
-  Write a function `exp` that
-  evaluates simple array
-  expressions
+Write a function `exp` that
+evaluates simple array
+expressions
 
 @example
 let sae = [mul, 1, 2, 4];
@@ -1246,10 +1246,10 @@ function exp(value) {
 }
 
 /**
-  Write a function `expn`
-  that is a modified `exp` that
-  can evaluate nested array
-  expressions
+Write a function `expn`
+that is a modified `exp` that
+can evaluate nested array
+expressions
 
 @example
 let nae = [
@@ -1276,10 +1276,10 @@ function expn(value) {
 }
 
 /**
-  Write a function `addg` that
-  adds from many invocations,
-  until it sees an empty
-  invocation
+Write a function `addg` that
+adds from many invocations,
+until it sees an empty
+invocation
 
 @example
 addg()             // undefined
@@ -1321,9 +1321,9 @@ function addg2(first) {
 }
 
 /**
-  Write a function `liftg` that
-  will take a binary function
-  and apply it to many invocations
+Write a function `liftg` that
+will take a binary function
+and apply it to many invocations
 
 @example
 liftg(mulBinary)()             // undefined
@@ -1386,9 +1386,9 @@ function liftg3(binary) {
 }
 
 /**
-  Write a function `arrayg` that
-  will build an array from many
-  invocations
+Write a function `arrayg` that
+will build an array from many
+invocations
 
 @example
 arrayg()          // []
@@ -1444,11 +1444,11 @@ function arrayg3(first) {
 }
 
 /**
-  Write a function `continuizeu`
-  that takes a unary function
-  and returns a function that
-  takes a callback and an
-  argument
+Write a function `continuizeu`
+that takes a unary function
+and returns a function that
+takes a callback and an
+argument
 
 @example
 sqrtc = continuizeu(Math.sqrt);
@@ -1465,11 +1465,11 @@ function continuizeu(unary) {
 }
 
 /**
-  Write a function `continuize`
-  that takes a function and
-  returns a function that
-  takes a callback and an
-  argument
+Write a function `continuize`
+that takes a function and
+returns a function that
+takes a callback and an
+argument
 
 @example
 sqrtc = continuizeu(Math.sqrt);
