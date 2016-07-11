@@ -130,21 +130,6 @@ test('curryBinary', [{
   text: 'curryBinary(mul, 3)(4) === ' + (3 * 4),
 },]);
 
-// curryBinary2
-test('curryBinary2', [{
-  result: curryBinary2(add, 3)(4),
-  expected: 3 + 4,
-  text: 'curryBinary2(add, 3)(4) === ' + (3 + 4),
-}, {
-  result: curryBinary2(sub, 3)(4),
-  expected: 3 - 4,
-  text: 'curryBinary2(sub, 3)(4) === ' + (3 - 4),
-}, {
-  result: curryBinary2(mul, 3)(4),
-  expected: 3 * 4,
-  text: 'curryBinary2(mul, 3)(4) === ' + (3 * 4),
-},]);
-
 // curry
 test('curry', [{
   result: curry(add, 1, 2, 4)(4, 2, 1),
@@ -1067,4 +1052,18 @@ test('continuize', [{
   result: continuize(add)(identity, 1, 2, 4),
   expected: add(1, 2, 4),
   text: 'continuize(add)(identity, 1, 2, 4) === ' + (1 + 2 + 4)
+}]);
+
+// vector
+let v = vector();
+v.append(7);
+v.store(1, 8);
+test('vector', [{
+  result: v.get(0),
+  expected: 7,
+  text: 'vector test 1'
+}, {
+  result: v.get(1),
+  expected: 8,
+  text: 'vector test 2'
 }]);

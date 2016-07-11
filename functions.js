@@ -438,7 +438,6 @@ function limitBinary(binary, lmt) {
       lmt -= 1;
       return binary(a, b);
     }
-
     return undefined; // be explicit
   };
 }
@@ -463,7 +462,6 @@ function limit(func, lmt) {
       lmt -= 1;
       return func(...args);
     }
-
     return undefined; // be explicit
   };
 }
@@ -515,7 +513,6 @@ function genTo(gen, lmt) {
     if (next < lmt) {
       return next;
     }
-
     return undefined; // be explicit
   };
 }
@@ -593,7 +590,6 @@ function element(array, gen) {
   if (typeof gen !== 'function') {
     gen = genFromTo(0, array.length);
   }
-
   return elementGen(array, gen);
 }
 
@@ -622,7 +618,6 @@ function collect(gen, array) {
     if (next !== undefined) {
       array.push(next);
     }
-
     return next;
   };
 }
@@ -634,10 +629,7 @@ a generator that produces only the
 values approved by the predicate
 
 @example
-let third = function (val) {
-  return val % 3 === 0;
-}
-let fil = filter(genFromTo(0, 5), third);
+let fil = filter(genFromTo(0, 5), val => val % 3);
 
 fill() // 0
 fill() // 3
@@ -712,7 +704,6 @@ function concatTwo(gen1, gen2) {
     if (next === undefined) {
       next = gen2();
     }
-
     return next;
   };
 }
@@ -781,7 +772,6 @@ function concatTail(...gens) {
         return recurse();
       }
     }
-
     return value;
   };
 }
@@ -861,17 +851,14 @@ function fibonaccif(first, second) {
   let firstUsed = false;
   let secondUsed = false;
   return function () {
-
     if (!firstUsed) {
       firstUsed = true;
       return first;
     }
-
     if (!secondUsed) {
       secondUsed = true;
       return second;
     }
-
     let next = first + second;
     first = second;
     second = next;
@@ -886,12 +873,10 @@ function fibonaccif2(first, second) {
       i = 1;
       return first;
     }
-
     if (i === 1) {
       i = 2;
       return second;
     }
-
     let next = first + second;
     first = second;
     second = next;
@@ -963,8 +948,7 @@ the counter
 
 @example
 let obj = counter(10);
-let up = object.up;
-let down = object.down;
+let { up, down } = object;
 
 up()   // 11
 down() // 10
@@ -980,7 +964,6 @@ function counter(i) {
       i += 1;
       return i;
     },
-
     down() {
       i -= 1;
       return i;
@@ -1011,7 +994,6 @@ function revocableBinary(binary) {
     invoke(a, b) {
       return typeof binary === 'function' ? binary(a, b) : undefined;
     },
-
     revoke() {
       binary = undefined;
     },
@@ -1038,7 +1020,6 @@ function revocable(func) {
     invoke() {
       return typeof func === 'function' ? func(...arguments) : undefined;
     },
-
     revoke() {
       func = undefined;
     },
@@ -1072,11 +1053,9 @@ and returns them in an
 object
 
 @example
-JSON.stringify(m(1))
-// '{"value":1,"source":"1"}'
+JSON.stringify(m(1)) // '{"value":1,"source":"1"}'
 
-JSON.stringify(m(Math.PI, "pi"))
-// '{"value":3.14159...,"source":"pi"}'
+JSON.stringify(m(Math.PI, "pi")) // '{"value":3.14159...,"source":"pi"}'
 
 @param {any} value
 @param {any} source
@@ -1095,11 +1074,9 @@ adds two `m` objects and
 returns an `m` object
 
 @example
-JSON.stringify(addmTwo(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmTwo(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(addmTwo(m(1), m(Math.PI, "pi")))
-// '{"value":4.14159...,"source":"(1+pi)"}'
+JSON.stringify(addmTwo(m(1), m(Math.PI, "pi"))) // '{"value":4.14159...,"source":"(1+pi)"}'
 
 @param {function} m1
 @param {function} m2
@@ -1141,11 +1118,9 @@ that acts on `m` objects
 @example
 let addmBinary = liftmBinaryM(addBinary, '+');
 
-JSON.stringify(addmBinary(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmBinary(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4)))
-// '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 
 @param {function} binary
 @param {string} op
@@ -1169,8 +1144,7 @@ are either numbers or m objects
 @example
 let addmBinary = liftmBinary(addBinary, '+')
 
-JSON.stringify(addmBinary(3, 4))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmBinary(3, 4)) // '{"value":7,"source":"(3+4)"}'
 
 @param {function} binary
 @param {string} op
@@ -1181,11 +1155,9 @@ function liftmBinary(binary, op) {
     if (typeof a === 'number') {
       a = m(a);
     }
-
     if (typeof b === 'number') {
       b = m(b);
     }
-
     return m(
       binary(a.value, b.value),
       '(' + a.source + op + b.source + ')'
@@ -1201,11 +1173,9 @@ arguments
 @example
 let addm = liftm(add, '+');
 
-JSON.stringify(addm(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addm(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftm(mul, '*')(m(3), m(4)))
-// '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftm(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 
 @param {function} func
 @param {string} op
@@ -1241,7 +1211,6 @@ function exp(value) {
     const [func, ...args] = value;
     return func(...args);
   }
-
   return value;
 }
 
@@ -1271,7 +1240,6 @@ function expn(value) {
     const [func, ...args] = value;
     return func(...args.map(expn));
   }
-
   return value;
 }
 
@@ -1295,12 +1263,10 @@ function addg(value) {
   if (value === undefined) {
     return value;
   }
-
   return function (next) {
     if (next === undefined) {
       return value;
     }
-
     return addg(value + next);
   };
 }
@@ -1310,11 +1276,9 @@ function addg2(first) {
     if (next === undefined) {
       return first;
     }
-
     first += next;
     return more;
   }
-
   if (first !== undefined) {
     return more;
   }
@@ -1334,18 +1298,15 @@ liftg(mulBinary)(1)(2)(4)(8)() // 64
 @param {function} binary
 @return {function}
 */
-
 function liftg(binary) {
   return function op(value) {
     if (value === undefined) {
       return value;
     }
-
     return function (next) {
       if (next === undefined) {
         return value;
       }
-
       return op(binary(value, next));
     };
   };
@@ -1357,11 +1318,9 @@ function liftg2(binary) {
       if (next === undefined) {
         return first;
       }
-
       first = binary(first, next);
       return more;
     }
-
     if (first !== undefined) {
       return more;
     }
@@ -1373,12 +1332,10 @@ function liftg3(binary) {
     if (first === undefined) {
       return first;
     }
-
     return function more(next) {
       if (next === undefined) {
         return first;
       }
-
       first = binary(first, next);
       return more;
     };
@@ -1398,19 +1355,16 @@ arrayg(3)(4)(5)() // [3, 4, 5]
 @param {any} value
 @return {array}
 */
-
 function arrayg(value) {
   let array = [];
   if (value === undefined) {
     return array;
   }
-
   array.push(value);
   return function op(next) {
     if (next === undefined) {
       return array;
     }
-
     array.push(next);
     return op;
   };
@@ -1422,11 +1376,9 @@ function arrayg2(first) {
     if (next === undefined) {
       return array;
     }
-
     array.push(next);
     return more;
   }
-
   return more(first);
 }
 
@@ -1434,7 +1386,6 @@ function arrayg3(first) {
   if (first === undefined) {
     return [];
   }
-
   return liftg(
     function (array, value) {
       array.push(value);
@@ -1457,7 +1408,6 @@ sqrtc(console.log, 81); // logs '9'
 @param {function} unary
 @return {function}
 */
-
 function continuizeu(unary) {
   return function (cb, arg) {
     return cb(unary(arg));
@@ -1475,12 +1425,47 @@ argument
 sqrtc = continuizeu(Math.sqrt);
 sqrtc(console.log, 1, 2, 4); // logs '1 2 4'
 
-param {function} any
+@param {function} any
 @return {function}
 */
-
 function continuize(any) {
   return function (cb, ...x) {
     return cb(any(...x));
   };
+}
+
+/**
+Make an array wrapper object
+with methods `get`, `store`,
+and `append`, such that an
+attacker cannot get access
+to the private array
+
+@example
+let v = vector();
+v.append(7);
+v.store(1, 8);
+v.get(0);      // 7
+v.get(1);      // 8
+*/
+function vector() {
+  const data = [];
+
+  const append = function(val) {
+    data.push(val);
+  };
+
+  const get = function(idx) {
+    return data[idx];
+  };
+
+  const store = function(idx, val) {
+    data[idx] = val;
+  };
+
+  return Object.freeze({
+    append,
+    get,
+    store
+  });
 }
