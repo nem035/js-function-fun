@@ -1,36 +1,4 @@
 /**
-Write a [pure](https://en.wikipedia.org/wiki/Pure_function) function `pure` that
-is a wrapper arround the impure
-function `impure`
-
-<pre>function impure(x) {
-  y++;
-  z = x * y;
-}
-
-var y = 5, z;
-
-impure(20);
-z; // 120
-
-impure(25);
-z; // 175</pre>
-
-@example
-pure(20, 5) // [ 6, 120 ]
-pure(25, 6) // [ 7, 175 ]
-*/
-function pure(x, y) {
-  var z;
-  function impure() {
-    y++;
-    z = x * y;
-  }
-  impure();
-  return [ y, z ];
-}
-
-/**
 Write a function `identity` that
 takes an argument and returns
 that argument
@@ -219,6 +187,38 @@ function liftf(binary) {
       return binary(a, b);
     };
   };
+}
+
+/**
+Write a [pure](https://en.wikipedia.org/wiki/Pure_function) function `pure` that
+is a wrapper arround the impure
+function `impure`
+
+<pre>function impure(x) {
+  y++;
+  z = x * y;
+}
+
+var y = 5, z;
+
+impure(20);
+z; // 120
+
+impure(25);
+z; // 175</pre>
+
+@example
+pure(20, 5) // [ 6, 120 ]
+pure(25, 6) // [ 7, 175 ]
+*/
+function pure(x, y) {
+  var z;
+  function impure() {
+    y++;
+    z = x * y;
+  }
+  impure();
+  return [ y, z ];
 }
 
 /**

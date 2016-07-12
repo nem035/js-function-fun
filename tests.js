@@ -34,25 +34,6 @@ function test(name, tests) {
   document.body.appendChild(resultWrapper);
 }
 
-// pure
-test('pure', [{
-  result: pure(20, 5)[0],
-  expected: 6,
-  text: 'pure(20, 5)[0] === ' + pure(20, 5)[0]
-}, {
-  result: pure(20, 5)[1],
-  expected: 120,
-  text: 'pure(20, 5)[1] === ' + pure(20, 5)[1]
-}, {
-  result: pure(25, 6)[0],
-  expected: 7,
-  text: 'pure(25, 6)[0] === ' + pure(25, 6)[0]
-}, {
-  result: pure(25, 6)[1],
-  expected: 175,
-  text: 'pure(25, 6)[1] === ' + pure(25, 6)[1]
-}]);
-
 // identity
 test('identity', [{
   result: identity(3),
@@ -132,6 +113,25 @@ test('liftf', [{
   result: liftf(mul)(3)(4),
   expected: 3 * 4,
   text: 'liftf(mul)(3)(4) === ' + (3 * 4),
+}]);
+
+// pure
+test('pure', [{
+  result: pure(20, 5)[0],
+  expected: 6,
+  text: 'pure(20, 5)[0] === ' + pure(20, 5)[0]
+}, {
+  result: pure(20, 5)[1],
+  expected: 120,
+  text: 'pure(20, 5)[1] === ' + pure(20, 5)[1]
+}, {
+  result: pure(25, 6)[0],
+  expected: 7,
+  text: 'pure(25, 6)[0] === ' + pure(25, 6)[0]
+}, {
+  result: pure(25, 6)[1],
+  expected: 175,
+  text: 'pure(25, 6)[1] === ' + pure(25, 6)[1]
 }]);
 
 // curryBinary
