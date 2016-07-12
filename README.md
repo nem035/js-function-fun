@@ -6,315 +6,362 @@ Fun with JavaScript functions
 <dl>
 <dt><a href="#identity">identity(x)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>identity</code> that
-  takes an argument and returns
-  that argument</p>
+takes an argument and returns
+that argument</p>
 </dd>
 <dt><a href="#addBinary">addBinary(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a binary function <code>addBinary</code>
-  that takes two numbers and returns
-  their sum</p>
+that takes two numbers and returns
+their sum</p>
 </dd>
 <dt><a href="#subBinary">subBinary(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a binary function <code>subBinary</code>
-  that takes two numbers and returns
-  their difference</p>
+that takes two numbers and returns
+their difference</p>
 </dd>
 <dt><a href="#mulBinary">mulBinary(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a binary function <code>mulBinary</code>
-  that takes two numbers and returns
-  their product</p>
+that takes two numbers and returns
+their product</p>
 </dd>
 <dt><a href="#add">add(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>add</code> that
-  is generalized for any
-  amount of arguments</p>
+is generalized for any
+amount of arguments</p>
 </dd>
 <dt><a href="#sub">sub(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>sub</code> that
-  is generalized for any
-  amount of arguments</p>
+is generalized for any
+amount of arguments</p>
 </dd>
 <dt><a href="#mul">mul(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>mul</code> that
-  is generalized for any
-  amount of arguments</p>
+is generalized for any
+amount of arguments</p>
 </dd>
 <dt><a href="#acc">acc(funct, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>acc</code> that
-  takes a function and a
-  starting value and returns
-  a function that runs the
-  initial function on each
-  argument</p>
+takes a function and a
+starting value and returns
+a function that runs the
+initial function on each
+argument</p>
 </dd>
 <dt><a href="#identityf">identityf(x)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>identityf</code>
-  that takes an argument and
-  returns a function that
-  returns that argument</p>
+that takes an argument and
+returns a function that
+returns that argument</p>
 </dd>
 <dt><a href="#addf">addf(a)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>addf</code> that
-  adds from two invocations</p>
+adds from two invocations</p>
 </dd>
 <dt><a href="#liftf">liftf(binary)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>liftf</code> that
-  takes a binary function, and
-  makes it callable with two
-  invocations</p>
+takes a binary function, and
+makes it callable with two
+invocations</p>
 </dd>
 <dt><a href="#curryBinary">curryBinary(binary, a)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>curryBinary</code> that
-  takes a binary function and
-  an argument, and returns a
-  function that can take a
-  second argument</p>
+takes a binary function and
+an argument, and returns a
+function that can take a
+second argument</p>
 </dd>
 <dt><a href="#curry">curry(func, ...outer)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>curry</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#inc">inc(x)</a> ⇒ <code>number</code></dt>
 <dd><p>Without writting any new functions,
-  show multiple ways to create the <code>inc</code>
-  function</p>
+show multiple ways to create the <code>inc</code>
+function</p>
 </dd>
 <dt><a href="#twiceUnary">twiceUnary(binary)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>twiceUnary</code>
-  that takes a binary function
-  and returns a unary function
-  that passes its argument to
-  the binary function twice</p>
+that takes a binary function
+and returns a unary function
+that passes its argument to
+the binary function twice</p>
 </dd>
 <dt><a href="#doubl">doubl(x)</a> ⇒ <code>number</code></dt>
 <dd><p>Use the function <code>twiceUnary</code> to
-  create the <code>doubl</code> function</p>
+create the <code>doubl</code> function</p>
 </dd>
 <dt><a href="#square">square(x)</a> ⇒ <code>number</code></dt>
 <dd><p>Use the function <code>twiceUnary</code> to
-  create the <code>square</code> function</p>
+create the <code>square</code> function</p>
 </dd>
 <dt><a href="#twice">twice(x)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>twice</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#reverseBinary">reverseBinary(binary)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>reverseBinary</code> that
-  reverses the arguments of a
-  binary function</p>
+reverses the arguments of a
+binary function</p>
 </dd>
 <dt><a href="#reverse">reverse(func)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>reverse</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#composeuTwo">composeuTwo(unary1, unary2)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>composeuTwo</code> that
-  takes two unary functions and
-  returns a unary function that
-  calls them both</p>
+takes two unary functions and
+returns a unary function that
+calls them both</p>
 </dd>
 <dt><a href="#composeu">composeu(...funcs)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>composeu</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#composeb">composeb(binary1, func2)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>composeb</code> that
-  takes two binary functions and
-  returns a function that calls
-  them both</p>
+takes two binary functions and
+returns a function that calls
+them both</p>
 </dd>
 <dt><a href="#limitBinary">limitBinary(binary, lmt)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>limitBinary</code>
-  that allows a binary function
-  to be called a limited number
-  of times</p>
+that allows a binary function
+to be called a limited number
+of times</p>
 </dd>
 <dt><a href="#limit">limit(func, lmt)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>limit</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#genFrom">genFrom(x)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>genFrom</code> that
-  produces a generator that will
-  produces a series of values</p>
+produces a generator that will
+produces a series of values</p>
 </dd>
 <dt><a href="#genTo">genTo(gen, lmt)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>genTo</code> that
-  takes a generator and an end
-  limit, and returns a generator
-  that will produce numbers up
-  to that limit</p>
+takes a generator and an end
+limit, and returns a generator
+that will produce numbers up
+to that limit</p>
 </dd>
 <dt><a href="#genFromTo">genFromTo(start, end)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>genFromTo</code> that
-  produces a generator that will
-  produce values in a range</p>
+produces a generator that will
+produce values in a range</p>
 </dd>
 <dt><a href="#elementGen">elementGen(array, gen)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>elementGen</code> that
-  takes an array and a generator
-  and returns a generator that will
-  produce elements from the array</p>
+takes an array and a generator
+and returns a generator that will
+produce elements from the array</p>
 </dd>
 <dt><a href="#element">element(array, gen)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>element</code> that is a
-  modified <code>elementGen</code> function so that
-  the generator argument is optional.
-  If a generator is not provided, then
-  each of the elements of the array
-  will be produced.</p>
+modified <code>elementGen</code> function so that
+the generator argument is optional.
+If a generator is not provided, then
+each of the elements of the array
+will be produced.</p>
 </dd>
 <dt><a href="#collect">collect(gen, array)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>collect</code> that takes a
-  generator and an array and produces
-  a function that will collect the results
-  in the array</p>
+generator and an array and produces
+a function that will collect the results
+in the array</p>
 </dd>
 <dt><a href="#filter">filter(gen, predicate)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>filter</code> that takes a
-  generator and a predicate and produces
-  a generator that produces only the
-  values approved by the predicate</p>
+generator and a predicate and produces
+a generator that produces only the
+values approved by the predicate</p>
 </dd>
 <dt><a href="#filterTail">filterTail(gen, predicate)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>filterTail</code> that uses
-  tail-recursion to perform the filtering</p>
+tail-recursion to perform the filtering</p>
 </dd>
 <dt><a href="#concatTwo">concatTwo(gen1, gen2)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>concatTwo</code> that takes
-  two generators and produces a generator
-  that combines the sequences</p>
+two generators and produces a generator
+that combines the sequences</p>
 </dd>
 <dt><a href="#concat">concat(...gens)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>concat</code> that
-  is generalized for any amount
-  of arguments</p>
+is generalized for any amount
+of arguments</p>
 </dd>
 <dt><a href="#concatTail">concatTail(...gens)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>concatTail</code> that uses
-  tail-recursion to perform the concating</p>
+tail-recursion to perform the concating</p>
 </dd>
 <dt><a href="#gensymf">gensymf(symbol)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>gensymf</code> that
-  makes a function that generates
-  unique symbols</p>
+makes a function that generates
+unique symbols</p>
 </dd>
 <dt><a href="#gensymff">gensymff(unary, seed)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>gensymff</code> that
-  takes a unary function and a
-  seed and returns a <code>gensymf</code></p>
+takes a unary function and a
+seed and returns a <code>gensymf</code></p>
 </dd>
 <dt><a href="#fibonaccif">fibonaccif(first, second)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>fibonaccif</code> that
-  returns a generator that will
-  return the next fibonacci number</p>
+returns a generator that will
+return the next fibonacci number</p>
 </dd>
 <dt><a href="#counter">counter(i)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>counter</code> that
-  returns an object containing
-  two functions that implement
-  an up/down counter, hiding
-  the counter</p>
+returns an object containing
+two functions that implement
+an up/down counter, hiding
+the counter</p>
 </dd>
 <dt><a href="#revocableBinary">revocableBinary(binary)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>revocableBinary</code>
-  that takes a binary function, and
-  returns an object containing an
-  <code>invoke</code> function that can invoke a
-  function and a <code>revoke</code> function
-  that disables the <code>invoke</code> function</p>
+that takes a binary function, and
+returns an object containing an
+<code>invoke</code> function that can invoke a
+function and a <code>revoke</code> function
+that disables the <code>invoke</code> function</p>
 </dd>
 <dt><a href="#revocable">revocable(func)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>revocable</code> that
-  is generalized for any amount of
-  arguments</p>
+is generalized for any amount of
+arguments</p>
 </dd>
 <dt><a href="#extract">extract(array, prop)</a> ⇒ <code>array</code></dt>
 <dd><p>Write a function <code>extract</code> that
-  takes an array of objects and an
-  object property name and converts
-  each object in the array by
-  extracting that property</p>
+takes an array of objects and an
+object property name and converts
+each object in the array by
+extracting that property</p>
 </dd>
 <dt><a href="#m">m(value, source)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>m</code> that
-  takes a value and an
-  optional source string
-  and returns them in an
-  object</p>
+takes a value and an
+optional source string
+and returns them in an
+object</p>
 </dd>
 <dt><a href="#addmTwo">addmTwo(m1, m2)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>addmTwo</code> that
-  adds two <code>m</code> objects and
-  returns an <code>m</code> object</p>
+adds two <code>m</code> objects and
+returns an <code>m</code> object</p>
 </dd>
 <dt><a href="#addm">addm(...ms)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>addm</code> that
-  is generalized for any amount of
-  arguments</p>
+is generalized for any amount of
+arguments</p>
 </dd>
 <dt><a href="#liftmBinaryM">liftmBinaryM(binary, op)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>liftmBinaryM</code> that
-  takes a binary function and
-  a string and returns a function
-  that acts on <code>m</code> objects</p>
+takes a binary function and
+a string and returns a function
+that acts on <code>m</code> objects</p>
 </dd>
 <dt><a href="#liftmBinary">liftmBinary(binary, op)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>liftmBinary</code> that
-  is a modified function <code>liftmBinaryM</code>
-  that can accept arguments that
-  are either numbers or m objects</p>
+is a modified function <code>liftmBinaryM</code>
+that can accept arguments that
+are either numbers or m objects</p>
 </dd>
 <dt><a href="#liftm">liftm(func, op)</a> ⇒ <code>object</code></dt>
 <dd><p>Write a function <code>liftm</code> that
-  is generalized for any amount of
-  arguments</p>
+is generalized for any amount of
+arguments</p>
 </dd>
 <dt><a href="#exp">exp(value)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>exp</code> that
-  evaluates simple array
-  expressions</p>
+evaluates simple array
+expressions</p>
 </dd>
 <dt><a href="#expn">expn(value)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>expn</code>
-  that is a modified <code>exp</code> that
-  can evaluate nested array
-  expressions</p>
+that is a modified <code>exp</code> that
+can evaluate nested array
+expressions</p>
 </dd>
 <dt><a href="#addg">addg(value)</a> ⇒ <code>number</code> | <code>undefined</code></dt>
 <dd><p>Write a function <code>addg</code> that
-  adds from many invocations,
-  until it sees an empty
-  invocation</p>
+adds from many invocations,
+until it sees an empty
+invocation</p>
 </dd>
 <dt><a href="#liftg">liftg(binary)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>liftg</code> that
-  will take a binary function
-  and apply it to many invocations</p>
+will take a binary function
+and apply it to many invocations</p>
 </dd>
 <dt><a href="#arrayg">arrayg(value)</a> ⇒ <code>array</code></dt>
 <dd><p>Write a function <code>arrayg</code> that
-  will build an array from many
-  invocations</p>
+will build an array from many
+invocations</p>
 </dd>
 <dt><a href="#continuizeu">continuizeu(unary)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>continuizeu</code>
-  that takes a unary function
-  and returns a function that
-  takes a callback and an
-  argument</p>
+that takes a unary function
+and returns a function that
+takes a callback and an
+argument</p>
 </dd>
-<dt><a href="#continuize">continuize()</a> ⇒ <code>function</code></dt>
+<dt><a href="#continuize">continuize(any)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>continuize</code>
-  that takes a function and
-  returns a function that
-  takes a callback and an
-  argument</p>
+that takes a function and
+returns a function that
+takes a callback and an
+argument</p>
+</dd>
+<dt><a href="#vector">vector()</a></dt>
+<dd><p>Make an array wrapper object
+with methods <code>get</code>, <code>store</code>,
+and <code>append</code>, such that an
+attacker cannot get access
+to the private array</p>
+</dd>
+<dt><a href="#exploitVector">exploitVector()</a></dt>
+<dd><p>Let&#39;s assume your <code>vector</code>
+implementation looks like
+something like this:</p>
+<pre>function vector() {
+  var array = [];
+  return {
+    append: function append(v) {
+      array.push(v);
+    },
+    get: function get(i) {
+      return array[i];
+    },
+    store: function store(i, v) {
+      array[i] = v;
+    }
+  };
+}</pre>
+
+<p>Can you spot any security concerns with
+this approach? Mainly, can we get access
+to the <code>array</code> outside of <code>vector</code>?
+Note<em>: the issue has nothing to do with
+prototypes and we can assume that global
+prototypes cannot be altered.
+Hint</em>: Think about using <code>this</code> in a
+method invocation. Can we override a
+method of <code>vector</code>?</p>
+</dd>
+<dt><a href="#vectorSafe">vectorSafe()</a></dt>
+<dd><p>How would you rewrite <code>vector</code> to deal
+with the issue from above?</p>
+</dd>
+<dt><a href="#pubsub">pubsub()</a></dt>
+<dd><p>Make a function <code>pubsub</code> that
+makes a publish/subscribe object.
+It will reliably deliver all
+publications to all subscribers
+in the right order.</p>
 </dd>
 </dl>
 
@@ -322,8 +369,8 @@ Fun with JavaScript functions
 
 ## identity(x) ⇒ <code>any</code>
 Write a function `identity` that
-  takes an argument and returns
-  that argument
+takes an argument and returns
+that argument
 
 **Kind**: global function  
 
@@ -339,8 +386,8 @@ identity(3) // 3
 
 ## addBinary(a, b) ⇒ <code>number</code>
 Write a binary function `addBinary`
-  that takes two numbers and returns
-  their sum
+that takes two numbers and returns
+their sum
 
 **Kind**: global function  
 
@@ -357,8 +404,8 @@ addBinary(3, 4) // 3 + 4 = 7
 
 ## subBinary(a, b) ⇒ <code>number</code>
 Write a binary function `subBinary`
-  that takes two numbers and returns
-  their difference
+that takes two numbers and returns
+their difference
 
 **Kind**: global function  
 
@@ -375,8 +422,8 @@ subBinary(3, 4) // 3 - 4 = -1
 
 ## mulBinary(a, b) ⇒ <code>number</code>
 Write a binary function `mulBinary`
-  that takes two numbers and returns
-  their product
+that takes two numbers and returns
+their product
 
 **Kind**: global function  
 
@@ -393,8 +440,8 @@ mulBinary(3, 4) // 3 * 4 = -1
 
 ## add(...nums) ⇒ <code>number</code>
 Write a function `add` that
-  is generalized for any
-  amount of arguments
+is generalized for any
+amount of arguments
 
 **Kind**: global function  
 
@@ -410,8 +457,8 @@ add(1, 2, 4) // 1 + 2 + 4 = 7
 
 ## sub(...nums) ⇒ <code>number</code>
 Write a function `sub` that
-  is generalized for any
-  amount of arguments
+is generalized for any
+amount of arguments
 
 **Kind**: global function  
 
@@ -427,8 +474,8 @@ sub(1, 2, 4) // 1 - 2 - 4 = -5
 
 ## mul(...nums) ⇒ <code>number</code>
 Write a function `mul` that
-  is generalized for any
-  amount of arguments
+is generalized for any
+amount of arguments
 
 **Kind**: global function  
 
@@ -444,11 +491,11 @@ mul(1, 2, 4) // 1 * 2 * 4 = 8
 
 ## acc(funct, start) ⇒ <code>function</code>
 Write a function `acc` that
-  takes a function and a
-  starting value and returns
-  a function that runs the
-  initial function on each
-  argument
+takes a function and a
+starting value and returns
+a function that runs the
+initial function on each
+argument
 
 **Kind**: global function  
 
@@ -469,9 +516,9 @@ mul(1, 2, 4) // 8
 
 ## identityf(x) ⇒ <code>function</code>
 Write a function `identityf`
-  that takes an argument and
-  returns a function that
-  returns that argument
+that takes an argument and
+returns a function that
+returns that argument
 
 **Kind**: global function  
 
@@ -488,7 +535,7 @@ three(); // 3
 
 ## addf(a) ⇒ <code>function</code>
 Write a function `addf` that
-  adds from two invocations
+adds from two invocations
 
 **Kind**: global function  
 
@@ -504,9 +551,9 @@ addf(3)(4) // 7
 
 ## liftf(binary) ⇒ <code>function</code>
 Write a function `liftf` that
-  takes a binary function, and
-  makes it callable with two
-  invocations
+takes a binary function, and
+makes it callable with two
+invocations
 
 **Kind**: global function  
 
@@ -525,10 +572,10 @@ liftf(mul)(5)(6) // 30
 
 ## curryBinary(binary, a) ⇒ <code>function</code>
 Write a function `curryBinary` that
-  takes a binary function and
-  an argument, and returns a
-  function that can take a
-  second argument
+takes a binary function and
+an argument, and returns a
+function that can take a
+second argument
 
 **Kind**: global function  
 
@@ -548,8 +595,8 @@ curry(mul, 5)(6); // 30
 
 ## curry(func, ...outer) ⇒ <code>function</code>
 Write a function `curry` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -568,8 +615,8 @@ curry(mul, 1, 2, 4)(4, 2, 1) = 1 * 2 * 4 * 4 * 2 * 1 = 64
 
 ## inc(x) ⇒ <code>number</code>
 Without writting any new functions,
-  show multiple ways to create the `inc`
-  function
+show multiple ways to create the `inc`
+function
 
 **Kind**: global function  
 
@@ -586,10 +633,10 @@ inc(inc(5)) // 7
 
 ## twiceUnary(binary) ⇒ <code>function</code>
 Write a function `twiceUnary`
-  that takes a binary function
-  and returns a unary function
-  that passes its argument to
-  the binary function twice
+that takes a binary function
+and returns a unary function
+that passes its argument to
+the binary function twice
 
 **Kind**: global function  
 
@@ -609,7 +656,7 @@ square(11) // 121
 
 ## doubl(x) ⇒ <code>number</code>
 Use the function `twiceUnary` to
-  create the `doubl` function
+create the `doubl` function
 
 **Kind**: global function  
 
@@ -625,7 +672,7 @@ doubl(11) // 22
 
 ## square(x) ⇒ <code>number</code>
 Use the function `twiceUnary` to
-  create the `square` function
+create the `square` function
 
 **Kind**: global function  
 
@@ -641,8 +688,8 @@ square(11) // 121
 
 ## twice(x) ⇒ <code>any</code>
 Write a function `twice` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -659,8 +706,8 @@ doubleSum(1, 2, 4) // 1 + 2 + 4 + 1 + 2 + 4 = 14
 
 ## reverseBinary(binary) ⇒ <code>function</code>
 Write a function `reverseBinary` that
-  reverses the arguments of a
-  binary function
+reverses the arguments of a
+binary function
 
 **Kind**: global function  
 
@@ -677,8 +724,8 @@ bus(3, 2) // -1
 
 ## reverse(func) ⇒ <code>function</code>
 Write a function `reverse` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -694,9 +741,9 @@ reverse(sub)(1, 2, 4) // 4 - 2 - 1 = 1
 
 ## composeuTwo(unary1, unary2) ⇒ <code>function</code>
 Write a function `composeuTwo` that
-  takes two unary functions and
-  returns a unary function that
-  calls them both
+takes two unary functions and
+returns a unary function that
+calls them both
 
 **Kind**: global function  
 
@@ -713,8 +760,8 @@ composeuTwo(doubl, square)(5) // 100
 
 ## composeu(...funcs) ⇒ <code>any</code>
 Write a function `composeu` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -730,9 +777,9 @@ composeu(doubl, square, identity, curry(add, 1, 2))(5) // (5 + 5) * (5 + 5) + 1 
 
 ## composeb(binary1, func2) ⇒ <code>function</code>
 Write a function `composeb` that
-  takes two binary functions and
-  returns a function that calls
-  them both
+takes two binary functions and
+returns a function that calls
+them both
 
 **Kind**: global function  
 
@@ -749,9 +796,9 @@ composeb(add, mul)(2, 3, 7) // 35
 
 ## limitBinary(binary, lmt) ⇒ <code>function</code>
 Write a function `limitBinary`
-  that allows a binary function
-  to be called a limited number
-  of times
+that allows a binary function
+to be called a limited number
+of times
 
 **Kind**: global function  
 
@@ -770,8 +817,8 @@ addLmtBinary(3, 5) // undefined
 
 ## limit(func, lmt) ⇒ <code>function</code>
 Write a function `limit` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -790,8 +837,8 @@ addLmt(3, 5, 9, 2) // undefined
 
 ## genFrom(x) ⇒ <code>function</code>
 Write a function `genFrom` that
-  produces a generator that will
-  produces a series of values
+produces a generator that will
+produces a series of values
 
 **Kind**: global function  
 
@@ -811,10 +858,10 @@ index() // 2
 
 ## genTo(gen, lmt) ⇒ <code>function</code>
 Write a function `genTo` that
-  takes a generator and an end
-  limit, and returns a generator
-  that will produce numbers up
-  to that limit
+takes a generator and an end
+limit, and returns a generator
+that will produce numbers up
+to that limit
 
 **Kind**: global function  
 
@@ -835,8 +882,8 @@ index() // undefined
 
 ## genFromTo(start, end) ⇒ <code>function</code>
 Write a function `genFromTo` that
-  produces a generator that will
-  produce values in a range
+produces a generator that will
+produce values in a range
 
 **Kind**: global function  
 
@@ -857,9 +904,9 @@ index() // undefined
 
 ## elementGen(array, gen) ⇒ <code>function</code>
 Write a function `elementGen` that
-  takes an array and a generator
-  and returns a generator that will
-  produce elements from the array
+takes an array and a generator
+and returns a generator that will
+produce elements from the array
 
 **Kind**: global function  
 
@@ -882,11 +929,11 @@ ele() // undefined
 
 ## element(array, gen) ⇒ <code>function</code>
 Write a function `element` that is a
-  modified `elementGen` function so that
-  the generator argument is optional.
-  If a generator is not provided, then
-  each of the elements of the array
-  will be produced.
+modified `elementGen` function so that
+the generator argument is optional.
+If a generator is not provided, then
+each of the elements of the array
+will be produced.
 
 **Kind**: global function  
 
@@ -911,9 +958,9 @@ ele() // undefined
 
 ## collect(gen, array) ⇒ <code>function</code>
 Write a function `collect` that takes a
-  generator and an array and produces
-  a function that will collect the results
-  in the array
+generator and an array and produces
+a function that will collect the results
+in the array
 
 **Kind**: global function  
 
@@ -936,9 +983,9 @@ array // [0, 1]
 
 ## filter(gen, predicate) ⇒ <code>function</code>
 Write a function `filter` that takes a
-  generator and a predicate and produces
-  a generator that produces only the
-  values approved by the predicate
+generator and a predicate and produces
+a generator that produces only the
+values approved by the predicate
 
 **Kind**: global function  
 
@@ -949,10 +996,7 @@ Write a function `filter` that takes a
 
 **Example**  
 ```js
-let third = function (val) {
-  return val % 3 === 0;
-}
-let fil = filter(genFromTo(0, 5), third);
+let fil = filter(genFromTo(0, 5), val => val % 3);
 
 fill() // 0
 fill() // 3
@@ -962,7 +1006,7 @@ fill() // undefined
 
 ## filterTail(gen, predicate) ⇒ <code>function</code>
 Write a function `filterTail` that uses
-  tail-recursion to perform the filtering
+tail-recursion to perform the filtering
 
 **Kind**: global function  
 
@@ -984,8 +1028,8 @@ fill() // undefined
 
 ## concatTwo(gen1, gen2) ⇒ <code>function</code>
 Write a function `concatTwo` that takes
-  two generators and produces a generator
-  that combines the sequences
+two generators and produces a generator
+that combines the sequences
 
 **Kind**: global function  
 
@@ -1008,8 +1052,8 @@ con() // undefined
 
 ## concat(...gens) ⇒ <code>function</code>
 Write a function `concat` that
-  is generalized for any amount
-  of arguments
+is generalized for any amount
+of arguments
 
 **Kind**: global function  
 
@@ -1033,7 +1077,7 @@ con() // undefined
 
 ## concatTail(...gens) ⇒ <code>function</code>
 Write a function `concatTail` that uses
-  tail-recursion to perform the concating
+tail-recursion to perform the concating
 
 **Kind**: global function  
 
@@ -1057,8 +1101,8 @@ con() // undefined
 
 ## gensymf(symbol) ⇒ <code>function</code>
 Write a function `gensymf` that
-  makes a function that generates
-  unique symbols
+makes a function that generates
+unique symbols
 
 **Kind**: global function  
 
@@ -1080,8 +1124,8 @@ genH() // 'H2'
 
 ## gensymff(unary, seed) ⇒ <code>function</code>
 Write a function `gensymff` that
-  takes a unary function and a
-  seed and returns a `gensymf`
+takes a unary function and a
+seed and returns a `gensymf`
 
 **Kind**: global function  
 
@@ -1105,8 +1149,8 @@ genH() // 'H2'
 
 ## fibonaccif(first, second) ⇒ <code>function</code>
 Write a function `fibonaccif` that
-  returns a generator that will
-  return the next fibonacci number
+returns a generator that will
+return the next fibonacci number
 
 **Kind**: global function  
 
@@ -1129,10 +1173,10 @@ fib() // 8
 
 ## counter(i) ⇒ <code>object</code>
 Write a function `counter` that
-  returns an object containing
-  two functions that implement
-  an up/down counter, hiding
-  the counter
+returns an object containing
+two functions that implement
+an up/down counter, hiding
+the counter
 
 **Kind**: global function  
 
@@ -1143,8 +1187,7 @@ Write a function `counter` that
 **Example**  
 ```js
 let obj = counter(10);
-let up = object.up;
-let down = object.down;
+let { up, down } = object;
 
 up()   // 11
 down() // 10
@@ -1155,11 +1198,11 @@ up()   // 10
 
 ## revocableBinary(binary) ⇒ <code>object</code>
 Write a function `revocableBinary`
-  that takes a binary function, and
-  returns an object containing an
-  `invoke` function that can invoke a
-  function and a `revoke` function
-  that disables the `invoke` function
+that takes a binary function, and
+returns an object containing an
+`invoke` function that can invoke a
+function and a `revoke` function
+that disables the `invoke` function
 
 **Kind**: global function  
 
@@ -1179,8 +1222,8 @@ rev.invoke(5, 7); // undefined
 
 ## revocable(func) ⇒ <code>object</code>
 Write a function `revocable` that
-  is generalized for any amount of
-  arguments
+is generalized for any amount of
+arguments
 
 **Kind**: global function  
 
@@ -1200,10 +1243,10 @@ rev.invoke(5, 7); // undefined
 
 ## extract(array, prop) ⇒ <code>array</code>
 Write a function `extract` that
-  takes an array of objects and an
-  object property name and converts
-  each object in the array by
-  extracting that property
+takes an array of objects and an
+object property name and converts
+each object in the array by
+extracting that property
 
 **Kind**: global function  
 
@@ -1221,10 +1264,10 @@ let names = extract(people, 'name'); // ['john', 'bob']
 
 ## m(value, source) ⇒ <code>object</code>
 Write a function `m` that
-  takes a value and an
-  optional source string
-  and returns them in an
-  object
+takes a value and an
+optional source string
+and returns them in an
+object
 
 **Kind**: global function  
 
@@ -1235,18 +1278,16 @@ Write a function `m` that
 
 **Example**  
 ```js
-JSON.stringify(m(1))
-// '{"value":1,"source":"1"}'
+JSON.stringify(m(1)) // '{"value":1,"source":"1"}'
 
-JSON.stringify(m(Math.PI, "pi"))
-// '{"value":3.14159...,"source":"pi"}'
+JSON.stringify(m(Math.PI, "pi")) // '{"value":3.14159...,"source":"pi"}'
 ```
 <a name="addmTwo"></a>
 
 ## addmTwo(m1, m2) ⇒ <code>object</code>
 Write a function `addmTwo` that
-  adds two `m` objects and
-  returns an `m` object
+adds two `m` objects and
+returns an `m` object
 
 **Kind**: global function  
 
@@ -1257,18 +1298,16 @@ Write a function `addmTwo` that
 
 **Example**  
 ```js
-JSON.stringify(addmTwo(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmTwo(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(addmTwo(m(1), m(Math.PI, "pi")))
-// '{"value":4.14159...,"source":"(1+pi)"}'
+JSON.stringify(addmTwo(m(1), m(Math.PI, "pi"))) // '{"value":4.14159...,"source":"(1+pi)"}'
 ```
 <a name="addm"></a>
 
 ## addm(...ms) ⇒ <code>object</code>
 Write a function `addm` that
-  is generalized for any amount of
-  arguments
+is generalized for any amount of
+arguments
 
 **Kind**: global function  
 
@@ -1284,9 +1323,9 @@ JSON.stringify(addm(m(1), m(2), m(4))) // '{"value":7,"source":"(1+2+4)"}'
 
 ## liftmBinaryM(binary, op) ⇒ <code>object</code>
 Write a function `liftmBinaryM` that
-  takes a binary function and
-  a string and returns a function
-  that acts on `m` objects
+takes a binary function and
+a string and returns a function
+that acts on `m` objects
 
 **Kind**: global function  
 
@@ -1299,19 +1338,17 @@ Write a function `liftmBinaryM` that
 ```js
 let addmBinary = liftmBinaryM(addBinary, '+');
 
-JSON.stringify(addmBinary(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmBinary(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4)))
-// '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 ```
 <a name="liftmBinary"></a>
 
 ## liftmBinary(binary, op) ⇒ <code>object</code>
 Write a function `liftmBinary` that
-  is a modified function `liftmBinaryM`
-  that can accept arguments that
-  are either numbers or m objects
+is a modified function `liftmBinaryM`
+that can accept arguments that
+are either numbers or m objects
 
 **Kind**: global function  
 
@@ -1324,15 +1361,14 @@ Write a function `liftmBinary` that
 ```js
 let addmBinary = liftmBinary(addBinary, '+')
 
-JSON.stringify(addmBinary(3, 4))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmBinary(3, 4)) // '{"value":7,"source":"(3+4)"}'
 ```
 <a name="liftm"></a>
 
 ## liftm(func, op) ⇒ <code>object</code>
 Write a function `liftm` that
-  is generalized for any amount of
-  arguments
+is generalized for any amount of
+arguments
 
 **Kind**: global function  
 
@@ -1345,18 +1381,16 @@ Write a function `liftm` that
 ```js
 let addm = liftm(add, '+');
 
-JSON.stringify(addm(m(3), m(4)))
-// '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addm(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftm(mul, '*')(m(3), m(4)))
-// '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftm(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 ```
 <a name="exp"></a>
 
 ## exp(value) ⇒ <code>any</code>
 Write a function `exp` that
-  evaluates simple array
-  expressions
+evaluates simple array
+expressions
 
 **Kind**: global function  
 
@@ -1374,9 +1408,9 @@ exp(42)  // 42
 
 ## expn(value) ⇒ <code>any</code>
 Write a function `expn`
-  that is a modified `exp` that
-  can evaluate nested array
-  expressions
+that is a modified `exp` that
+can evaluate nested array
+expressions
 
 **Kind**: global function  
 
@@ -1401,9 +1435,9 @@ expn(nae) // sqrt(((3*3)+(4*4))) === 5
 
 ## addg(value) ⇒ <code>number</code> &#124; <code>undefined</code>
 Write a function `addg` that
-  adds from many invocations,
-  until it sees an empty
-  invocation
+adds from many invocations,
+until it sees an empty
+invocation
 
 **Kind**: global function  
 
@@ -1423,8 +1457,8 @@ addg(1)(2)(4)(8)() // 15
 
 ## liftg(binary) ⇒ <code>function</code>
 Write a function `liftg` that
-  will take a binary function
-  and apply it to many invocations
+will take a binary function
+and apply it to many invocations
 
 **Kind**: global function  
 
@@ -1443,8 +1477,8 @@ liftg(mulBinary)(1)(2)(4)(8)() // 64
 
 ## arrayg(value) ⇒ <code>array</code>
 Write a function `arrayg` that
-  will build an array from many
-  invocations
+will build an array from many
+invocations
 
 **Kind**: global function  
 
@@ -1462,10 +1496,10 @@ arrayg(3)(4)(5)() // [3, 4, 5]
 
 ## continuizeu(unary) ⇒ <code>function</code>
 Write a function `continuizeu`
-  that takes a unary function
-  and returns a function that
-  takes a callback and an
-  argument
+that takes a unary function
+and returns a function that
+takes a callback and an
+argument
 
 **Kind**: global function  
 
@@ -1480,18 +1514,109 @@ sqrtc(console.log, 81); // logs '9'
 ```
 <a name="continuize"></a>
 
-## continuize() ⇒ <code>function</code>
+## continuize(any) ⇒ <code>function</code>
 Write a function `continuize`
-  that takes a function and
-  returns a function that
-  takes a callback and an
-  argument
+that takes a function and
+returns a function that
+takes a callback and an
+argument
 
 **Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| any | <code>function</code> |
+
 **Example**  
 ```js
 sqrtc = continuizeu(Math.sqrt);
 sqrtc(console.log, 1, 2, 4); // logs '1 2 4'
+```
+<a name="vector"></a>
 
-param {function} any
+## vector()
+Make an array wrapper object
+with methods `get`, `store`,
+and `append`, such that an
+attacker cannot get access
+to the private array
+
+**Kind**: global function  
+**Example**  
+```js
+let v = vector();
+v.append(7);
+v.store(1, 8);
+v.get(0);      // 7
+v.get(1);      // 8
+```
+<a name="exploitVector"></a>
+
+## exploitVector()
+Let's assume your `vector`
+implementation looks like
+something like this:
+
+<pre>function vector() {
+  var array = [];
+  return {
+    append: function append(v) {
+      array.push(v);
+    },
+    get: function get(i) {
+      return array[i];
+    },
+    store: function store(i, v) {
+      array[i] = v;
+    }
+  };
+}</pre>
+
+Can you spot any security concerns with
+this approach? Mainly, can we get access
+to the `array` outside of `vector`?
+Note*: the issue has nothing to do with
+prototypes and we can assume that global
+prototypes cannot be altered.
+Hint*: Think about using `this` in a
+method invocation. Can we override a
+method of `vector`?
+
+**Kind**: global function  
+**Example**  
+```js
+var v = vector();
+v.append(1);
+v.append(2);
+var internalData = exploitVector(v); // [1, 2]
+```
+<a name="vectorSafe"></a>
+
+## vectorSafe()
+How would you rewrite `vector` to deal
+with the issue from above?
+
+**Kind**: global function  
+**Example**  
+```js
+var v = vectorSafe();
+v.append(1);
+v.append(2);
+var internalData = exploitVector(v); // undefined
+```
+<a name="pubsub"></a>
+
+## pubsub()
+Make a function `pubsub` that
+makes a publish/subscribe object.
+It will reliably deliver all
+publications to all subscribers
+in the right order.
+
+**Kind**: global function  
+**Example**  
+```js
+let ps = pubsub();
+ps.subscribe(log);
+ps.publish('It works!') // log('It works!')
 ```
