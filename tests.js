@@ -75,6 +75,18 @@ test('mul', [{
   text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
+// addTail, mulTail
+test('addTail', [{
+  result: addTail(1, 2, 4),
+  expected: 1 + 2 + 4,
+  text: 'addTail(1, 2, 4) === ' + (1 + 2 + 4),
+}]);
+test('mulTail', [{
+  result: mulTail(1, 2, 4),
+  expected: 1 * 2 * 4,
+  text: 'mulTail(1, 2, 4) === ' + (1 * 2 * 4),
+}]);
+
 // acc
 test('acc', [{
   result: acc((a, b) => a + b, 0)(1, 2, 4),

@@ -107,6 +107,40 @@ function mul(...nums) {
 }
 
 /**
+Write a function `addTail` that
+is the generalized `add` function
+with tail recursion
+
+@example
+addTail(1, 2, 4) // 1 + 2 + 4 = 7
+
+@param {...number} nums
+@return {number}
+*/
+function addTail(...nums) {
+  if (nums.length < 1) return 0;
+  if (nums.length === 1) return nums[0];
+  return nums[0] + addTail(...nums.slice(1));
+}
+
+/**
+Write a function `mulTail` that
+is the generalized `mul` function
+with tail recursion
+
+@example
+mulTail(1, 2, 4) // 1 * 2 * 4 = 8
+
+@param {...number} nums
+@return {number}
+*/
+function mulTail(...nums) {
+  if (nums.length < 1) return 1;
+  if (nums.length === 1) return nums[0];
+  return nums[0] * mulTail(...nums.slice(1));
+}
+
+/**
 Write a function `acc` that
 takes a function and a
 starting value and returns
