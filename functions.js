@@ -14,50 +14,50 @@ function identity(x) {
 }
 
 /**
-Write a binary function `addBinary`
+Write a binary function `addb`
 that takes two numbers and returns
 their sum
 
 @example
-addBinary(3, 4) // 3 + 4 = 7
+addb(3, 4) // 3 + 4 = 7
 
 @param {number} a
 @param {number} b
 @return {number}
 */
-function addBinary(a, b) {
+function addb(a, b) {
   return a + b;
 }
 
 /**
-Write a binary function `subBinary`
+Write a binary function `subb`
 that takes two numbers and returns
 their difference
 
 @example
-subBinary(3, 4) // 3 - 4 = -1
+subb(3, 4) // 3 - 4 = -1
 
 @param {number} a
 @param {number} b
 @return {number}
 */
-function subBinary(a, b) {
+function subb(a, b) {
   return a - b;
 }
 
 /**
-Write a binary function `mulBinary`
+Write a binary function `mulb`
 that takes two numbers and returns
 their product
 
 @example
-mulBinary(3, 4) // 3 * 4 = -1
+mulb(3, 4) // 3 * 4 = -1
 
 @param {number} a
 @param {number} b
 @return {number}
 */
-function mulBinary(a, b) {
+function mulb(a, b) {
   return a * b;
 }
 
@@ -155,7 +155,7 @@ add(1, 2, 4) // 7
 let mul = acc((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 
-@param {function} funct
+@param {function} func
 @param {number|string} start
 @return {function}
 */
@@ -176,7 +176,7 @@ add(1, 2, 4) // 7
 let mul = accRecurse((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 
-@param {function} funct
+@param {function} func
 @param {number|string} start
 @return {function}
 */
@@ -219,7 +219,7 @@ addf(3)(4) // 7
 */
 function addf(a) {
   return function (b) {
-    return addBinary(a, b);
+    return addb(a, b);
   };
 }
 
@@ -283,14 +283,14 @@ function pure(x, y) {
 }
 
 /**
-Write a function `curryBinary` that
+Write a function `curryb` that
 takes a binary function and
 an argument, and returns a
 function that can take a
 second argument
 
 @example
-let add3 = curryBinary(add, 3);
+let add3 = curryb(add, 3);
 add3(4); // 7
 
 curry(mul, 5)(6); // 30
@@ -299,7 +299,7 @@ curry(mul, 5)(6); // 30
 @param {any} a
 @return {function}
 */
-function curryBinary(binary, a) {
+function curryb(binary, a) {
   return liftf(binary)(a);
 }
 
@@ -359,10 +359,10 @@ that passes its argument to
 the binary function twice
 
 @example
-let doubl = twiceUnary(addBinary);
+let doubl = twiceUnary(addb);
 doubl(11) // 22
 
-let square = twiceUnary(mulBinary);
+let square = twiceUnary(mulb);
 square(11) // 121
 
 @param {function} binary
@@ -385,7 +385,7 @@ doubl(11) // 22
 @return {number}
 */
 function doubl(x) {
-  return twiceUnary(addBinary)(x);
+  return twiceUnary(addb)(x);
 }
 
 /**
@@ -399,7 +399,7 @@ square(11) // 121
 @return {number}
 */
 function square(x) {
-  return twiceUnary(mulBinary)(x);
+  return twiceUnary(mulb)(x);
 }
 
 /**
@@ -421,18 +421,18 @@ function twice(func) {
 }
 
 /**
-Write a function `reverseBinary` that
+Write a function `reverseb` that
 reverses the arguments of a
 binary function
 
 @example
-let bus = reverseBinary(subBinary);
+let bus = reverseb(subb);
 bus(3, 2) // -1
 
 @param {function} binary
 @return {function}
 */
-function reverseBinary(binary) {
+function reverseb(binary) {
   return function (a, b) {
     return binary(b, a);
   };
@@ -501,7 +501,7 @@ them both
 composeb(add, mul)(2, 3, 7) // 35
 
 @param {function} binary1
-@param {function} func2
+@param {function} binary2
 @return {function}
 */
 function composeb(binary1, binary2) {
@@ -511,21 +511,21 @@ function composeb(binary1, binary2) {
 }
 
 /**
-Write a function `limitBinary`
+Write a function `limitb`
 that allows a binary function
 to be called a limited number
 of times
 
 @example
-let addLmtBinary = limitBinary(addBinary, 1);
-addLmtBinary(3, 4) // 7
-addLmtBinary(3, 5) // undefined
+let addLmtb = limitb(addb, 1);
+addLmtb(3, 4) // 7
+addLmtb(3, 5) // undefined
 
 @param {function} binary
 @param {number} lmt
 @return {function}
 */
-function limitBinary(binary, lmt) {
+function limitb(binary, lmt) {
   return function (a, b) {
     if (lmt > 0) {
       lmt -= 1;
@@ -1065,7 +1065,7 @@ function counter(i) {
 }
 
 /**
-Write a function `revocableBinary`
+Write a function `revocableb`
 that takes a binary function, and
 returns an object containing an
 `invoke` function that can invoke a
@@ -1073,7 +1073,7 @@ function and a `revoke` function
 that disables the `invoke` function
 
 @example
-let rev = revocableBinary(addBinary);
+let rev = revocableb(addb);
 
 rev.invoke(3, 4); // 7
 rev.revoke();
@@ -1082,7 +1082,7 @@ rev.invoke(5, 7); // undefined
 @param {function} binary
 @return {object}
 */
-function revocableBinary(binary) {
+function revocableb(binary) {
   return {
     invoke(a, b) {
       return typeof binary === 'function' ? binary(a, b) : undefined;
@@ -1177,7 +1177,7 @@ JSON.stringify(addmTwo(m(1), m(Math.PI, "pi"))) // '{"value":4.14159...,"source"
 */
 function addmTwo(m1, m2) {
   return m(
-    addBinary(m1.value, m2.value),
+    addb(m1.value, m2.value),
     `(${m1.source}+${m2.source})`
   );
 }
@@ -1203,23 +1203,23 @@ function addm(...ms) {
 }
 
 /**
-Write a function `liftmBinaryM` that
+Write a function `liftmbM` that
 takes a binary function and
 a string and returns a function
 that acts on `m` objects
 
 @example
-let addmBinary = liftmBinaryM(addBinary, '+');
+let addmb = liftmbM(addb, '+');
 
-JSON.stringify(addmBinary(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmb(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftmbM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 
 @param {function} binary
 @param {string} op
 @return {object}
 */
-function liftmBinaryM(binary, op) {
+function liftmbM(binary, op) {
   return function (m1, m2) {
     return m(
       binary(m1.value, m2.value),
@@ -1229,21 +1229,21 @@ function liftmBinaryM(binary, op) {
 }
 
 /**
-Write a function `liftmBinary` that
-is a modified function `liftmBinaryM`
+Write a function `liftmb` that
+is a modified function `liftmbM`
 that can accept arguments that
 are either numbers or m objects
 
 @example
-let addmBinary = liftmBinary(addBinary, '+')
+let addmb = liftmb(addb, '+')
 
-JSON.stringify(addmBinary(3, 4)) // '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmb(3, 4)) // '{"value":7,"source":"(3+4)"}'
 
 @param {function} binary
 @param {string} op
 @return {object}
 */
-function liftmBinary(binary, op) {
+function liftmb(binary, op) {
   return function (a, b) {
     if (typeof a === 'number') {
       a = m(a);
@@ -1383,10 +1383,10 @@ will take a binary function
 and apply it to many invocations
 
 @example
-liftg(mulBinary)()             // undefined
-liftg(mulBinary)(3)()          // 3
-liftg(mulBinary)(3)(0)(4)()    // 0
-liftg(mulBinary)(1)(2)(4)(8)() // 64
+liftg(mulb)()             // undefined
+liftg(mulb)(3)()          // 3
+liftg(mulb)(3)(0)(4)()    // 0
+liftg(mulb)(1)(2)(4)(8)() // 64
 
 @param {function} binary
 @return {function}

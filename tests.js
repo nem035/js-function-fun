@@ -41,21 +41,21 @@ test('identity', [{
   text: 'identity(3) === ',
 }]);
 
-// addBinary, subBinary, mul
-test('addBinary', [{
-  result: addBinary(1, 2),
+// addb, subb, mul
+test('addb', [{
+  result: addb(1, 2),
   expected: 1 + 2,
-  text: 'addBinary(1, 2) === ' + (1 + 2),
+  text: 'addb(1, 2) === ' + (1 + 2),
 }]);
-test('subBinary', [{
-  result: subBinary(1, 2),
+test('subb', [{
+  result: subb(1, 2),
   expected: 1 - 2,
-  text: 'subBinary(1, 2) === ' + (1 - 2),
+  text: 'subb(1, 2) === ' + (1 - 2),
 }]);
-test('mulBinary', [{
-  result: mulBinary(1, 2),
+test('mulb', [{
+  result: mulb(1, 2),
   expected: 1 * 2,
-  text: 'mulBinary(1, 2) === ' + (1 * 2),
+  text: 'mulb(1, 2) === ' + (1 * 2),
 }]);
 
 // add, sub, mul
@@ -157,19 +157,19 @@ test('pure', [{
   text: 'pure(25, 6)[1] === ' + pure(25, 6)[1]
 }]);
 
-// curryBinary
-test('curryBinary', [{
-  result: curryBinary(add, 3)(4),
+// curryb
+test('curryb', [{
+  result: curryb(add, 3)(4),
   expected: 3 + 4,
-  text: 'curryBinary(add, 3)(4) === ' + (3 + 4),
+  text: 'curryb(add, 3)(4) === ' + (3 + 4),
 }, {
-  result: curryBinary(sub, 3)(4),
+  result: curryb(sub, 3)(4),
   expected: 3 - 4,
-  text: 'curryBinary(sub, 3)(4) === ' + (3 - 4),
+  text: 'curryb(sub, 3)(4) === ' + (3 - 4),
 }, {
-  result: curryBinary(mul, 3)(4),
+  result: curryb(mul, 3)(4),
   expected: 3 * 4,
-  text: 'curryBinary(mul, 3)(4) === ' + (3 * 4),
+  text: 'curryb(mul, 3)(4) === ' + (3 * 4),
 }]);
 
 // curry
@@ -270,11 +270,11 @@ test('twice', [{
   text: 'twice(mul)(1, 2, 4) === ' + (1 * 2 * 4 * 1 * 2 * 4)
 }]);
 
-// reverseBinary
-test('reverseBinary', [{
-  result: reverseBinary(subBinary)(3, 2),
+// reverseb
+test('reverseb', [{
+  result: reverseb(subb)(3, 2),
   expected: 2 - 3,
-  text: 'reverseBinary(subBinary)(3, 2) === ' + (2 - 3)
+  text: 'reverseb(subb)(3, 2) === ' + (2 - 3)
 }]);
 
 // reverse
@@ -305,16 +305,16 @@ test('composeb', [{
   text: 'composeb(add, mul)(2, 3, 7) === ' + ((2 + 3) * 7)
 }]);
 
-// limitBinary
-let addLmtBinary = limitBinary(add, 1);
-test('limitBinary', [{
-  result: addLmtBinary(3, 4),
+// limitb
+let addLmtb = limitb(add, 1);
+test('limitb', [{
+  result: addLmtb(3, 4),
   expected: 3 + 4,
-  text: 'first call: addLmtBinary(3, 4) === ' + (3 + 4)
+  text: 'first call: addLmtb(3, 4) === ' + (3 + 4)
 }, {
-  result: addLmtBinary(3, 4),
+  result: addLmtb(3, 4),
   expected: undefined,
-  text: 'second call: addLmtBinary(3, 4) === ' + undefined
+  text: 'second call: addLmtb(3, 4) === ' + undefined
 }]);
 
 // limit
@@ -809,20 +809,20 @@ test('counter', [{
   text: 'first call: counter(10).up === ' + 10
 }]);
 
-// revocableBinary
-let revBin = revocableBinary(add);
-test('revocableBinary', [{
+// revocableb
+let revBin = revocableb(add);
+test('revocableb', [{
   result: revBin.invoke(3, 4),
   expected: 3 + 4,
-  text: 'invocation: revocableBinary(add).invoke(3, 4) === ' + (3 + 4)
+  text: 'invocation: revocableb(add).invoke(3, 4) === ' + (3 + 4)
 }, {
   result: revBin.revoke(),
   expected: undefined,
-  text: 'revocation: revocableBinary(add).revoke() === ' + undefined
+  text: 'revocation: revocableb(add).revoke() === ' + undefined
 }, {
   result: revBin.invoke(5, 7),
   expected: undefined,
-  text: 'invocation after revocation: revocableBinary(add).invoke(5, 7) === ' + undefined
+  text: 'invocation after revocation: revocableb(add).invoke(5, 7) === ' + undefined
 }]);
 
 // revocable
@@ -882,26 +882,26 @@ test('addm', [{
   text: 'JSON.stringify(addm(m(1), m(2), m(4))) === ' + JSON.stringify({ value: (1 + 2 + 4), source: '(1+2+4)' })
 }]);
 
-// liftmBinaryM
-test('liftmBinaryM', [{
-  result: JSON.stringify(liftmBinaryM(addBinary, "+")(m(3), m(4))),
+// liftmbM
+test('liftmbM', [{
+  result: JSON.stringify(liftmbM(addb, "+")(m(3), m(4))),
   expected: JSON.stringify({ value: (3 + 4), source: '(3+4)' }),
-  text: 'JSON.stringify(liftmBinaryM(addBinary, "+")(m(3), m(4))) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
+  text: 'JSON.stringify(liftmbM(addb, "+")(m(3), m(4))) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
 }, {
-  result: JSON.stringify(liftmBinaryM(mulBinary, "*")(m(3), m(4))),
+  result: JSON.stringify(liftmbM(mulb, "*")(m(3), m(4))),
   expected: JSON.stringify({ value: (3 * 4), source: '(3*4)' }),
-  text: 'JSON.stringify(liftmBinaryM(mulBinary, "*")(m(3), m(4))) === ' + JSON.stringify({ value: (3 * 4), source: '(3*4)' })
+  text: 'JSON.stringify(liftmbM(mulb, "*")(m(3), m(4))) === ' + JSON.stringify({ value: (3 * 4), source: '(3*4)' })
 }]);
 
-// liftmBinary
-test('liftmBinary', [{
-  result: JSON.stringify(liftmBinary(addBinary, "+")(3, 4)),
+// liftmb
+test('liftmb', [{
+  result: JSON.stringify(liftmb(addb, "+")(3, 4)),
   expected: JSON.stringify({ value: (3 + 4), source: '(3+4)' }),
-  text: 'JSON.stringify(liftmBinary(addBinary, "+")(3, 4)) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
+  text: 'JSON.stringify(liftmb(addb, "+")(3, 4)) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
 }, {
-  result: JSON.stringify(liftmBinary(mulBinary, "*")(3, 4)),
+  result: JSON.stringify(liftmb(mulb, "*")(3, 4)),
   expected: JSON.stringify({ value: (3 * 4), source: '(3*4)' }),
-  text: 'JSON.stringify(liftmBinary(mulBinary, "*")(3, 4)) === ' + JSON.stringify({ value: (3 * 4), source: '(3*4)' })
+  text: 'JSON.stringify(liftmb(mulb, "*")(3, 4)) === ' + JSON.stringify({ value: (3 * 4), source: '(3*4)' })
 }]);
 
 // liftm
@@ -982,59 +982,59 @@ test('addg2', [{
 
 // liftg
 test('liftg', [{
-  result: liftg(mulBinary)(),
+  result: liftg(mulb)(),
   expected: undefined,
-  text: 'liftg(mulBinary)() === ' + undefined
+  text: 'liftg(mulb)() === ' + undefined
 }, {
-  result: liftg(mulBinary)(3)(),
+  result: liftg(mulb)(3)(),
   expected: 3,
-  text: 'liftg(mulBinary)(3)() === ' + 3
+  text: 'liftg(mulb)(3)() === ' + 3
 }, {
-  result: liftg(mulBinary)(3)(0)(4)(),
+  result: liftg(mulb)(3)(0)(4)(),
   expected: 3 * 0 * 4,
-  text: 'liftg(mulBinary)(3)(0)(4)() === ' + (3 * 0 * 4)
+  text: 'liftg(mulb)(3)(0)(4)() === ' + (3 * 0 * 4)
 }, {
-  result: liftg(mulBinary)(1)(2)(4)(8)(),
+  result: liftg(mulb)(1)(2)(4)(8)(),
   expected: 1 * 2 * 4 * 8,
-  text: 'liftg(mulBinary)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
+  text: 'liftg(mulb)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
 }]);
 
 // liftg2
 test('liftg2', [{
-  result: liftg2(mulBinary)(),
+  result: liftg2(mulb)(),
   expected: undefined,
-  text: 'liftg2(mulBinary)() === ' + undefined
+  text: 'liftg2(mulb)() === ' + undefined
 }, {
-  result: liftg2(mulBinary)(3)(),
+  result: liftg2(mulb)(3)(),
   expected: 3,
-  text: 'liftg2(mulBinary)(3)() === ' + 3
+  text: 'liftg2(mulb)(3)() === ' + 3
 }, {
-  result: liftg2(mulBinary)(3)(0)(4)(),
+  result: liftg2(mulb)(3)(0)(4)(),
   expected: 3 * 0 * 4,
-  text: 'liftg2(mulBinary)(3)(0)(4)() === ' + (3 * 0 * 4)
+  text: 'liftg2(mulb)(3)(0)(4)() === ' + (3 * 0 * 4)
 }, {
-  result: liftg2(mulBinary)(1)(2)(4)(8)(),
+  result: liftg2(mulb)(1)(2)(4)(8)(),
   expected: 1 * 2 * 4 * 8,
-  text: 'liftg2(mulBinary)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
+  text: 'liftg2(mulb)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
 }]);
 
 // liftg3
 test('liftg3', [{
-  result: liftg3(mulBinary)(),
+  result: liftg3(mulb)(),
   expected: undefined,
-  text: 'liftg3(mulBinary)() === ' + undefined
+  text: 'liftg3(mulb)() === ' + undefined
 }, {
-  result: liftg3(mulBinary)(3)(),
+  result: liftg3(mulb)(3)(),
   expected: 3,
-  text: 'liftg3(mulBinary)(3)() === ' + 3
+  text: 'liftg3(mulb)(3)() === ' + 3
 }, {
-  result: liftg3(mulBinary)(3)(0)(4)(),
+  result: liftg3(mulb)(3)(0)(4)(),
   expected: 3 * 0 * 4,
-  text: 'liftg3(mulBinary)(3)(0)(4)() === ' + (3 * 0 * 4)
+  text: 'liftg3(mulb)(3)(0)(4)() === ' + (3 * 0 * 4)
 }, {
-  result: liftg3(mulBinary)(1)(2)(4)(8)(),
+  result: liftg3(mulb)(1)(2)(4)(8)(),
   expected: 1 * 2 * 4 * 8,
-  text: 'liftg3(mulBinary)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
+  text: 'liftg3(mulb)(1)(2)(4)(8)() === ' + (1 * 2 * 4 * 8)
 }]);
 
 // arrayg

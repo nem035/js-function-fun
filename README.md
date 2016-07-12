@@ -8,18 +8,18 @@ Fun with JavaScript functions
 takes an argument and returns
 that argument</p>
 </dd>
-<dt><a href="#addBinary">addBinary(a, b)</a> ⇒ <code>number</code></dt>
-<dd><p>Write a binary function <code>addBinary</code>
+<dt><a href="#addb">addb(a, b)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a binary function <code>addb</code>
 that takes two numbers and returns
 their sum</p>
 </dd>
-<dt><a href="#subBinary">subBinary(a, b)</a> ⇒ <code>number</code></dt>
-<dd><p>Write a binary function <code>subBinary</code>
+<dt><a href="#subb">subb(a, b)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a binary function <code>subb</code>
 that takes two numbers and returns
 their difference</p>
 </dd>
-<dt><a href="#mulBinary">mulBinary(a, b)</a> ⇒ <code>number</code></dt>
-<dd><p>Write a binary function <code>mulBinary</code>
+<dt><a href="#mulb">mulb(a, b)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a binary function <code>mulb</code>
 that takes two numbers and returns
 their product</p>
 </dd>
@@ -48,7 +48,7 @@ but uses recursion</p>
 is the generalized <code>mul</code> function
 but uses recursion</p>
 </dd>
-<dt><a href="#acc">acc(funct, start)</a> ⇒ <code>function</code></dt>
+<dt><a href="#acc">acc(func, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>acc</code> that
 takes a function and a
 starting value and returns
@@ -56,7 +56,7 @@ a function that runs the
 initial function on each
 argument</p>
 </dd>
-<dt><a href="#accRecurse">accRecurse(funct, start)</a> ⇒ <code>function</code></dt>
+<dt><a href="#accRecurse">accRecurse(func, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>accRecurse</code> that
 does what <code>acc</code> does but uses recursion</p>
 </dd>
@@ -92,8 +92,8 @@ z; // 120
 
 impure(25);
 z; // 175</pre></dd>
-<dt><a href="#curryBinary">curryBinary(binary, a)</a> ⇒ <code>function</code></dt>
-<dd><p>Write a function <code>curryBinary</code> that
+<dt><a href="#curryb">curryb(binary, a)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>curryb</code> that
 takes a binary function and
 an argument, and returns a
 function that can take a
@@ -129,8 +129,8 @@ create the <code>square</code> function</p>
 is generalized for any amount
 of arguments</p>
 </dd>
-<dt><a href="#reverseBinary">reverseBinary(binary)</a> ⇒ <code>function</code></dt>
-<dd><p>Write a function <code>reverseBinary</code> that
+<dt><a href="#reverseb">reverseb(binary)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>reverseb</code> that
 reverses the arguments of a
 binary function</p>
 </dd>
@@ -150,14 +150,14 @@ calls them both</p>
 is generalized for any amount
 of arguments</p>
 </dd>
-<dt><a href="#composeb">composeb(binary1, func2)</a> ⇒ <code>function</code></dt>
+<dt><a href="#composeb">composeb(binary1, binary2)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>composeb</code> that
 takes two binary functions and
 returns a function that calls
 them both</p>
 </dd>
-<dt><a href="#limitBinary">limitBinary(binary, lmt)</a> ⇒ <code>function</code></dt>
-<dd><p>Write a function <code>limitBinary</code>
+<dt><a href="#limitb">limitb(binary, lmt)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>limitb</code>
 that allows a binary function
 to be called a limited number
 of times</p>
@@ -250,8 +250,8 @@ two functions that implement
 an up/down counter, hiding
 the counter</p>
 </dd>
-<dt><a href="#revocableBinary">revocableBinary(binary)</a> ⇒ <code>object</code></dt>
-<dd><p>Write a function <code>revocableBinary</code>
+<dt><a href="#revocableb">revocableb(binary)</a> ⇒ <code>object</code></dt>
+<dd><p>Write a function <code>revocableb</code>
 that takes a binary function, and
 returns an object containing an
 <code>invoke</code> function that can invoke a
@@ -287,15 +287,15 @@ returns an <code>m</code> object</p>
 is generalized for any amount of
 arguments</p>
 </dd>
-<dt><a href="#liftmBinaryM">liftmBinaryM(binary, op)</a> ⇒ <code>object</code></dt>
-<dd><p>Write a function <code>liftmBinaryM</code> that
+<dt><a href="#liftmbM">liftmbM(binary, op)</a> ⇒ <code>object</code></dt>
+<dd><p>Write a function <code>liftmbM</code> that
 takes a binary function and
 a string and returns a function
 that acts on <code>m</code> objects</p>
 </dd>
-<dt><a href="#liftmBinary">liftmBinary(binary, op)</a> ⇒ <code>object</code></dt>
-<dd><p>Write a function <code>liftmBinary</code> that
-is a modified function <code>liftmBinaryM</code>
+<dt><a href="#liftmb">liftmb(binary, op)</a> ⇒ <code>object</code></dt>
+<dd><p>Write a function <code>liftmb</code> that
+is a modified function <code>liftmbM</code>
 that can accept arguments that
 are either numbers or m objects</p>
 </dd>
@@ -411,10 +411,10 @@ that argument
 ```js
 identity(3) // 3
 ```
-<a name="addBinary"></a>
+<a name="addb"></a>
 
-## addBinary(a, b) ⇒ <code>number</code>
-Write a binary function `addBinary`
+## addb(a, b) ⇒ <code>number</code>
+Write a binary function `addb`
 that takes two numbers and returns
 their sum
 
@@ -427,12 +427,12 @@ their sum
 
 **Example**  
 ```js
-addBinary(3, 4) // 3 + 4 = 7
+addb(3, 4) // 3 + 4 = 7
 ```
-<a name="subBinary"></a>
+<a name="subb"></a>
 
-## subBinary(a, b) ⇒ <code>number</code>
-Write a binary function `subBinary`
+## subb(a, b) ⇒ <code>number</code>
+Write a binary function `subb`
 that takes two numbers and returns
 their difference
 
@@ -445,12 +445,12 @@ their difference
 
 **Example**  
 ```js
-subBinary(3, 4) // 3 - 4 = -1
+subb(3, 4) // 3 - 4 = -1
 ```
-<a name="mulBinary"></a>
+<a name="mulb"></a>
 
-## mulBinary(a, b) ⇒ <code>number</code>
-Write a binary function `mulBinary`
+## mulb(a, b) ⇒ <code>number</code>
+Write a binary function `mulb`
 that takes two numbers and returns
 their product
 
@@ -463,7 +463,7 @@ their product
 
 **Example**  
 ```js
-mulBinary(3, 4) // 3 * 4 = -1
+mulb(3, 4) // 3 * 4 = -1
 ```
 <a name="add"></a>
 
@@ -552,7 +552,7 @@ mulRecurse(1, 2, 4) // 1 * 2 * 4 = 8
 ```
 <a name="acc"></a>
 
-## acc(funct, start) ⇒ <code>function</code>
+## acc(func, start) ⇒ <code>function</code>
 Write a function `acc` that
 takes a function and a
 starting value and returns
@@ -564,7 +564,7 @@ argument
 
 | Param | Type |
 | --- | --- |
-| funct | <code>function</code> | 
+| func | <code>function</code> | 
 | start | <code>number</code> &#124; <code>string</code> | 
 
 **Example**  
@@ -577,7 +577,7 @@ mul(1, 2, 4) // 8
 ```
 <a name="accRecurse"></a>
 
-## accRecurse(funct, start) ⇒ <code>function</code>
+## accRecurse(func, start) ⇒ <code>function</code>
 Write a function `accRecurse` that
 does what `acc` does but uses recursion
 
@@ -585,7 +585,7 @@ does what `acc` does but uses recursion
 
 | Param | Type |
 | --- | --- |
-| funct | <code>function</code> | 
+| func | <code>function</code> | 
 | start | <code>number</code> &#124; <code>string</code> | 
 
 **Example**  
@@ -685,10 +685,10 @@ z; // 175</pre>
 pure(20, 5) // [ 6, 120 ]
 pure(25, 6) // [ 7, 175 ]
 ```
-<a name="curryBinary"></a>
+<a name="curryb"></a>
 
-## curryBinary(binary, a) ⇒ <code>function</code>
-Write a function `curryBinary` that
+## curryb(binary, a) ⇒ <code>function</code>
+Write a function `curryb` that
 takes a binary function and
 an argument, and returns a
 function that can take a
@@ -703,7 +703,7 @@ second argument
 
 **Example**  
 ```js
-let add3 = curryBinary(add, 3);
+let add3 = curryb(add, 3);
 add3(4); // 7
 
 curry(mul, 5)(6); // 30
@@ -763,10 +763,10 @@ the binary function twice
 
 **Example**  
 ```js
-let doubl = twiceUnary(addBinary);
+let doubl = twiceUnary(addb);
 doubl(11) // 22
 
-let square = twiceUnary(mulBinary);
+let square = twiceUnary(mulb);
 square(11) // 121
 ```
 <a name="doubl"></a>
@@ -819,10 +819,10 @@ of arguments
 let doubleSum = twice(add);
 doubleSum(1, 2, 4) // 1 + 2 + 4 + 1 + 2 + 4 = 14
 ```
-<a name="reverseBinary"></a>
+<a name="reverseb"></a>
 
-## reverseBinary(binary) ⇒ <code>function</code>
-Write a function `reverseBinary` that
+## reverseb(binary) ⇒ <code>function</code>
+Write a function `reverseb` that
 reverses the arguments of a
 binary function
 
@@ -834,7 +834,7 @@ binary function
 
 **Example**  
 ```js
-let bus = reverseBinary(subBinary);
+let bus = reverseb(subb);
 bus(3, 2) // -1
 ```
 <a name="reverse"></a>
@@ -892,7 +892,7 @@ composeu(doubl, square, identity, curry(add, 1, 2))(5) // (5 + 5) * (5 + 5) + 1 
 ```
 <a name="composeb"></a>
 
-## composeb(binary1, func2) ⇒ <code>function</code>
+## composeb(binary1, binary2) ⇒ <code>function</code>
 Write a function `composeb` that
 takes two binary functions and
 returns a function that calls
@@ -903,16 +903,16 @@ them both
 | Param | Type |
 | --- | --- |
 | binary1 | <code>function</code> | 
-| func2 | <code>function</code> | 
+| binary2 | <code>function</code> | 
 
 **Example**  
 ```js
 composeb(add, mul)(2, 3, 7) // 35
 ```
-<a name="limitBinary"></a>
+<a name="limitb"></a>
 
-## limitBinary(binary, lmt) ⇒ <code>function</code>
-Write a function `limitBinary`
+## limitb(binary, lmt) ⇒ <code>function</code>
+Write a function `limitb`
 that allows a binary function
 to be called a limited number
 of times
@@ -926,9 +926,9 @@ of times
 
 **Example**  
 ```js
-let addLmtBinary = limitBinary(addBinary, 1);
-addLmtBinary(3, 4) // 7
-addLmtBinary(3, 5) // undefined
+let addLmtb = limitb(addb, 1);
+addLmtb(3, 4) // 7
+addLmtb(3, 5) // undefined
 ```
 <a name="limit"></a>
 
@@ -1311,10 +1311,10 @@ down() // 10
 down() // 9
 up()   // 10
 ```
-<a name="revocableBinary"></a>
+<a name="revocableb"></a>
 
-## revocableBinary(binary) ⇒ <code>object</code>
-Write a function `revocableBinary`
+## revocableb(binary) ⇒ <code>object</code>
+Write a function `revocableb`
 that takes a binary function, and
 returns an object containing an
 `invoke` function that can invoke a
@@ -1329,7 +1329,7 @@ that disables the `invoke` function
 
 **Example**  
 ```js
-let rev = revocableBinary(addBinary);
+let rev = revocableb(addb);
 
 rev.invoke(3, 4); // 7
 rev.revoke();
@@ -1436,10 +1436,10 @@ arguments
 ```js
 JSON.stringify(addm(m(1), m(2), m(4))) // '{"value":7,"source":"(1+2+4)"}'
 ```
-<a name="liftmBinaryM"></a>
+<a name="liftmbM"></a>
 
-## liftmBinaryM(binary, op) ⇒ <code>object</code>
-Write a function `liftmBinaryM` that
+## liftmbM(binary, op) ⇒ <code>object</code>
+Write a function `liftmbM` that
 takes a binary function and
 a string and returns a function
 that acts on `m` objects
@@ -1453,17 +1453,17 @@ that acts on `m` objects
 
 **Example**  
 ```js
-let addmBinary = liftmBinaryM(addBinary, '+');
+let addmb = liftmbM(addb, '+');
 
-JSON.stringify(addmBinary(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmb(m(3), m(4))) // '{"value":7,"source":"(3+4)"}'
 
-JSON.stringify(liftmBinaryM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
+JSON.stringify(liftmbM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 ```
-<a name="liftmBinary"></a>
+<a name="liftmb"></a>
 
-## liftmBinary(binary, op) ⇒ <code>object</code>
-Write a function `liftmBinary` that
-is a modified function `liftmBinaryM`
+## liftmb(binary, op) ⇒ <code>object</code>
+Write a function `liftmb` that
+is a modified function `liftmbM`
 that can accept arguments that
 are either numbers or m objects
 
@@ -1476,9 +1476,9 @@ are either numbers or m objects
 
 **Example**  
 ```js
-let addmBinary = liftmBinary(addBinary, '+')
+let addmb = liftmb(addb, '+')
 
-JSON.stringify(addmBinary(3, 4)) // '{"value":7,"source":"(3+4)"}'
+JSON.stringify(addmb(3, 4)) // '{"value":7,"source":"(3+4)"}'
 ```
 <a name="liftm"></a>
 
@@ -1585,10 +1585,10 @@ and apply it to many invocations
 
 **Example**  
 ```js
-liftg(mulBinary)()             // undefined
-liftg(mulBinary)(3)()          // 3
-liftg(mulBinary)(3)(0)(4)()    // 0
-liftg(mulBinary)(1)(2)(4)(8)() // 64
+liftg(mulb)()             // undefined
+liftg(mulb)(3)()          // 3
+liftg(mulb)(3)(0)(4)()    // 0
+liftg(mulb)(1)(2)(4)(8)() // 64
 ```
 <a name="arrayg"></a>
 
