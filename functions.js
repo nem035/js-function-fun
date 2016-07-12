@@ -1488,7 +1488,6 @@ something like this:
       array[i] = v;
     }
   };
-}
 }</pre>
 
 Can you spot any security concerns with
@@ -1499,12 +1498,15 @@ to the `array` outside of `vector`?
 prototypes and we can assume that global
 prototypes cannot be altered.
 
-*Hint: Think about using `this` in a
+*Hint*: Think about using `this` in a
 method invocation. Can we override a
 method of `vector`?
 
-How would you rewrite `vector` to deal
-with this issue?
+@example
+var v = vector();
+v.append(1);
+v.append(2);
+var internalData = exploitVector(v); // [1, 2]
 */
 function exploitVector(v) {
   var data;
@@ -1524,6 +1526,16 @@ function exploitVector(v) {
   return data;
 }
 
+/**
+How would you rewrite `vector` to deal
+with the issue from above?
+
+@example
+var v = vectorSafe();
+v.append(1);
+v.append(2);
+var internalData = exploitVector(v); // undefined
+*/
 function vectorSafe() {
   var array = [];
   return {
@@ -1541,10 +1553,10 @@ function vectorSafe() {
 
 /**
 Make a function `pubsub` that
-makes a public/subscribe object.
+makes a publish/subscribe object.
 It will reliably deliver all
 publications to all subscribers
-in the right order
+in the right order.
 
 @example
 let ps = pubsub();
