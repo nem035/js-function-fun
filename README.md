@@ -39,6 +39,16 @@ amount of arguments</p>
 is generalized for any
 amount of arguments</p>
 </dd>
+<dt><a href="#addTail">addTail(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>addTail</code> that
+is the generalized <code>add</code> function
+with tail recursion</p>
+</dd>
+<dt><a href="#mulTail">mulTail(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>mulTail</code> that
+is the generalized <code>mul</code> function
+with tail recursion</p>
+</dd>
 <dt><a href="#acc">acc(funct, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>acc</code> that
 takes a function and a
@@ -46,6 +56,11 @@ starting value and returns
 a function that runs the
 initial function on each
 argument</p>
+</dd>
+<dt><a href="#accTail">accTail(funct, start)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>accTail</code> that
+does what <code>acc</code> does but uses
+tail recursion</p>
 </dd>
 <dt><a href="#identityf">identityf(x)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>identityf</code>
@@ -503,6 +518,40 @@ amount of arguments
 ```js
 mul(1, 2, 4) // 1 * 2 * 4 = 8
 ```
+<a name="addTail"></a>
+
+## addTail(...nums) ⇒ <code>number</code>
+Write a function `addTail` that
+is the generalized `add` function
+with tail recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+addTail(1, 2, 4) // 1 + 2 + 4 = 7
+```
+<a name="mulTail"></a>
+
+## mulTail(...nums) ⇒ <code>number</code>
+Write a function `mulTail` that
+is the generalized `mul` function
+with tail recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+mulTail(1, 2, 4) // 1 * 2 * 4 = 8
+```
 <a name="acc"></a>
 
 ## acc(funct, start) ⇒ <code>function</code>
@@ -526,6 +575,28 @@ let add = acc((total, curr) => total + curr, 0);
 add(1, 2, 4) // 7
 
 let mul = acc((total, curr) => total * curr, 1);
+mul(1, 2, 4) // 8
+```
+<a name="accTail"></a>
+
+## accTail(funct, start) ⇒ <code>function</code>
+Write a function `accTail` that
+does what `acc` does but uses
+tail recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| funct | <code>function</code> |
+| start | <code>number</code> &#124; <code>string</code> |
+
+**Example**  
+```js
+let add = accTail((total, curr) => total + curr, 0);
+add(1, 2, 4) // 7
+
+let mul = accTail((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 ```
 <a name="identityf"></a>

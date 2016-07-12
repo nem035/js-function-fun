@@ -98,6 +98,17 @@ test('acc', [{
   text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
+// accTail
+test('accTail', [{
+  result: accTail((a, b) => a + b, 0)(1, 2, 4),
+  expected: 1 + 2 + 4,
+  text: 'accTail((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
+}, {
+  result: accTail((a, b) => a * b, 1)(1, 2, 4),
+  expected: 1 * 2 * 4,
+  text: 'accTail((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
+}]);
+
 // identityf
 test('identityf', [{
   result: identityf(3)(),

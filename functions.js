@@ -166,6 +166,30 @@ function acc(func, start) {
 }
 
 /**
+Write a function `accTail` that
+does what `acc` does but uses
+tail recursion
+
+@example
+let add = accTail((total, curr) => total + curr, 0);
+add(1, 2, 4) // 7
+
+let mul = accTail((total, curr) => total * curr, 1);
+mul(1, 2, 4) // 8
+
+@param {function} funct
+@param {number|string} start
+@return {function}
+*/
+function accTail(func, start) {
+  return function recurse(...args) {
+    if (args.length < 1) return start;
+    if (args.length === 1) return args[0];
+    return func(args[0], recurse(...args.slice(1)));
+  }
+}
+
+/**
 Write a function `identityf`
 that takes an argument and
 returns a function that
