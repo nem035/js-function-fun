@@ -75,16 +75,16 @@ test('mul', [{
   text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
-// addTail, mulTail
-test('addTail', [{
-  result: addTail(1, 2, 4),
+// addRecurse, mulRecurse
+test('addRecurse', [{
+  result: addRecurse(1, 2, 4),
   expected: 1 + 2 + 4,
-  text: 'addTail(1, 2, 4) === ' + (1 + 2 + 4),
+  text: 'addRecurse(1, 2, 4) === ' + (1 + 2 + 4),
 }]);
-test('mulTail', [{
-  result: mulTail(1, 2, 4),
+test('mulRecurse', [{
+  result: mulRecurse(1, 2, 4),
   expected: 1 * 2 * 4,
-  text: 'mulTail(1, 2, 4) === ' + (1 * 2 * 4),
+  text: 'mulRecurse(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
 // acc
@@ -98,15 +98,15 @@ test('acc', [{
   text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
-// accTail
-test('accTail', [{
-  result: accTail((a, b) => a + b, 0)(1, 2, 4),
+// accRecurse
+test('accRecurse', [{
+  result: accRecurse((a, b) => a + b, 0)(1, 2, 4),
   expected: 1 + 2 + 4,
-  text: 'accTail((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
+  text: 'accRecurse((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
 }, {
-  result: accTail((a, b) => a * b, 1)(1, 2, 4),
+  result: accRecurse((a, b) => a * b, 1)(1, 2, 4),
   expected: 1 * 2 * 4,
-  text: 'accTail((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
+  text: 'accRecurse((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
 // identityf

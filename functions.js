@@ -107,37 +107,37 @@ function mul(...nums) {
 }
 
 /**
-Write a function `addTail` that
+Write a function `addRecurse` that
 is the generalized `add` function
-with tail recursion
+but uses recursion
 
 @example
-addTail(1, 2, 4) // 1 + 2 + 4 = 7
+addRecurse(1, 2, 4) // 1 + 2 + 4 = 7
 
 @param {...number} nums
 @return {number}
 */
-function addTail(...nums) {
+function addRecurse(...nums) {
   if (nums.length < 1) return 0;
   if (nums.length === 1) return nums[0];
-  return nums[0] + addTail(...nums.slice(1));
+  return nums[0] + addRecurse(...nums.slice(1));
 }
 
 /**
-Write a function `mulTail` that
+Write a function `mulRecurse` that
 is the generalized `mul` function
-with tail recursion
+but uses recursion
 
 @example
-mulTail(1, 2, 4) // 1 * 2 * 4 = 8
+mulRecurse(1, 2, 4) // 1 * 2 * 4 = 8
 
 @param {...number} nums
 @return {number}
 */
-function mulTail(...nums) {
+function mulRecurse(...nums) {
   if (nums.length < 1) return 1;
   if (nums.length === 1) return nums[0];
-  return nums[0] * mulTail(...nums.slice(1));
+  return nums[0] * mulRecurse(...nums.slice(1));
 }
 
 /**
@@ -166,22 +166,21 @@ function acc(func, start) {
 }
 
 /**
-Write a function `accTail` that
-does what `acc` does but uses
-tail recursion
+Write a function `accRecurse` that
+does what `acc` does but uses recursion
 
 @example
-let add = accTail((total, curr) => total + curr, 0);
+let add = accRecurse((total, curr) => total + curr, 0);
 add(1, 2, 4) // 7
 
-let mul = accTail((total, curr) => total * curr, 1);
+let mul = accRecurse((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 
 @param {function} funct
 @param {number|string} start
 @return {function}
 */
-function accTail(func, start) {
+function accRecurse(func, start) {
   return function recurse(...args) {
     if (args.length < 1) return start;
     if (args.length === 1) return args[0];
