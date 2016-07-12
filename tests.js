@@ -34,46 +34,65 @@ function test(name, tests) {
   document.body.appendChild(resultWrapper);
 }
 
+// pure
+test('pure', [{
+  result: pure(20, 5)[0],
+  expected: 6,
+  text: 'pure(20, 5)[0] === ' + pure(20, 5)[0]
+}, {
+  result: pure(20, 5)[1],
+  expected: 120,
+  text: 'pure(20, 5)[1] === ' + pure(20, 5)[1]
+}, {
+  result: pure(25, 6)[0],
+  expected: 7,
+  text: 'pure(25, 6)[0] === ' + pure(25, 6)[0]
+}, {
+  result: pure(25, 6)[1],
+  expected: 175,
+  text: 'pure(25, 6)[1] === ' + pure(25, 6)[1]
+}]);
+
 // identity
 test('identity', [{
   result: identity(3),
   expected: 3,
   text: 'identity(3) === ',
-},]);
+}]);
 
 // addBinary, subBinary, mul
 test('addBinary', [{
   result: addBinary(1, 2),
   expected: 1 + 2,
   text: 'addBinary(1, 2) === ' + (1 + 2),
-},]);
+}]);
 test('subBinary', [{
   result: subBinary(1, 2),
   expected: 1 - 2,
   text: 'subBinary(1, 2) === ' + (1 - 2),
-},]);
+}]);
 test('mulBinary', [{
   result: mulBinary(1, 2),
   expected: 1 * 2,
   text: 'mulBinary(1, 2) === ' + (1 * 2),
-},]);
+}]);
 
 // add, sub, mul
 test('add', [{
   result: add(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'add(1, 2, 4) === ' + (1 + 2 + 4),
-},]);
+}]);
 test('sub', [{
   result: sub(1, 2, 4),
   expected: 1 - 2 - 4,
   text: 'sub(1, 2, 4) === ' + (1 - 2 - 4),
-},]);
+}]);
 test('mul', [{
   result: mul(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
-},]);
+}]);
 
 // acc
 test('acc', [{
@@ -84,21 +103,21 @@ test('acc', [{
   result: acc((a, b) => a * b, 1)(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
-},]);
+}]);
 
 // identityf
 test('identityf', [{
   result: identityf(3)(),
   expected: 3,
   text: 'identityf(3)() === ' + 3,
-},]);
+}]);
 
 // addf
 test('addf', [{
   result: addf(3)(4),
   expected: 3 + 4,
   text: 'addf(3)(4) === ' + (3 + 4),
-},]);
+}]);
 
 // liftf
 test('liftf', [{
@@ -113,7 +132,7 @@ test('liftf', [{
   result: liftf(mul)(3)(4),
   expected: 3 * 4,
   text: 'liftf(mul)(3)(4) === ' + (3 * 4),
-},]);
+}]);
 
 // curryBinary
 test('curryBinary', [{
@@ -128,7 +147,7 @@ test('curryBinary', [{
   result: curryBinary(mul, 3)(4),
   expected: 3 * 4,
   text: 'curryBinary(mul, 3)(4) === ' + (3 * 4),
-},]);
+}]);
 
 // curry
 test('curry', [{
@@ -143,7 +162,7 @@ test('curry', [{
   result: curry(mul, 1, 2, 4)(4, 2, 1),
   expected: 1 * 2 * 4 * 4 * 2 * 1,
   text: 'curry(mul, 1, 2, 4)(4, 2, 1) === ' + (1 * 2 * 4 * 4 * 2 * 1),
-},]);
+}]);
 
 // inc
 test('inc', [{
@@ -154,7 +173,7 @@ test('inc', [{
   result: inc(inc(5)),
   expected: 5 + 1 + 1,
   text: 'inc(inc(5)) === 5 + 1 + 1',
-},]);
+}]);
 
 test('inc2', [{
   result: inc2(5),
@@ -164,7 +183,7 @@ test('inc2', [{
   result: inc2(inc2(5)),
   expected: 5 + 1 + 1,
   text: 'inc2(inc2(5)) === 5 + 1 + 1',
-},]);
+}]);
 
 test('inc3', [{
   result: inc3(5),
@@ -174,7 +193,7 @@ test('inc3', [{
   result: inc3(inc3(5)),
   expected: 5 + 1 + 1,
   text: 'inc3(inc3(5)) === 5 + 1 + 1',
-},]);
+}]);
 
 test('inc4', [{
   result: inc4(5),
@@ -184,7 +203,7 @@ test('inc4', [{
   result: inc4(inc4(5)),
   expected: 5 + 1 + 1,
   text: 'inc4(inc4(5)) === 5 + 1 + 1',
-},]);
+}]);
 
 // twiceUnary
 test('twiceUnary', [{
