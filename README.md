@@ -63,7 +63,7 @@ takes a binary function, and
 makes it callable with two
 invocations</p>
 </dd>
-<dt><a href="#pure">pure()</a></dt>
+<dt><a href="#pure">pure(x, y)</a> ⇒ <code>array</code></dt>
 <dd><p>Write a <a href="https://en.wikipedia.org/wiki/Pure_function">pure</a> function <code>pure</code> that
 is a wrapper arround the impure
 function <code>impure</code></p>
@@ -586,7 +586,7 @@ liftf(mul)(5)(6) // 30
 ```
 <a name="pure"></a>
 
-## pure()
+## pure(x, y) ⇒ <code>array</code>
 Write a [pure](https://en.wikipedia.org/wiki/Pure_function) function `pure` that
 is a wrapper arround the impure
 function `impure`
@@ -605,6 +605,13 @@ impure(25);
 z; // 175</pre>
 
 **Kind**: global function  
+**Returns**: <code>array</code> - an array containing  `y` and `z`  
+
+| Param | Type |
+| --- | --- |
+| x | <code>number</code> |
+| y | <code>number</code> |
+
 **Example**  
 ```js
 pure(20, 5) // [ 6, 120 ]

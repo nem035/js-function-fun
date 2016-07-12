@@ -210,6 +210,10 @@ z; // 175</pre>
 @example
 pure(20, 5) // [ 6, 120 ]
 pure(25, 6) // [ 7, 175 ]
+
+@param {number} x
+@param {number} y
+@return {array} an array containing  `y` and `z`
 */
 function pure(x, y) {
   var z;
