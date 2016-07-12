@@ -4,22 +4,6 @@ Fun with JavaScript functions
 ## Functions
 
 <dl>
-<dt><a href="#pure">pure()</a></dt>
-<dd><p>Write a <a href="https://en.wikipedia.org/wiki/Pure_function">pure</a> function <code>pure</code> that
-is a wrapper arround the impure
-function <code>impure</code></p>
-<pre>function impure(x) {
-  y++;
-  z = x * y;
-}
-
-var y = 5, z;
-
-impure(20);
-z; // 120
-
-impure(25);
-z; // 175</pre></dd>
 <dt><a href="#identity">identity(x)</a> ⇒ <code>any</code></dt>
 <dd><p>Write a function <code>identity</code> that
 takes an argument and returns
@@ -79,6 +63,22 @@ takes a binary function, and
 makes it callable with two
 invocations</p>
 </dd>
+<dt><a href="#pure">pure()</a></dt>
+<dd><p>Write a <a href="https://en.wikipedia.org/wiki/Pure_function">pure</a> function <code>pure</code> that
+is a wrapper arround the impure
+function <code>impure</code></p>
+<pre>function impure(x) {
+  y++;
+  z = x * y;
+}
+
+var y = 5, z;
+
+impure(20);
+z; // 120
+
+impure(25);
+z; // 175</pre></dd>
 <dt><a href="#curryBinary">curryBinary(binary, a)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>curryBinary</code> that
 takes a binary function and
@@ -381,32 +381,6 @@ in the right order.</p>
 </dd>
 </dl>
 
-<a name="pure"></a>
-
-## pure()
-Write a [pure](https://en.wikipedia.org/wiki/Pure_function) function `pure` that
-is a wrapper arround the impure
-function `impure`
-
-<pre>function impure(x) {
-  y++;
-  z = x * y;
-}
-
-var y = 5, z;
-
-impure(20);
-z; // 120
-
-impure(25);
-z; // 175</pre>
-
-**Kind**: global function  
-**Example**  
-```js
-pure(20, 5) // [ 6, 120 ]
-pure(25, 6) // [ 7, 175 ]
-```
 <a name="identity"></a>
 
 ## identity(x) ⇒ <code>any</code>
@@ -609,6 +583,32 @@ let addf = liftf(add);
 addf(3)(4); // 7
 
 liftf(mul)(5)(6) // 30
+```
+<a name="pure"></a>
+
+## pure()
+Write a [pure](https://en.wikipedia.org/wiki/Pure_function) function `pure` that
+is a wrapper arround the impure
+function `impure`
+
+<pre>function impure(x) {
+  y++;
+  z = x * y;
+}
+
+var y = 5, z;
+
+impure(20);
+z; // 120
+
+impure(25);
+z; // 175</pre>
+
+**Kind**: global function  
+**Example**  
+```js
+pure(20, 5) // [ 6, 120 ]
+pure(25, 6) // [ 7, 175 ]
 ```
 <a name="curryBinary"></a>
 
