@@ -118,7 +118,7 @@ argument
 let add = acc((total, curr) => total + curr, 0);
 add(1, 2, 4) // 7
 
-let mul = acc((total, curr) => total + curr, 1);
+let mul = acc((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 
 @param {function} funct
