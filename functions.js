@@ -1506,7 +1506,7 @@ method of `vector`?
 How would you rewrite `vector` to deal
 with this issue?
 */
-function exploit(v) {
+function exploitVector(v) {
   var data;
 
   // override `push` method

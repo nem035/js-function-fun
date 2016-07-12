@@ -1068,15 +1068,15 @@ test('vector', [{
   text: 'vector test 2'
 }]);
 
-// vector exploit
-let data = exploit(v);
-test('vector exploit', [{
+// vector exploitVector
+let data = exploitVector(v);
+test('vector exploitVector', [{
   result: Array.isArray(data) &&
     data.length === 2 &&
     data[0] === v.get(0) &&
     data[1] === v.get(1),
   expected: true,
-  text: 'vector expoit works'
+  text: 'vector exploit works'
 }]);
 
 // vectorSafe
@@ -1094,8 +1094,8 @@ test('vectorSafe', [{
 }]);
 
 // vector exploit
-let dataTwo = exploit(vSafe);
-test('vector exploit', [{
+let dataTwo = exploitVector(vSafe);
+test('vector exploitVector', [{
   result: dataTwo === undefined,
   expected: true,
   text: 'vectorSafe exploit is fixed'
