@@ -393,6 +393,13 @@ test('composeb()', [{
   text: 'composeb(add, mul)(2, 3, 7) === ' + ((2 + 3) * 7)
 }]);
 
+// compose
+test('compose()', [{
+  result: compose(add, doubl, fill, max, square)(0, 1, 2),
+  expected: 36,
+  text: 'compose(add, doubl, fill, max, square)(0, 1, 2) === ' + 36
+}]);
+
 // limitb
 let addLmtb = limitb(add, 1);
 test('limitb()', [{

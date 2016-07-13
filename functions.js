@@ -705,6 +705,34 @@ function composeb(binary1, binary2) {
 }
 
 /**
+Write a function `compose` that
+takes any amount of functions
+and returns a function that takes
+any amount of arguments and gives
+them to the first function, then
+that result to the second function
+and so on
+
+@example
+const f = compose(add, doubl, fill, max);
+f(0, 1, 2)
+// add(0, 1, 2) -> 3
+// doubl(3) -> 6
+// fill(6) -> [ 6, 6, 6, 6, 6, 6 ]
+// max([ 6, 6, 6, 6, 6, 6 ]) -> 6
+
+@param {...function} funcs
+@return {function}
+*/
+function compose(...funcs) {
+  return function(...args) {
+    return funcs.reduce((result, func) => {
+      return Array.isArray(result) ? func(...result) : func(result);
+    }, args);
+  };
+}
+
+/**
 Write a function `limitb`
 that allows a binary function
 to be called a limited number
