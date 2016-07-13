@@ -79,16 +79,25 @@ but uses recursion</p>
 is the generalized <code>max</code> function
 but uses recursion</p>
 </dd>
-<dt><a href="#acc">acc(func, start)</a> ⇒ <code>function</code></dt>
+<dt><a href="#acc">acc(func, initial)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>acc</code> that
-takes a function and a
-starting value and returns
+takes a function and an
+initial value and returns
 a function that runs the
 initial function on each
 argument, accumulating the
 result</p>
 </dd>
-<dt><a href="#accRecurse">accRecurse(func, start)</a> ⇒ <code>function</code></dt>
+<dt><a href="#accPartial">accPartial(func, start, end)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>accPartial</code> that
+takes in a function, a start index,
+and an end index, and returns a
+function that accumulates a subset
+of its arguments by applying the
+given function to all elements
+between start and end.</p>
+</dd>
+<dt><a href="#accRecurse">accRecurse(func, initial)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>accRecurse</code> that
 does what <code>acc</code> does but uses recursion</p>
 </dd>
@@ -198,6 +207,15 @@ of arguments</p>
 takes two binary functions and
 returns a function that calls
 them both</p>
+</dd>
+<dt><a href="#compose">compose(...funcs)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>compose</code> that
+takes any amount of functions
+and returns a function that takes
+any amount of arguments and gives
+them to the first function, then
+that result to the second function
+and so on</p>
 </dd>
 <dt><a href="#limitb">limitb(binary, lmt)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>limitb</code>
@@ -711,10 +729,10 @@ maxRecurse(1, 2, 4) // 4
 ```
 <a name="acc"></a>
 
-## acc(func, start) ⇒ <code>function</code>
+## acc(func, initial) ⇒ <code>function</code>
 Write a function `acc` that
-takes a function and a
-starting value and returns
+takes a function and an
+initial value and returns
 a function that runs the
 initial function on each
 argument, accumulating the
@@ -725,7 +743,7 @@ result
 | Param | Type |
 | --- | --- |
 | func | <code>function</code> |
-| start | <code>any</code> |
+| initial | <code>any</code> |
 
 **Example**  
 ```js
@@ -735,9 +753,33 @@ add(1, 2, 4) // 7
 let mul = acc(mulb, 1);
 mul(1, 2, 4) // 8
 ```
+<a name="accPartial"></a>
+
+## accPartial(func, start, end) ⇒ <code>function</code>
+Write a function `accPartial` that
+takes in a function, a start index,
+and an end index, and returns a
+function that accumulates a subset
+of its arguments by applying the
+given function to all elements
+between start and end.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| func | <code>function</code> |
+| start | <code>number</code> |
+| end | <code>number</code> |
+
+**Example**  
+```js
+const addSecondToThird = accPartial(add, 1, 3);
+addSecondToThird(1, 2, 4, 8) // [ 1, 6, 8 ]
+```
 <a name="accRecurse"></a>
 
-## accRecurse(func, start) ⇒ <code>function</code>
+## accRecurse(func, initial) ⇒ <code>function</code>
 Write a function `accRecurse` that
 does what `acc` does but uses recursion
 
@@ -746,7 +788,7 @@ does what `acc` does but uses recursion
 | Param | Type |
 | --- | --- |
 | func | <code>function</code> |
-| start | <code>number</code> |
+| initial | <code>number</code> |
 
 **Example**  
 ```js
@@ -1103,6 +1145,32 @@ them both
 **Example**  
 ```js
 composeb(add, mul)(2, 3, 7) // 35
+```
+<a name="compose"></a>
+
+## compose(...funcs) ⇒ <code>function</code>
+Write a function `compose` that
+takes any amount of functions
+and returns a function that takes
+any amount of arguments and gives
+them to the first function, then
+that result to the second function
+and so on
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...funcs | <code>function</code> |
+
+**Example**  
+```js
+const f = compose(add, doubl, fill, max);
+f(0, 1, 2)
+// add(0, 1, 2) -> 3
+// doubl(3) -> 6
+// fill(6) -> [ 6, 6, 6, 6, 6, 6 ]
+// max([ 6, 6, 6, 6, 6, 6 ]) -> 6
 ```
 <a name="limitb"></a>
 
