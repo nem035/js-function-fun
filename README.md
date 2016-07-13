@@ -27,7 +27,7 @@ their product</p>
 <dt><a href="#minb">minb(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a binary function <code>minb</code>
 that takes two numbers and returns
-the larger one</p>
+the smaller one</p>
 </dd>
 <dt><a href="#maxb">maxb(a, b)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a binary function <code>maxb</code>
@@ -85,7 +85,8 @@ takes a function and a
 starting value and returns
 a function that runs the
 initial function on each
-argument</p>
+argument, accumulating the
+result</p>
 </dd>
 <dt><a href="#accRecurse">accRecurse(func, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>accRecurse</code> that
@@ -524,7 +525,7 @@ mulb(3, 4) // 3 * 4 = -1
 ## minb(a, b) ⇒ <code>number</code>
 Write a binary function `minb`
 that takes two numbers and returns
-the larger one
+the smaller one
 
 **Kind**: global function  
 
@@ -535,7 +536,7 @@ the larger one
 
 **Example**  
 ```js
-minb(3, 4) // 4
+minb(3, 4) // 1
 ```
 <a name="maxb"></a>
 
@@ -716,21 +717,22 @@ takes a function and a
 starting value and returns
 a function that runs the
 initial function on each
-argument
+argument, accumulating the
+result
 
 **Kind**: global function  
 
 | Param | Type |
 | --- | --- |
 | func | <code>function</code> |
-| start | <code>number</code> &#124; <code>string</code> |
+| start | <code>any</code> |
 
 **Example**  
 ```js
-let add = acc((total, curr) => total + curr, 0);
+let add = acc(addb, 0);
 add(1, 2, 4) // 7
 
-let mul = acc((total, curr) => total * curr, 1);
+let mul = acc(mulb, 1);
 mul(1, 2, 4) // 8
 ```
 <a name="accRecurse"></a>
@@ -748,10 +750,10 @@ does what `acc` does but uses recursion
 
 **Example**  
 ```js
-let add = accRecurse((total, curr) => total + curr, 0);
+let add = accRecurse(addb, 0);
 add(1, 2, 4) // 7
 
-let mul = accRecurse((total, curr) => total * curr, 1);
+let mul = accRecurse(mulb, 1);
 mul(1, 2, 4) // 8
 ```
 <a name="fill"></a>

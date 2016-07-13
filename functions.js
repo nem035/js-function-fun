@@ -64,10 +64,10 @@ function mulb(a, b) {
 /**
 Write a binary function `minb`
 that takes two numbers and returns
-the larger one
+the smaller one
 
 @example
-minb(3, 4) // 4
+minb(3, 4) // 1
 
 @param {number} a
 @param {number} b
@@ -268,22 +268,23 @@ takes a function and a
 starting value and returns
 a function that runs the
 initial function on each
-argument
+argument, accumulating the
+result
 
 @example
-let add = acc((total, curr) => total + curr, 0);
+let add = acc(addb, 0);
 add(1, 2, 4) // 7
 
-let mul = acc((total, curr) => total * curr, 1);
+let mul = acc(mulb, 1);
 mul(1, 2, 4) // 8
 
 @param {function} func
-@param {number|string} start
+@param {any} start
 @return {function}
 */
 function acc(func, start) {
   return function (...args) {
-    return args.reduce((total, curr, idx) => func(total, curr, idx), start);
+    return args.reduce((result, curr, idx) => func(result, curr, idx), start);
   };
 }
 
@@ -292,10 +293,10 @@ Write a function `accRecurse` that
 does what `acc` does but uses recursion
 
 @example
-let add = accRecurse((total, curr) => total + curr, 0);
+let add = accRecurse(addb, 0);
 add(1, 2, 4) // 7
 
-let mul = accRecurse((total, curr) => total * curr, 1);
+let mul = accRecurse(mulb, 1);
 mul(1, 2, 4) // 8
 
 @param {function} func
