@@ -284,11 +284,11 @@ mul(1, 2, 4) // 8
 */
 function acc(func, initial) {
   return function (...args) {
-    return args.reduce((result, curr, idx) => func(result, curr, idx), initial);
+    return args.reduce((result, curr, idx) => {
+      return func(result, curr, idx)
+    }, initial);
   };
 }
-
-
 
 /**
 Write a function `accPartial` that
@@ -380,6 +380,28 @@ function fillRecurse(num) {
     return [ num ].concat(recurse(num, times - 1));
   }
   return recurse(num, num);
+}
+
+/**
+Write a function `set` that
+is given a list of arguments
+and returns an array with
+all duplicates removed
+
+@example
+let oneAndTwo = set(1, 1, 1, 2, 2, 2); // [ 1, 2 ]
+
+@param {...any} args
+@return {array}
+*/
+function set(...args) {
+  function predicate(result, curr) {
+    if (!result.includes(curr)) {
+      result.push(curr);
+    }
+    return result;
+  }
+  return acc(predicate, [])(...args);
 }
 
 /**
@@ -681,7 +703,9 @@ composeu(doubl, square, identity, curry(add, 1, 2))(5) // (5 + 5) * (5 + 5) + 1 
 */
 function composeu(...funcs) {
   return function (x) {
-    return funcs.reduce((result, func) => func(result), x);
+    return funcs.reduce((result, func) => {
+      return func(result)
+    }, x);
   };
 }
 

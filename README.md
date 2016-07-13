@@ -112,6 +112,12 @@ number</p>
 <dd><p>Write a function <code>fillRecurse</code> that
 does what <code>fill</code> does but uses recursion</p>
 </dd>
+<dt><a href="#set">set(...args)</a> ⇒ <code>array</code></dt>
+<dd><p>Write a function <code>set</code> that
+is given a list of arguments
+and returns an array with
+all duplicates removed</p>
+</dd>
 <dt><a href="#identityf">identityf(x)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>identityf</code>
 that takes an argument and
@@ -832,6 +838,24 @@ does what `fill` does but uses recursion
 **Example**  
 ```js
 fillRecurse(3) // [ 3, 3, 3 ]
+```
+<a name="set"></a>
+
+## set(...args) ⇒ <code>array</code>
+Write a function `set` that
+is given a list of arguments
+and returns an array with
+all duplicates removed
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...args | <code>any</code> |
+
+**Example**  
+```js
+let oneAndTwo = set(1, 1, 1, 2, 2, 2); // [ 1, 2 ]
 ```
 <a name="identityf"></a>
 

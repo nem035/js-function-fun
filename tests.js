@@ -197,6 +197,16 @@ test('fillRecurse()', [{
   text: 'fillRecurse(3) === ' + `[${fillRecurseResult}]`,
 }]);
 
+// set
+let setResult = set(1, 1, 1, 2, 2, 2);
+test('set()', [{
+  result: setResult.length === 2 &&
+          setResult[0] === 1 &&
+          setResult[1] === 2,
+  expected: true,
+  text: 'set(1, 1, 1, 2, 2, 2) === ' + `[${setResult}]`
+}]);
+
 // identityf
 test('identityf()', [{
   result: identityf(3)(),
