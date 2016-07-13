@@ -1,5 +1,6 @@
 # js-function-fun
 Fun with JavaScript functions
+
 ## Functions
 
 <dl>
@@ -392,6 +393,18 @@ It will reliably deliver all
 publications to all subscribers
 in the right order.</p>
 </dd>
+<dt><a href="#mapRecurse">mapRecurse(array, predicate)</a> ⇒ <code>array</code></dt>
+<dd><p>Make a function <code>mapRecurse</code> that
+performs a transformation for each
+element of a given array, recursively</p>
+</dd>
+<dt><a href="#filterRecurse">filterRecurse(array, predicate)</a> ⇒ <code>array</code></dt>
+<dd><p>Make a function <code>filterRecurse</code> that
+takes in an array and a predicate
+function and returns a new array by
+filtering out all items using the
+predicate, recursively.</p>
+</dd>
 </dl>
 
 <a name="identity"></a>
@@ -405,7 +418,7 @@ that argument
 
 | Param | Type |
 | --- | --- |
-| x | <code>any</code> | 
+| x | <code>any</code> |
 
 **Example**  
 ```js
@@ -422,8 +435,8 @@ their sum
 
 | Param | Type |
 | --- | --- |
-| a | <code>number</code> | 
-| b | <code>number</code> | 
+| a | <code>number</code> |
+| b | <code>number</code> |
 
 **Example**  
 ```js
@@ -440,8 +453,8 @@ their difference
 
 | Param | Type |
 | --- | --- |
-| a | <code>number</code> | 
-| b | <code>number</code> | 
+| a | <code>number</code> |
+| b | <code>number</code> |
 
 **Example**  
 ```js
@@ -458,8 +471,8 @@ their product
 
 | Param | Type |
 | --- | --- |
-| a | <code>number</code> | 
-| b | <code>number</code> | 
+| a | <code>number</code> |
+| b | <code>number</code> |
 
 **Example**  
 ```js
@@ -476,7 +489,7 @@ amount of arguments
 
 | Param | Type |
 | --- | --- |
-| ...nums | <code>number</code> | 
+| ...nums | <code>number</code> |
 
 **Example**  
 ```js
@@ -493,7 +506,7 @@ amount of arguments
 
 | Param | Type |
 | --- | --- |
-| ...nums | <code>number</code> | 
+| ...nums | <code>number</code> |
 
 **Example**  
 ```js
@@ -510,7 +523,7 @@ amount of arguments
 
 | Param | Type |
 | --- | --- |
-| ...nums | <code>number</code> | 
+| ...nums | <code>number</code> |
 
 **Example**  
 ```js
@@ -527,7 +540,7 @@ but uses recursion
 
 | Param | Type |
 | --- | --- |
-| ...nums | <code>number</code> | 
+| ...nums | <code>number</code> |
 
 **Example**  
 ```js
@@ -544,7 +557,7 @@ but uses recursion
 
 | Param | Type |
 | --- | --- |
-| ...nums | <code>number</code> | 
+| ...nums | <code>number</code> |
 
 **Example**  
 ```js
@@ -564,8 +577,8 @@ argument
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
-| start | <code>number</code> &#124; <code>string</code> | 
+| func | <code>function</code> |
+| start | <code>number</code> &#124; <code>string</code> |
 
 **Example**  
 ```js
@@ -585,8 +598,8 @@ does what `acc` does but uses recursion
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
-| start | <code>number</code> &#124; <code>string</code> | 
+| func | <code>function</code> |
+| start | <code>number</code> &#124; <code>string</code> |
 
 **Example**  
 ```js
@@ -608,7 +621,7 @@ returns that argument
 
 | Param | Type |
 | --- | --- |
-| x | <code>any</code> | 
+| x | <code>any</code> |
 
 **Example**  
 ```js
@@ -625,7 +638,7 @@ adds from two invocations
 
 | Param | Type |
 | --- | --- |
-| a | <code>number</code> | 
+| a | <code>number</code> |
 
 **Example**  
 ```js
@@ -643,7 +656,7 @@ invocations
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
+| binary | <code>function</code> |
 
 **Example**  
 ```js
@@ -677,8 +690,8 @@ z; // 175</pre>
 
 | Param | Type |
 | --- | --- |
-| x | <code>number</code> | 
-| y | <code>number</code> | 
+| x | <code>number</code> |
+| y | <code>number</code> |
 
 **Example**  
 ```js
@@ -698,8 +711,8 @@ second argument
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
-| a | <code>any</code> | 
+| binary | <code>function</code> |
+| a | <code>any</code> |
 
 **Example**  
 ```js
@@ -719,8 +732,8 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
-| ...outer | <code>any</code> | 
+| func | <code>function</code> |
+| ...outer | <code>any</code> |
 
 **Example**  
 ```js
@@ -739,7 +752,7 @@ function
 
 | Param | Type |
 | --- | --- |
-| x | <code>number</code> | 
+| x | <code>number</code> |
 
 **Example**  
 ```js
@@ -759,7 +772,7 @@ the binary function twice
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
+| binary | <code>function</code> |
 
 **Example**  
 ```js
@@ -779,7 +792,7 @@ create the `doubl` function
 
 | Param | Type |
 | --- | --- |
-| x | <code>number</code> | 
+| x | <code>number</code> |
 
 **Example**  
 ```js
@@ -795,7 +808,7 @@ create the `square` function
 
 | Param | Type |
 | --- | --- |
-| x | <code>number</code> | 
+| x | <code>number</code> |
 
 **Example**  
 ```js
@@ -812,7 +825,7 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| x | <code>function</code> | 
+| x | <code>function</code> |
 
 **Example**  
 ```js
@@ -830,7 +843,7 @@ binary function
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
+| binary | <code>function</code> |
 
 **Example**  
 ```js
@@ -848,7 +861,7 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
+| func | <code>function</code> |
 
 **Example**  
 ```js
@@ -866,8 +879,8 @@ calls them both
 
 | Param | Type |
 | --- | --- |
-| unary1 | <code>function</code> | 
-| unary2 | <code>function</code> | 
+| unary1 | <code>function</code> |
+| unary2 | <code>function</code> |
 
 **Example**  
 ```js
@@ -884,7 +897,7 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| ...funcs | <code>function</code> | 
+| ...funcs | <code>function</code> |
 
 **Example**  
 ```js
@@ -902,8 +915,8 @@ them both
 
 | Param | Type |
 | --- | --- |
-| binary1 | <code>function</code> | 
-| binary2 | <code>function</code> | 
+| binary1 | <code>function</code> |
+| binary2 | <code>function</code> |
 
 **Example**  
 ```js
@@ -921,8 +934,8 @@ of times
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
-| lmt | <code>number</code> | 
+| binary | <code>function</code> |
+| lmt | <code>number</code> |
 
 **Example**  
 ```js
@@ -941,8 +954,8 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
-| lmt | <code>number</code> | 
+| func | <code>function</code> |
+| lmt | <code>number</code> |
 
 **Example**  
 ```js
@@ -961,7 +974,7 @@ produces a series of values
 
 | Param | Type |
 | --- | --- |
-| x | <code>number</code> | 
+| x | <code>number</code> |
 
 **Example**  
 ```js
@@ -984,8 +997,8 @@ to that limit
 
 | Param | Type |
 | --- | --- |
-| gen | <code>function</code> | 
-| lmt | <code>number</code> | 
+| gen | <code>function</code> |
+| lmt | <code>number</code> |
 
 **Example**  
 ```js
@@ -1006,8 +1019,8 @@ produce values in a range
 
 | Param | Type |
 | --- | --- |
-| start | <code>number</code> | 
-| end | <code>number</code> | 
+| start | <code>number</code> |
+| end | <code>number</code> |
 
 **Example**  
 ```js
@@ -1029,8 +1042,8 @@ produce elements from the array
 
 | Param | Type |
 | --- | --- |
-| array | <code>array</code> | 
-| gen | <code>function</code> | 
+| array | <code>array</code> |
+| gen | <code>function</code> |
 
 **Example**  
 ```js
@@ -1056,8 +1069,8 @@ will be produced.
 
 | Param | Type |
 | --- | --- |
-| array | <code>array</code> | 
-| gen | <code>function</code> | 
+| array | <code>array</code> |
+| gen | <code>function</code> |
 
 **Example**  
 ```js
@@ -1083,8 +1096,8 @@ in the array
 
 | Param | Type |
 | --- | --- |
-| gen | <code>function</code> | 
-| array | <code>array</code> | 
+| gen | <code>function</code> |
+| array | <code>array</code> |
 
 **Example**  
 ```js
@@ -1108,8 +1121,8 @@ values approved by the predicate
 
 | Param | Type |
 | --- | --- |
-| gen | <code>function</code> | 
-| predicate | <code>function</code> | 
+| gen | <code>function</code> |
+| predicate | <code>function</code> |
 
 **Example**  
 ```js
@@ -1129,8 +1142,8 @@ tail-recursion to perform the filtering
 
 | Param | Type |
 | --- | --- |
-| gen | <code>function</code> | 
-| predicate | <code>function</code> | 
+| gen | <code>function</code> |
+| predicate | <code>function</code> |
 
 **Example**  
 ```js
@@ -1152,8 +1165,8 @@ that combines the sequences
 
 | Param | Type |
 | --- | --- |
-| gen1 | <code>function</code> | 
-| gen2 | <code>function</code> | 
+| gen1 | <code>function</code> |
+| gen2 | <code>function</code> |
 
 **Example**  
 ```js
@@ -1176,7 +1189,7 @@ of arguments
 
 | Param | Type |
 | --- | --- |
-| ...gens | <code>function</code> | 
+| ...gens | <code>function</code> |
 
 **Example**  
 ```js
@@ -1200,7 +1213,7 @@ tail-recursion to perform the concating
 
 | Param | Type |
 | --- | --- |
-| ...gens | <code>function</code> | 
+| ...gens | <code>function</code> |
 
 **Example**  
 ```js
@@ -1225,7 +1238,7 @@ unique symbols
 
 | Param | Type |
 | --- | --- |
-| symbol | <code>string</code> | 
+| symbol | <code>string</code> |
 
 **Example**  
 ```js
@@ -1248,8 +1261,8 @@ seed and returns a `gensymf`
 
 | Param | Type |
 | --- | --- |
-| unary | <code>function</code> | 
-| seed | <code>number</code> | 
+| unary | <code>function</code> |
+| seed | <code>number</code> |
 
 **Example**  
 ```js
@@ -1273,8 +1286,8 @@ return the next fibonacci number
 
 | Param | Type |
 | --- | --- |
-| first | <code>number</code> | 
-| second | <code>number</code> | 
+| first | <code>number</code> |
+| second | <code>number</code> |
 
 **Example**  
 ```js
@@ -1299,7 +1312,7 @@ the counter
 
 | Param | Type |
 | --- | --- |
-| i | <code>number</code> | 
+| i | <code>number</code> |
 
 **Example**  
 ```js
@@ -1325,7 +1338,7 @@ that disables the `invoke` function
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
+| binary | <code>function</code> |
 
 **Example**  
 ```js
@@ -1346,7 +1359,7 @@ arguments
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
+| func | <code>function</code> |
 
 **Example**  
 ```js
@@ -1369,8 +1382,8 @@ extracting that property
 
 | Param | Type |
 | --- | --- |
-| array | <code>array</code> | 
-| prop | <code>string</code> | 
+| array | <code>array</code> |
+| prop | <code>string</code> |
 
 **Example**  
 ```js
@@ -1390,8 +1403,8 @@ object
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> | 
-| source | <code>any</code> | 
+| value | <code>any</code> |
+| source | <code>any</code> |
 
 **Example**  
 ```js
@@ -1410,8 +1423,8 @@ returns an `m` object
 
 | Param | Type |
 | --- | --- |
-| m1 | <code>function</code> | 
-| m2 | <code>function</code> | 
+| m1 | <code>function</code> |
+| m2 | <code>function</code> |
 
 **Example**  
 ```js
@@ -1430,7 +1443,7 @@ arguments
 
 | Param | Type |
 | --- | --- |
-| ...ms | <code>function</code> | 
+| ...ms | <code>function</code> |
 
 **Example**  
 ```js
@@ -1448,8 +1461,8 @@ that acts on `m` objects
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
-| op | <code>string</code> | 
+| binary | <code>function</code> |
+| op | <code>string</code> |
 
 **Example**  
 ```js
@@ -1471,8 +1484,8 @@ are either numbers or m objects
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
-| op | <code>string</code> | 
+| binary | <code>function</code> |
+| op | <code>string</code> |
 
 **Example**  
 ```js
@@ -1491,8 +1504,8 @@ arguments
 
 | Param | Type |
 | --- | --- |
-| func | <code>function</code> | 
-| op | <code>string</code> | 
+| func | <code>function</code> |
+| op | <code>string</code> |
 
 **Example**  
 ```js
@@ -1513,7 +1526,7 @@ expressions
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> | 
+| value | <code>any</code> |
 
 **Example**  
 ```js
@@ -1533,7 +1546,7 @@ expressions
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> | 
+| value | <code>any</code> |
 
 **Example**  
 ```js
@@ -1560,7 +1573,7 @@ invocation
 
 | Param | Type |
 | --- | --- |
-| value | <code>number</code> | 
+| value | <code>number</code> |
 
 **Example**  
 ```js
@@ -1581,7 +1594,7 @@ and apply it to many invocations
 
 | Param | Type |
 | --- | --- |
-| binary | <code>function</code> | 
+| binary | <code>function</code> |
 
 **Example**  
 ```js
@@ -1601,7 +1614,7 @@ invocations
 
 | Param | Type |
 | --- | --- |
-| value | <code>any</code> | 
+| value | <code>any</code> |
 
 **Example**  
 ```js
@@ -1622,7 +1635,7 @@ argument
 
 | Param | Type |
 | --- | --- |
-| unary | <code>function</code> | 
+| unary | <code>function</code> |
 
 **Example**  
 ```js
@@ -1642,7 +1655,7 @@ argument
 
 | Param | Type |
 | --- | --- |
-| any | <code>function</code> | 
+| any | <code>function</code> |
 
 **Example**  
 ```js
@@ -1736,4 +1749,42 @@ in the right order.
 let ps = pubsub();
 ps.subscribe(log);
 ps.publish('It works!') // log('It works!')
+```
+<a name="mapRecurse"></a>
+
+## mapRecurse(array, predicate) ⇒ <code>array</code>
+Make a function `mapRecurse` that
+performs a transformation for each
+element of a given array, recursively
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| array | <code>array</code> |
+| predicate | <code>function</code> |
+
+**Example**  
+```js
+mapRecurse([ 1, 2, 3, 4 ], x => x * 2) // [ 2, 4, 6, 8 ]
+```
+<a name="filterRecurse"></a>
+
+## filterRecurse(array, predicate) ⇒ <code>array</code>
+Make a function `filterRecurse` that
+takes in an array and a predicate
+function and returns a new array by
+filtering out all items using the
+predicate, recursively.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| array | <code>array</code> |
+| predicate | <code>function</code> |
+
+**Example**  
+```js
+filterRecurse([ 1, 2, 3, 4 ], x => x % 2 === 0) // [ 2, 4 ]
 ```
