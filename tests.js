@@ -139,6 +139,21 @@ test('maxRecurse()', [{
   text: 'maxRecurse(1, 2, 4) === ' + (Math.max(1, 2, 4)),
 }]);
 
+// not
+const isOdd = x => x % 2 === 1;
+const isEven = not(isOdd);
+isEven(1) // false
+isEven(2) // true
+test('not()', [{
+  result: isEven(1),
+  expected: false,
+  text: 'not(x => x % 2 === 1)(1) === ' + false
+}, {
+  result: isEven(2),
+  expected: true,
+  text: 'not(x => x % 2 === 1)(2) === ' + true
+}]);
+
 // acc
 test('acc()', [{
   result: acc((a, b) => a + b, 0)(1, 2, 4),
@@ -422,13 +437,6 @@ test('compose()', [{
   result: compose(add, doubl, fill, max, square)(0, 1, 2),
   expected: 36,
   text: 'compose(add, doubl, fill, max, square)(0, 1, 2) === ' + 36
-}]);
-
-// compose2
-test('compose2()', [{
-  result: compose2(add, doubl, fill, max, square)(0, 1, 2),
-  expected: 36,
-  text: 'compose2(add, doubl, fill, max, square)(0, 1, 2) === ' + 36
 }]);
 
 // limitb

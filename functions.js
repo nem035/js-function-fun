@@ -263,6 +263,26 @@ function maxRecurse(...nums) {
 }
 
 /**
+Write a function `not` that
+takes a function and returns
+the negation of its result
+
+@example
+const isOdd = x => x % 2 === 1;
+const isEven = not(isOdd);
+isEven(1) // false
+isEven(2) // true
+
+@param {function} func
+@return {function}
+*/
+function not(func) {
+  return function(...args) {
+    return !func(...args);
+  };
+}
+
+/**
 Write a function `acc` that
 takes a function and an
 initial value and returns

@@ -79,6 +79,11 @@ but uses recursion</p>
 is the generalized <code>max</code> function
 but uses recursion</p>
 </dd>
+<dt><a href="#not">not(func)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>not</code> that
+takes a function and returns
+the negation of its result</p>
+</dd>
 <dt><a href="#acc">acc(func, initial)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>acc</code> that
 takes a function and an
@@ -737,6 +742,26 @@ but uses recursion
 **Example**  
 ```js
 maxRecurse(1, 2, 4) // 4
+```
+<a name="not"></a>
+
+## not(func) ⇒ <code>function</code>
+Write a function `not` that
+takes a function and returns
+the negation of its result
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| func | <code>function</code> |
+
+**Example**  
+```js
+const isOdd = x => x % 2 === 1;
+const isEven = not(isOdd);
+isEven(1) // false
+isEven(2) // true
 ```
 <a name="acc"></a>
 
