@@ -264,8 +264,8 @@ function maxRecurse(...nums) {
 
 /**
 Write a function `acc` that
-takes a function and a
-starting value and returns
+takes a function and an
+initial value and returns
 a function that runs the
 initial function on each
 argument, accumulating the
@@ -279,12 +279,12 @@ let mul = acc(mulb, 1);
 mul(1, 2, 4) // 8
 
 @param {function} func
-@param {any} start
+@param {any} initial
 @return {function}
 */
-function acc(func, start) {
+function acc(func, initial) {
   return function (...args) {
-    return args.reduce((result, curr, idx) => func(result, curr, idx), start);
+    return args.reduce((result, curr, idx) => func(result, curr, idx), initial);
   };
 }
 
@@ -300,13 +300,13 @@ let mul = accRecurse(mulb, 1);
 mul(1, 2, 4) // 8
 
 @param {function} func
-@param {number} start
+@param {number} initial
 @return {function}
 */
-function accRecurse(func, start) {
+function accRecurse(func, initial) {
   return function recurse(...nums) {
     if (nums.length < 1) {
-      return start;
+      return initial;
     }
     if (nums.length === 1) {
       return nums[0];
