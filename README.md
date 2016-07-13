@@ -214,6 +214,11 @@ takes two binary functions and
 returns a function that calls
 them both</p>
 </dd>
+<dt><a href="#composeTwo">composeTwo(func1, func2)</a> ⇒ <code>function</code></dt>
+<dd><p>Write a function <code>composeTwo</code> that
+takes two functions and returns a
+function that calls them both</p>
+</dd>
 <dt><a href="#compose">compose(...funcs)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>compose</code> that
 takes any amount of functions
@@ -1168,7 +1173,25 @@ them both
 
 **Example**  
 ```js
-composeb(add, mul)(2, 3, 7) // 35
+composeb(addb, mulb)(2, 3, 7) // 35
+```
+<a name="composeTwo"></a>
+
+## composeTwo(func1, func2) ⇒ <code>function</code>
+Write a function `composeTwo` that
+takes two functions and returns a
+function that calls them both
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| func1 | <code>function</code> |
+| func2 | <code>function</code> |
+
+**Example**  
+```js
+composeTwo(add, square)(2, 3, 7) // (2 + 3 + 7)^2 = 144
 ```
 <a name="compose"></a>
 
