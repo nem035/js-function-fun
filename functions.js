@@ -62,6 +62,38 @@ function mulb(a, b) {
 }
 
 /**
+Write a binary function `minb`
+that takes two numbers and returns
+the larger one
+
+@example
+minb(3, 4) // 4
+
+@param {number} a
+@param {number} b
+@return {number}
+*/
+function minb(a, b) {
+  return a < b ? a : b;
+}
+
+/**
+Write a binary function `maxb`
+that takes two numbers and returns
+the larger one
+
+@example
+maxb(3, 4) // 4
+
+@param {number} a
+@param {number} b
+@return {number}
+*/
+function maxb(a, b) {
+  return a > b ? a : b;
+}
+
+/**
 Write a function `add` that
 is generalized for any
 amount of arguments
@@ -73,7 +105,9 @@ add(1, 2, 4) // 1 + 2 + 4 = 7
 @return {number}
 */
 function add(...nums) {
-  return nums.reduce((total, curr) => total + curr, 0);
+  return nums.reduce((total, curr) => {
+    return total + curr;
+  }, 0);
 }
 
 /**
@@ -88,7 +122,9 @@ sub(1, 2, 4) // 1 - 2 - 4 = -5
 @return {number}
 */
 function sub(first, ...rest) {
-  return rest.reduce((total, curr) => total - curr, first);
+  return rest.reduce((total, curr) => {
+    return total - curr;
+  }, first);
 }
 
 /**
@@ -103,7 +139,43 @@ mul(1, 2, 4) // 1 * 2 * 4 = 8
 @return {number}
 */
 function mul(...nums) {
-  return nums.reduce((total, curr) => total * curr, 1);
+  return nums.reduce((total, curr) => {
+    return total * curr;
+  }, 1);
+}
+
+/**
+Write a function `min` that
+is generalized for any
+amount of arguments
+
+@example
+min(1, 2, 4) // 1
+
+@param {...number} nums
+@return {number}
+*/
+function min(...nums) {
+  return nums.reduce((result, num) => {
+    return minb(result, num);
+  }, Number.MAX_VALUE);
+}
+
+/**
+Write a function `max` that
+is generalized for any
+amount of arguments
+
+@example
+max(1, 2, 4) // 4
+
+@param {...number} nums
+@return {number}
+*/
+function max(...nums) {
+  return nums.reduce((result, num) => {
+    return maxb(result, num);
+  }, Number.MIN_VALUE);
 }
 
 /**
@@ -118,8 +190,12 @@ addRecurse(1, 2, 4) // 1 + 2 + 4 = 7
 @return {number}
 */
 function addRecurse(...nums) {
-  if (nums.length < 1) return 0;
-  if (nums.length === 1) return nums[0];
+  if (nums.length < 1) {
+    return 0;
+  }
+  if (nums.length === 1) {
+    return nums[0];
+  }
   return nums[0] + addRecurse(...nums.slice(1));
 }
 
@@ -135,9 +211,55 @@ mulRecurse(1, 2, 4) // 1 * 2 * 4 = 8
 @return {number}
 */
 function mulRecurse(...nums) {
-  if (nums.length < 1) return 1;
-  if (nums.length === 1) return nums[0];
+  if (nums.length < 1) {
+    return 1;
+  }
+  if (nums.length === 1) {
+    return nums[0];
+  }
   return nums[0] * mulRecurse(...nums.slice(1));
+}
+
+/**
+Write a function `minRecurse` that
+is the generalized `min` function
+but uses recursion
+
+@example
+minRecurse(1, 2, 4) // 1
+
+@param {...number} nums
+@return {number}
+*/
+function minRecurse(...nums) {
+  if (nums.length < 1) {
+    return Number.MAX_VALUE;
+  }
+  if (nums.length === 1) {
+    return nums[0];
+  }
+  return minb(nums[0], minRecurse(...nums.slice(1)));
+}
+
+/**
+Write a function `maxRecurse` that
+is the generalized `max` function
+but uses recursion
+
+@example
+maxRecurse(1, 2, 4) // 4
+
+@param {...number} nums
+@return {number}
+*/
+function maxRecurse(...nums) {
+  if (nums.length < 1) {
+    return Number.MIN_VALUE;
+  }
+  if (nums.length === 1) {
+    return nums[0];
+  }
+  return maxb(nums[0], maxRecurse(...nums.slice(1)));
 }
 
 /**
@@ -177,15 +299,56 @@ let mul = accRecurse((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
 
 @param {function} func
-@param {number|string} start
+@param {number} start
 @return {function}
 */
 function accRecurse(func, start) {
-  return function recurse(...args) {
-    if (args.length < 1) return start;
-    if (args.length === 1) return args[0];
-    return func(args[0], recurse(...args.slice(1)));
+  return function recurse(...nums) {
+    if (nums.length < 1) {
+      return start;
+    }
+    if (nums.length === 1) {
+      return nums[0];
+    }
+    return func(nums[0], recurse(...nums.slice(1)));
   }
+}
+
+/**
+Write a function `fill` that
+takes a number and returns
+an array with that many
+numbers equal to the given
+number
+
+@example
+fill(3) // [ 3, 3, 3 ]
+
+@param {number} num
+@return {array}
+*/
+function fill(num) {
+  return new Array(num).fill(num);
+}
+
+/**
+Write a function `fillRecurse` that
+does what `fill` does but uses recursion
+
+@example
+fillRecurse(3) // [ 3, 3, 3 ]
+
+@param {number} num
+@return {array}
+*/
+function fillRecurse(num) {
+  function recurse(num, times) {
+    if (times === 0) {
+      return [];
+    }
+    return [ num ].concat(recurse(num, times - 1));
+  }
+  return recurse(num, num);
 }
 
 /**
@@ -724,9 +887,9 @@ values approved by the predicate
 @example
 let fil = filter(genFromTo(0, 5), val => val % 3);
 
-fill() // 0
-fill() // 3
-fill() // undefined
+fil() // 0
+fil() // 3
+fil() // undefined
 
 @param {function} gen
 @param {function} predicate
@@ -750,9 +913,9 @@ tail-recursion to perform the filtering
 let third = val => val % 3 === 0;
 let fil = filterTail(genFromTo(0, 5), third);
 
-fill() // 0
-fill() // 3
-fill() // undefined
+fil() // 0
+fil() // 3
+fil() // undefined
 
 @param {function} gen
 @param {function} predicate
@@ -1698,7 +1861,7 @@ function mapRecurse(array, predicate) {
   if (array.length < 1) {
     return array;
   }
-  const newArray = [predicate(array[0])];
+  const newArray = [ predicate(array[0]) ];
   return newArray.concat(mapRecurse(array.slice(1), predicate));
 }
 

@@ -41,50 +41,102 @@ test('identity', [{
   text: 'identity(3) === ',
 }]);
 
-// addb, subb, mul
+// addb
 test('addb', [{
   result: addb(1, 2),
   expected: 1 + 2,
   text: 'addb(1, 2) === ' + (1 + 2),
 }]);
+
+// subb
 test('subb', [{
   result: subb(1, 2),
   expected: 1 - 2,
   text: 'subb(1, 2) === ' + (1 - 2),
 }]);
+
+// mulb
 test('mulb', [{
   result: mulb(1, 2),
   expected: 1 * 2,
   text: 'mulb(1, 2) === ' + (1 * 2),
 }]);
 
-// add, sub, mul
+// minb
+test('minb', [{
+  result: minb(3, 4),
+  expected: Math.min(3, 4),
+  text: 'minb(3, 4) === ' + Math.min(3, 4)
+}]);
+
+// maxb
+test('maxb', [{
+  result: maxb(3, 4),
+  expected: Math.max(3, 4),
+  text: 'maxb(3, 4) === ' + Math.max(3, 4)
+}]);
+
+// add
 test('add', [{
   result: add(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'add(1, 2, 4) === ' + (1 + 2 + 4),
 }]);
+
+// sub
 test('sub', [{
   result: sub(1, 2, 4),
   expected: 1 - 2 - 4,
   text: 'sub(1, 2, 4) === ' + (1 - 2 - 4),
 }]);
+
+// mul
 test('mul', [{
   result: mul(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
-// addRecurse, mulRecurse
+// min
+test('min', [{
+  result: min(1, 2, 4),
+  expected: Math.min(1, 2, 4),
+  text: 'min(1, 2, 4) === ' + Math.min(1, 2, 4),
+}]);
+
+// max
+test('max', [{
+  result: max(1, 2, 4),
+  expected: Math.max(1, 2, 4),
+  text: 'max(1, 2, 4) === ' + Math.max(1, 2, 4),
+}]);
+
+// addRecurse
 test('addRecurse', [{
   result: addRecurse(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'addRecurse(1, 2, 4) === ' + (1 + 2 + 4),
 }]);
+
+// mulRecurse
 test('mulRecurse', [{
   result: mulRecurse(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'mulRecurse(1, 2, 4) === ' + (1 * 2 * 4),
+}]);
+
+// minRecurse
+test('minRecurse', [{
+  result: minRecurse(1, 2, 4),
+  expected: Math.min(1, 2, 4),
+  text: 'minRecurse(1, 2, 4) === ' + (Math.min(1, 2, 4)),
+}]);
+
+// maxRecurse
+test('maxRecurse', [{
+  result: maxRecurse(1, 2, 4),
+  expected: Math.max(1, 2, 4),
+  text: 'maxRecurse(1, 2, 4) === ' + (Math.max(1, 2, 4)),
 }]);
 
 // acc
@@ -107,6 +159,30 @@ test('accRecurse', [{
   result: accRecurse((a, b) => a * b, 1)(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'accRecurse((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
+}]);
+
+// fill
+let fillResult = fill(3);
+let fillExpected = [ 3, 3, 3 ];
+test('fill', [{
+  result: fillResult.length === 3 &&
+          fillResult[0] === fillResult[1] &&
+          fillResult[1] === fillResult[2] &&
+          fillResult[2] === 3,
+  expected: true,
+  text: 'fill(3) === ' + `[${fillResult}]`,
+}]);
+
+// fillRecurse
+let fillRecurseResult = fillRecurse(3);
+let fillRecurseExpected = [ 3, 3, 3 ];
+test('fillRecurse', [{
+  result: fillRecurseResult.length === 3 &&
+          fillRecurseResult[0] === fillRecurseResult[1] &&
+          fillRecurseResult[1] === fillRecurseResult[2] &&
+          fillRecurseResult[2] === 3,
+  expected: true,
+  text: 'fillRecurse(3) === ' + `[${fillRecurseResult}]`,
 }]);
 
 // identityf

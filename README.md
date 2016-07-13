@@ -24,6 +24,16 @@ their difference</p>
 that takes two numbers and returns
 their product</p>
 </dd>
+<dt><a href="#minb">minb(a, b)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a binary function <code>minb</code>
+that takes two numbers and returns
+the larger one</p>
+</dd>
+<dt><a href="#maxb">maxb(a, b)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a binary function <code>maxb</code>
+that takes two numbers and returns
+the larger one</p>
+</dd>
 <dt><a href="#add">add(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>add</code> that
 is generalized for any
@@ -39,6 +49,16 @@ amount of arguments</p>
 is generalized for any
 amount of arguments</p>
 </dd>
+<dt><a href="#min">min(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>min</code> that
+is generalized for any
+amount of arguments</p>
+</dd>
+<dt><a href="#max">max(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>max</code> that
+is generalized for any
+amount of arguments</p>
+</dd>
 <dt><a href="#addRecurse">addRecurse(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>addRecurse</code> that
 is the generalized <code>add</code> function
@@ -47,6 +67,16 @@ but uses recursion</p>
 <dt><a href="#mulRecurse">mulRecurse(...nums)</a> ⇒ <code>number</code></dt>
 <dd><p>Write a function <code>mulRecurse</code> that
 is the generalized <code>mul</code> function
+but uses recursion</p>
+</dd>
+<dt><a href="#minRecurse">minRecurse(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>minRecurse</code> that
+is the generalized <code>min</code> function
+but uses recursion</p>
+</dd>
+<dt><a href="#maxRecurse">maxRecurse(...nums)</a> ⇒ <code>number</code></dt>
+<dd><p>Write a function <code>maxRecurse</code> that
+is the generalized <code>max</code> function
 but uses recursion</p>
 </dd>
 <dt><a href="#acc">acc(func, start)</a> ⇒ <code>function</code></dt>
@@ -60,6 +90,17 @@ argument</p>
 <dt><a href="#accRecurse">accRecurse(func, start)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>accRecurse</code> that
 does what <code>acc</code> does but uses recursion</p>
+</dd>
+<dt><a href="#fill">fill(num)</a> ⇒ <code>array</code></dt>
+<dd><p>Write a function <code>fill</code> that
+takes a number and returns
+an array with that many
+numbers equal to the given
+number</p>
+</dd>
+<dt><a href="#fillRecurse">fillRecurse(num)</a> ⇒ <code>array</code></dt>
+<dd><p>Write a function <code>fillRecurse</code> that
+does what <code>fill</code> does but uses recursion</p>
 </dd>
 <dt><a href="#identityf">identityf(x)</a> ⇒ <code>function</code></dt>
 <dd><p>Write a function <code>identityf</code>
@@ -478,6 +519,42 @@ their product
 ```js
 mulb(3, 4) // 3 * 4 = -1
 ```
+<a name="minb"></a>
+
+## minb(a, b) ⇒ <code>number</code>
+Write a binary function `minb`
+that takes two numbers and returns
+the larger one
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| a | <code>number</code> |
+| b | <code>number</code> |
+
+**Example**  
+```js
+minb(3, 4) // 4
+```
+<a name="maxb"></a>
+
+## maxb(a, b) ⇒ <code>number</code>
+Write a binary function `maxb`
+that takes two numbers and returns
+the larger one
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| a | <code>number</code> |
+| b | <code>number</code> |
+
+**Example**  
+```js
+maxb(3, 4) // 4
+```
 <a name="add"></a>
 
 ## add(...nums) ⇒ <code>number</code>
@@ -529,6 +606,40 @@ amount of arguments
 ```js
 mul(1, 2, 4) // 1 * 2 * 4 = 8
 ```
+<a name="min"></a>
+
+## min(...nums) ⇒ <code>number</code>
+Write a function `min` that
+is generalized for any
+amount of arguments
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+min(1, 2, 4) // 1
+```
+<a name="max"></a>
+
+## max(...nums) ⇒ <code>number</code>
+Write a function `max` that
+is generalized for any
+amount of arguments
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+max(1, 2, 4) // 4
+```
 <a name="addRecurse"></a>
 
 ## addRecurse(...nums) ⇒ <code>number</code>
@@ -562,6 +673,40 @@ but uses recursion
 **Example**  
 ```js
 mulRecurse(1, 2, 4) // 1 * 2 * 4 = 8
+```
+<a name="minRecurse"></a>
+
+## minRecurse(...nums) ⇒ <code>number</code>
+Write a function `minRecurse` that
+is the generalized `min` function
+but uses recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+minRecurse(1, 2, 4) // 1
+```
+<a name="maxRecurse"></a>
+
+## maxRecurse(...nums) ⇒ <code>number</code>
+Write a function `maxRecurse` that
+is the generalized `max` function
+but uses recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| ...nums | <code>number</code> |
+
+**Example**  
+```js
+maxRecurse(1, 2, 4) // 4
 ```
 <a name="acc"></a>
 
@@ -599,7 +744,7 @@ does what `acc` does but uses recursion
 | Param | Type |
 | --- | --- |
 | func | <code>function</code> |
-| start | <code>number</code> &#124; <code>string</code> |
+| start | <code>number</code> |
 
 **Example**  
 ```js
@@ -608,6 +753,41 @@ add(1, 2, 4) // 7
 
 let mul = accRecurse((total, curr) => total * curr, 1);
 mul(1, 2, 4) // 8
+```
+<a name="fill"></a>
+
+## fill(num) ⇒ <code>array</code>
+Write a function `fill` that
+takes a number and returns
+an array with that many
+numbers equal to the given
+number
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| num | <code>number</code> |
+
+**Example**  
+```js
+fill(3) // [ 3, 3, 3 ]
+```
+<a name="fillRecurse"></a>
+
+## fillRecurse(num) ⇒ <code>array</code>
+Write a function `fillRecurse` that
+does what `fill` does but uses recursion
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| num | <code>number</code> |
+
+**Example**  
+```js
+fillRecurse(3) // [ 3, 3, 3 ]
 ```
 <a name="identityf"></a>
 
@@ -1128,9 +1308,9 @@ values approved by the predicate
 ```js
 let fil = filter(genFromTo(0, 5), val => val % 3);
 
-fill() // 0
-fill() // 3
-fill() // undefined
+fil() // 0
+fil() // 3
+fil() // undefined
 ```
 <a name="filterTail"></a>
 
@@ -1150,9 +1330,9 @@ tail-recursion to perform the filtering
 let third = val => val % 3 === 0;
 let fil = filterTail(genFromTo(0, 5), third);
 
-fill() // 0
-fill() // 3
-fill() // undefined
+fil() // 0
+fil() // 3
+fil() // undefined
 ```
 <a name="concatTwo"></a>
 
