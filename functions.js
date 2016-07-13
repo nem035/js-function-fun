@@ -283,7 +283,7 @@ mul(1, 2, 4) // 8
 @return {function}
 */
 function acc(func, initial) {
-  return function (...args) {
+  return function(...args) {
     return args.reduce((result, curr, idx) => {
       return func(result, curr, idx)
     }, initial);
@@ -418,7 +418,7 @@ three(); // 3
 @return {function}
 */
 function identityf(x) {
-  return function () {
+  return function() {
     return identity(x);
   };
 }
@@ -434,7 +434,7 @@ addf(3)(4) // 7
 @return {function}
 */
 function addf(a) {
-  return function (b) {
+  return function(b) {
     return addb(a, b);
   };
 }
@@ -455,8 +455,8 @@ liftf(mul)(5)(6) // 30
 @return {function}
 */
 function liftf(binary) {
-  return function (a) {
-    return function (b) {
+  return function(a) {
+    return function(b) {
       return binary(a, b);
     };
   };
@@ -534,7 +534,7 @@ curry(mul, 1, 2, 4)(4, 2, 1) = 1 * 2 * 4 * 4 * 2 * 1 = 64
 @return {function}
 */
 function curry(func, ...outer) {
-  return function (...inner) {
+  return function(...inner) {
     return func(...outer, ...inner);
   };
 }
@@ -585,7 +585,7 @@ square(11) // 121
 @return {function}
 */
 function twiceUnary(binary) {
-  return function (x) {
+  return function(x) {
     return binary(x, x);
   };
 }
@@ -631,7 +631,7 @@ doubleSum(1, 2, 4) // 1 + 2 + 4 + 1 + 2 + 4 = 14
 @return {any}
 */
 function twice(func) {
-  return function (...args) {
+  return function(...args) {
     return func(...args, ...args);
   };
 }
@@ -649,7 +649,7 @@ bus(3, 2) // -1
 @return {function}
 */
 function reverseb(binary) {
-  return function (a, b) {
+  return function(a, b) {
     return binary(b, a);
   };
 }
@@ -666,7 +666,7 @@ reverse(sub)(1, 2, 4) // 4 - 2 - 1 = 1
 @return {function}
 */
 function reverse(func) {
-  return function (...args) {
+  return function(...args) {
     return func(...args.reverse());
   };
 }
@@ -685,7 +685,7 @@ composeuTwo(doubl, square)(5) // 100
 @return {function}
 */
 function composeuTwo(unary1, unary2) {
-  return function (x) {
+  return function(x) {
     return unary2(unary1(x));
   };
 }
@@ -702,10 +702,18 @@ composeu(doubl, square, identity, curry(add, 1, 2))(5) // (5 + 5) * (5 + 5) + 1 
 @return {any}
 */
 function composeu(...funcs) {
-  return function (x) {
+  return function(x) {
     return funcs.reduce((result, func) => {
-      return func(result)
+      return func(result);
     }, x);
+  };
+}
+
+function composeu2(...funcs) {
+  return function(x) {
+    return funcs.reduce((prev, curr) => {
+      return composeuTwo(prev, curr);
+    }, identityf(x))();
   };
 }
 
@@ -716,16 +724,34 @@ returns a function that calls
 them both
 
 @example
-composeb(add, mul)(2, 3, 7) // 35
+composeb(addb, mulb)(2, 3, 7) // 35
 
 @param {function} binary1
 @param {function} binary2
 @return {function}
 */
 function composeb(binary1, binary2) {
-  return function (a, b, c) {
+  return function(a, b, c) {
     return binary2(binary1(a, b), c);
   };
+}
+
+/**
+Write a function `composeTwo` that
+takes two functions and returns a
+function that calls them both
+
+@example
+composeTwo(add, square)(2, 3, 7) // (2 + 3 + 7)^2 = 144
+
+@param {function} func1
+@param {function} func2
+@return {function}
+*/
+function composeTwo(func1, func2) {
+  return function(...args) {
+    return func2(func1(...args));
+  }
 }
 
 /**
@@ -772,7 +798,7 @@ addLmtb(3, 5) // undefined
 @return {function}
 */
 function limitb(binary, lmt) {
-  return function (a, b) {
+  return function(a, b) {
     if (lmt > 0) {
       lmt -= 1;
       return binary(a, b);
@@ -796,7 +822,7 @@ addLmt(3, 5, 9, 2) // undefined
 @return {function}
 */
 function limit(func, lmt) {
-  return function (...args) {
+  return function(...args) {
     if (lmt > 0) {
       lmt -= 1;
       return func(...args);
@@ -821,7 +847,7 @@ index() // 2
 @return {function}
 */
 function genFrom(x) {
-  return function () {
+  return function() {
     let next = x;
     x += 1;
     return next;
@@ -847,7 +873,7 @@ index() // undefined
 @return {function}
 */
 function genTo(gen, lmt) {
-  return function (x) {
+  return function(x) {
     let next = gen(x);
     if (next < lmt) {
       return next;
@@ -896,7 +922,7 @@ ele() // undefined
 @return {function}
 */
 function elementGen(array, gen) {
-  return function () {
+  return function() {
     let index = gen();
     return index !== undefined ? array[index] : undefined;
   };
@@ -952,7 +978,7 @@ array // [0, 1]
 @return {function}
 */
 function collect(gen, array) {
-  return function () {
+  return function() {
     let next = gen();
     if (next !== undefined) {
       array.push(next);
@@ -979,7 +1005,7 @@ fil() // undefined
 @return {function}
 */
 function filter(gen, predicate) {
-  return function () {
+  return function() {
     let next;
     do {
       next = gen();
@@ -1038,7 +1064,7 @@ con() // undefined
 @return {function}
 */
 function concatTwo(gen1, gen2) {
-  return function () {
+  return function() {
     let next = gen1();
     if (next === undefined) {
       next = gen2();
@@ -1134,7 +1160,7 @@ genH() // 'H2'
 */
 function gensymf(symbol) {
   let index = genFrom(1);
-  return function () {
+  return function() {
     return `${symbol}${index()}`;
   };
 }
@@ -1159,9 +1185,9 @@ genH() // 'H2'
 @return {function}
 */
 function gensymff(unary, seed) {
-  return function (symbol) {
+  return function(symbol) {
     let index = seed;
-    return function () {
+    return function() {
       index = unary(index);
       return `${symbol}${index}`;
     };
@@ -1189,7 +1215,7 @@ fib() // 8
 function fibonaccif(first, second) {
   let firstUsed = false;
   let secondUsed = false;
-  return function () {
+  return function() {
     if (!firstUsed) {
       firstUsed = true;
       return first;
@@ -1207,7 +1233,7 @@ function fibonaccif(first, second) {
 
 function fibonaccif2(first, second) {
   let i = 0;
-  return function () {
+  return function() {
     if (i === 0) {
       i = 1;
       return first;
@@ -1225,7 +1251,7 @@ function fibonaccif2(first, second) {
 
 function fibonaccif3(first, second) {
   let i = 0;
-  return function () {
+  return function() {
     let next;
     switch (i) {
       case 0:
@@ -1244,7 +1270,7 @@ function fibonaccif3(first, second) {
 }
 
 function fibonaccif4(first, second) {
-  return function () {
+  return function() {
     let next = first;
     first = second;
     second += next;
@@ -1466,7 +1492,7 @@ JSON.stringify(liftmbM(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 @return {object}
 */
 function liftmbM(binary, op) {
-  return function (m1, m2) {
+  return function(m1, m2) {
     return m(
       binary(m1.value, m2.value),
       `(${m1.source}${op}${m2.source})`
@@ -1490,7 +1516,7 @@ JSON.stringify(addmb(3, 4)) // '{"value":7,"source":"(3+4)"}'
 @return {object}
 */
 function liftmb(binary, op) {
-  return function (a, b) {
+  return function(a, b) {
     if (typeof a === 'number') {
       a = m(a);
     }
@@ -1522,7 +1548,7 @@ JSON.stringify(liftm(mul, '*')(m(3), m(4))) // '{"value":12,"source":"(3*4)"}'
 */
 function liftm(func, op) {
   const toMs = args => args.map(arg => typeof arg === 'number' ? m(arg) : arg);
-  return function (...args) {
+  return function(...args) {
     const ms = toMs(args);
     const msValues = extract(ms, 'value');
     const msSources = extract(ms, 'source');
@@ -1602,7 +1628,7 @@ function addg(value) {
   if (value === undefined) {
     return value;
   }
-  return function (next) {
+  return function(next) {
     if (next === undefined) {
       return value;
     }
@@ -1642,7 +1668,7 @@ function liftg(binary) {
     if (value === undefined) {
       return value;
     }
-    return function (next) {
+    return function(next) {
       if (next === undefined) {
         return value;
       }
@@ -1652,7 +1678,7 @@ function liftg(binary) {
 }
 
 function liftg2(binary) {
-  return function (first) {
+  return function(first) {
     function more(next) {
       if (next === undefined) {
         return first;
@@ -1667,7 +1693,7 @@ function liftg2(binary) {
 }
 
 function liftg3(binary) {
-  return function (first) {
+  return function(first) {
     if (first === undefined) {
       return first;
     }
@@ -1726,7 +1752,7 @@ function arrayg3(first) {
     return [];
   }
   return liftg(
-    function (array, value) {
+    function(array, value) {
       array.push(value);
       return array;
     }
@@ -1748,7 +1774,7 @@ sqrtc(console.log, 81); // logs '9'
 @return {function}
 */
 function continuizeu(unary) {
-  return function (cb, arg) {
+  return function(cb, arg) {
     return cb(unary(arg));
   };
 }
@@ -1768,7 +1794,7 @@ sqrtc(console.log, 1, 2, 4); // logs '1 2 4'
 @return {function}
 */
 function continuize(any) {
-  return function (cb, ...x) {
+  return function(cb, ...x) {
     return cb(any(...x));
   };
 }

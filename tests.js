@@ -396,11 +396,25 @@ test('composeu()', [{
   text: 'composeu(doubl, square, identity, curry(add, 1, 2))(5) === ' + ((5 + 5) * (5 + 5) + 1 + 2)
 }]);
 
+// composeu2
+test('composeu2()', [{
+  result: composeu2(doubl, square, identity, curry(add, 1, 2))(5),
+  expected: (5 + 5) * (5 + 5) + 1 + 2,
+  text: 'composeu2(doubl, square, identity, curry(add, 1, 2))(5) === ' + ((5 + 5) * (5 + 5) + 1 + 2)
+}]);
+
 // composeb
 test('composeb()', [{
-  result: composeb(add, mul)(2, 3, 7),
+  result: composeb(addb, mulb)(2, 3, 7),
   expected: (2 + 3) * 7,
-  text: 'composeb(add, mul)(2, 3, 7) === ' + ((2 + 3) * 7)
+  text: 'composeb(addb, mulb)(2, 3, 7) === ' + ((2 + 3) * 7)
+}]);
+
+// composeTwo
+test('composeTwo()', [{
+  result: composeTwo(add, square)(2, 3, 7),
+  expected: 144,
+  text: 'composeTwo(add, square)(2, 3, 7) === ' + ((2 + 3 + 7)  * (2 + 3 + 7))
 }]);
 
 // compose
@@ -408,6 +422,13 @@ test('compose()', [{
   result: compose(add, doubl, fill, max, square)(0, 1, 2),
   expected: 36,
   text: 'compose(add, doubl, fill, max, square)(0, 1, 2) === ' + 36
+}]);
+
+// compose2
+test('compose2()', [{
+  result: compose2(add, doubl, fill, max, square)(0, 1, 2),
+  expected: 36,
+  text: 'compose2(add, doubl, fill, max, square)(0, 1, 2) === ' + 36
 }]);
 
 // limitb
