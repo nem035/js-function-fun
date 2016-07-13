@@ -1167,11 +1167,23 @@ test('pubsub', [{
 
 // mapRecurse
 let mapRecurseArray = [ 1, 2, 3, 4 ];
-let predicate = x => x * 2;
-let mapRecurseResult = mapRecurse(mapRecurseArray, predicate);
+let mapPredicate = x => x * 2;
+let mapRecurseResult = mapRecurse(mapRecurseArray, mapPredicate);
 test('mapRecurse', [{
   result: mapRecurseResult.length === mapRecurseArray.length &&
-          mapRecurseResult.every((item, idx) => item = predicate(mapRecurseArray[idx])),
+          mapRecurseResult.every((item, idx) => item = mapPredicate(mapRecurseArray[idx])),
   expected: true,
-  text: `mapRecurse([${mapRecurseArray}], ${predicate.toString()})`  
+  text: `mapRecurse([${mapRecurseArray}], ${mapPredicate.toString()}) === [${mapRecurseResult}]`
+}]);
+
+// mapRecurse
+let filterRecurseArray = [ 1, 2, 3, 4 ];
+let filterPredicate = x => x % 2 === 0;
+let filterRecurseResult = filterRecurse(filterRecurseArray, filterPredicate);
+test('filterRecurse', [{
+  result: filterRecurseResult.length === 2 &&
+          filterRecurseResult[0] === 2  &&
+          filterRecurseResult[1] === 4,
+  expected: true,
+  text: `filterRecurse([${filterRecurseArray}], ${filterPredicate.toString()}) === [${filterRecurseResult}]`
 }]);

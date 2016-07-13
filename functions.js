@@ -1701,3 +1701,28 @@ function mapRecurse(array, predicate) {
   const newArray = [predicate(array[0])];
   return newArray.concat(mapRecurse(array.slice(1), predicate));
 }
+
+/**
+Make a function `filterRecurse` that
+takes in an array and a predicate
+function and returns a new array by
+filtering out all items using the
+predicate, recursively.
+
+@example
+filterRecurse([ 1, 2, 3, 4 ], x => x % 2 === 0) // [ 2, 4 ]
+
+@param {array} array
+@param {function} predicate
+@return {array}
+*/
+function filterRecurse(array, predicate) {
+  if (array.length < 1) {
+    return array;
+  }
+  const newArray = [];
+  if (predicate(array[0])) {
+    newArray.push(array[0]);
+  }
+  return newArray.concat(filterRecurse(array.slice(1), predicate));
+}
