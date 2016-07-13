@@ -288,6 +288,36 @@ function acc(func, initial) {
   };
 }
 
+
+
+/**
+Write a function `accPartial` that
+takes in a function, a start index,
+and an end index, and returns a
+function that accumulates a subset
+of its arguments by applying the
+given function to all elements
+between start and end.
+
+@example
+const addSecondToThird = accPartial(add, 1, 3);
+addSecondToThird(1, 2, 4, 8) // [ 1, 6, 8 ]
+
+@param {function} func
+@param {number} start
+@param {number} end
+@return {function}
+*/
+function accPartial(func, start, end) {
+  return function(...nums) {
+    return [
+      ...nums.slice(0, start),
+      func(...nums.slice(start, end)),
+      ...nums.slice(end, nums.length)
+    ];
+  };
+}
+
 /**
 Write a function `accRecurse` that
 does what `acc` does but uses recursion

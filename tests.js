@@ -35,112 +35,112 @@ function test(name, tests) {
 }
 
 // identity
-test('identity', [{
+test('identity()', [{
   result: identity(3),
   expected: 3,
   text: 'identity(3) === ',
 }]);
 
 // addb
-test('addb', [{
+test('addb()', [{
   result: addb(1, 2),
   expected: 1 + 2,
   text: 'addb(1, 2) === ' + (1 + 2),
 }]);
 
 // subb
-test('subb', [{
+test('subb()', [{
   result: subb(1, 2),
   expected: 1 - 2,
   text: 'subb(1, 2) === ' + (1 - 2),
 }]);
 
 // mulb
-test('mulb', [{
+test('mulb()', [{
   result: mulb(1, 2),
   expected: 1 * 2,
   text: 'mulb(1, 2) === ' + (1 * 2),
 }]);
 
 // minb
-test('minb', [{
+test('minb()', [{
   result: minb(3, 4),
   expected: Math.min(3, 4),
   text: 'minb(3, 4) === ' + Math.min(3, 4)
 }]);
 
 // maxb
-test('maxb', [{
+test('maxb()', [{
   result: maxb(3, 4),
   expected: Math.max(3, 4),
   text: 'maxb(3, 4) === ' + Math.max(3, 4)
 }]);
 
 // add
-test('add', [{
+test('add()', [{
   result: add(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'add(1, 2, 4) === ' + (1 + 2 + 4),
 }]);
 
 // sub
-test('sub', [{
+test('sub()', [{
   result: sub(1, 2, 4),
   expected: 1 - 2 - 4,
   text: 'sub(1, 2, 4) === ' + (1 - 2 - 4),
 }]);
 
 // mul
-test('mul', [{
+test('mul()', [{
   result: mul(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'mul(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
 // min
-test('min', [{
+test('min()', [{
   result: min(1, 2, 4),
   expected: Math.min(1, 2, 4),
   text: 'min(1, 2, 4) === ' + Math.min(1, 2, 4),
 }]);
 
 // max
-test('max', [{
+test('max()', [{
   result: max(1, 2, 4),
   expected: Math.max(1, 2, 4),
   text: 'max(1, 2, 4) === ' + Math.max(1, 2, 4),
 }]);
 
 // addRecurse
-test('addRecurse', [{
+test('addRecurse()', [{
   result: addRecurse(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'addRecurse(1, 2, 4) === ' + (1 + 2 + 4),
 }]);
 
 // mulRecurse
-test('mulRecurse', [{
+test('mulRecurse()', [{
   result: mulRecurse(1, 2, 4),
   expected: 1 * 2 * 4,
   text: 'mulRecurse(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
 // minRecurse
-test('minRecurse', [{
+test('minRecurse()', [{
   result: minRecurse(1, 2, 4),
   expected: Math.min(1, 2, 4),
   text: 'minRecurse(1, 2, 4) === ' + (Math.min(1, 2, 4)),
 }]);
 
 // maxRecurse
-test('maxRecurse', [{
+test('maxRecurse()', [{
   result: maxRecurse(1, 2, 4),
   expected: Math.max(1, 2, 4),
   text: 'maxRecurse(1, 2, 4) === ' + (Math.max(1, 2, 4)),
 }]);
 
 // acc
-test('acc', [{
+test('acc()', [{
   result: acc((a, b) => a + b, 0)(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'acc((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
@@ -150,8 +150,20 @@ test('acc', [{
   text: 'acc((a, b) => a * b, 1)(1, 2, 4) === ' + (1 * 2 * 4),
 }]);
 
+// accPartial
+let addSecondToThird = accPartial(add, 1, 3);
+let accPartialResult = addSecondToThird(1, 2, 4, 8);
+test('accPartial()', [{
+  result: accPartialResult.length === 3 &&
+          accPartialResult[0] === 1 &&
+          accPartialResult[1] === 6 &&
+          accPartialResult[2] === 8,
+  expected: true,
+  text: 'accPartial(add, 1, 2)(1, 2, 4, 8) === ' + `[${accPartialResult}]`
+}]);
+
 // accRecurse
-test('accRecurse', [{
+test('accRecurse()', [{
   result: accRecurse((a, b) => a + b, 0)(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'accRecurse((a, b) => a + b, 0)(1, 2, 4) === ' + (1 + 2 + 4),
@@ -164,7 +176,7 @@ test('accRecurse', [{
 // fill
 let fillResult = fill(3);
 let fillExpected = [ 3, 3, 3 ];
-test('fill', [{
+test('fill()', [{
   result: fillResult.length === 3 &&
           fillResult[0] === fillResult[1] &&
           fillResult[1] === fillResult[2] &&
@@ -176,7 +188,7 @@ test('fill', [{
 // fillRecurse
 let fillRecurseResult = fillRecurse(3);
 let fillRecurseExpected = [ 3, 3, 3 ];
-test('fillRecurse', [{
+test('fillRecurse()', [{
   result: fillRecurseResult.length === 3 &&
           fillRecurseResult[0] === fillRecurseResult[1] &&
           fillRecurseResult[1] === fillRecurseResult[2] &&
@@ -186,21 +198,21 @@ test('fillRecurse', [{
 }]);
 
 // identityf
-test('identityf', [{
+test('identityf()', [{
   result: identityf(3)(),
   expected: 3,
   text: 'identityf(3)() === ' + 3,
 }]);
 
 // addf
-test('addf', [{
+test('addf()', [{
   result: addf(3)(4),
   expected: 3 + 4,
   text: 'addf(3)(4) === ' + (3 + 4),
 }]);
 
 // liftf
-test('liftf', [{
+test('liftf()', [{
   result: liftf(add)(3)(4),
   expected: 3 + 4,
   text: 'liftf(add)(3)(4) === ' + (3 + 4),
@@ -215,7 +227,7 @@ test('liftf', [{
 }]);
 
 // pure
-test('pure', [{
+test('pure()', [{
   result: pure(20, 5)[0],
   expected: 6,
   text: 'pure(20, 5)[0] === ' + pure(20, 5)[0]
@@ -234,7 +246,7 @@ test('pure', [{
 }]);
 
 // curryb
-test('curryb', [{
+test('curryb()', [{
   result: curryb(add, 3)(4),
   expected: 3 + 4,
   text: 'curryb(add, 3)(4) === ' + (3 + 4),
@@ -249,7 +261,7 @@ test('curryb', [{
 }]);
 
 // curry
-test('curry', [{
+test('curry()', [{
   result: curry(add, 1, 2, 4)(4, 2, 1),
   expected: 1 + 2 + 4 + 4 + 2 + 1,
   text: 'curry(add, 1, 2, 4)(4, 2, 1) === ' + (1 + 2 + 4 + 4 + 2 + 1),
@@ -264,48 +276,48 @@ test('curry', [{
 }]);
 
 // inc
-test('inc', [{
+test('inc()', [{
   result: inc(5),
   expected: 5 + 1,
-  text: 'inc(5) === 5 + 1',
+  text: 'inc(5) === ' + (5 + 1),
 }, {
   result: inc(inc(5)),
   expected: 5 + 1 + 1,
-  text: 'inc(inc(5)) === 5 + 1 + 1',
+  text: 'inc(inc(5)) === ' + (5 + 1 + 1),
 }]);
 
-test('inc2', [{
+test('inc2()', [{
   result: inc2(5),
   expected: 5 + 1,
-  text: 'inc2(5) === 5 + 1',
+  text: 'inc2(5) === ' + (5 + 1),
 }, {
   result: inc2(inc2(5)),
   expected: 5 + 1 + 1,
-  text: 'inc2(inc2(5)) === 5 + 1 + 1',
+  text: 'inc2(inc2(5)) === ' + (5 + 1 + 1),
 }]);
 
-test('inc3', [{
+test('inc3()', [{
   result: inc3(5),
   expected: 5 + 1,
-  text: 'inc3(5) === 5 + 1',
+  text: 'inc3(5) === ' + (5 + 1),
 }, {
   result: inc3(inc3(5)),
   expected: 5 + 1 + 1,
-  text: 'inc3(inc3(5)) === 5 + 1 + 1',
+  text: 'inc3(inc3(5)) === ' + (5 + 1 + 1),
 }]);
 
-test('inc4', [{
+test('inc4()', [{
   result: inc4(5),
   expected: 5 + 1,
-  text: 'inc4(5) === 5 + 1',
+  text: 'inc4(5) === ' + (5 + 1),
 }, {
   result: inc4(inc4(5)),
   expected: 5 + 1 + 1,
-  text: 'inc4(inc4(5)) === 5 + 1 + 1',
+  text: 'inc4(inc4(5)) === ' + (5 + 1 + 1),
 }]);
 
 // twiceUnary
-test('twiceUnary', [{
+test('twiceUnary()', [{
   result: twiceUnary(add)(11),
   expected: 11 + 11,
   text: 'twiceUnary(add)(11) === ' + (11 + 11),
@@ -320,19 +332,19 @@ test('twiceUnary', [{
 }]);
 
 // doubl, square
-test('doubl', [{
+test('doubl()', [{
   result: doubl(3),
   expected: 3 + 3,
   text: 'doubl(3) === ' + (3 + 3)
 }]);
-test('square', [{
+test('square()', [{
   result: square(3),
   expected: 3 * 3,
   text: 'square(3) === ' + (3 * 3)
 }]);
 
 // twice
-test('twice', [{
+test('twice()', [{
   result: twice(add)(1, 2, 4),
   expected: 1 + 2 + 4 + 1 + 2 + 4,
   text: 'twice(add)(1, 2, 4) === ' + (1 + 2 + 4 + 1 + 2 + 4)
@@ -347,35 +359,35 @@ test('twice', [{
 }]);
 
 // reverseb
-test('reverseb', [{
+test('reverseb()', [{
   result: reverseb(subb)(3, 2),
   expected: 2 - 3,
   text: 'reverseb(subb)(3, 2) === ' + (2 - 3)
 }]);
 
 // reverse
-test('reverse', [{
+test('reverse()', [{
   result: reverse(sub)(1, 2, 4),
   expected: 4 - 2 - 1,
   text: 'reverse(sub)(1, 2, 4) === ' + (4 - 2 - 1)
 }]);
 
 // composeuTwo
-test('composeuTwo', [{
+test('composeuTwo()', [{
   result: composeuTwo(doubl, square)(5),
   expected: (5 + 5) * (5 + 5),
   text: 'composeuTwo(doubl, square)(5) === ' + ((5 + 5) * (5 + 5))
 }]);
 
 // composeu
-test('composeu', [{
+test('composeu()', [{
   result: composeu(doubl, square, identity, curry(add, 1, 2))(5),
   expected: (5 + 5) * (5 + 5) + 1 + 2,
   text: 'composeu(doubl, square, identity, curry(add, 1, 2))(5) === ' + ((5 + 5) * (5 + 5) + 1 + 2)
 }]);
 
 // composeb
-test('composeb', [{
+test('composeb()', [{
   result: composeb(add, mul)(2, 3, 7),
   expected: (2 + 3) * 7,
   text: 'composeb(add, mul)(2, 3, 7) === ' + ((2 + 3) * 7)
@@ -383,7 +395,7 @@ test('composeb', [{
 
 // limitb
 let addLmtb = limitb(add, 1);
-test('limitb', [{
+test('limitb()', [{
   result: addLmtb(3, 4),
   expected: 3 + 4,
   text: 'first call: addLmtb(3, 4) === ' + (3 + 4)
@@ -395,7 +407,7 @@ test('limitb', [{
 
 // limit
 let addLmt = limit(add, 1);
-test('limit', [{
+test('limit()', [{
   result: addLmt(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'first call: addLmt(1, 2, 4) === ' + (1 + 2 + 4)
@@ -407,7 +419,7 @@ test('limit', [{
 
 // genFrom
 let indexFrom = genFrom(0);
-test('genFrom', [{
+test('genFrom()', [{
   result: indexFrom(),
   expected: 0,
   text: 'first call: genFrom(0) === ' + 0
@@ -423,7 +435,7 @@ test('genFrom', [{
 
 // genTo
 let indexTo = genTo(genFrom(1), 3);
-test('genTo', [{
+test('genTo()', [{
   result: indexTo(),
   expected: 1,
   text: 'first call: genTo(genFrom(1), 3) === ' + 1
@@ -439,7 +451,7 @@ test('genTo', [{
 
 // genFromTo
 let indexFromTo = genFromTo(0, 3);
-test('genFromTo', [{
+test('genFromTo()', [{
   result: indexFromTo(),
   expected: 0,
   text: 'first call: genFromTo(0, 3) === ' + 0
@@ -461,7 +473,7 @@ test('genFromTo', [{
 let eleGen = elementGen([
   'a', 'b', 'c', 'd'
 ], genFromTo(1, 3));
-test('elementGen', [{
+test('elementGen()', [{
   result: eleGen(),
   expected: 'b',
   text: "first call: elementGen(['a', 'b', 'c', 'd'], genFromTo(1, 3)) === " + 'b'
@@ -479,7 +491,7 @@ test('elementGen', [{
 let ele = element([
   'a', 'b', 'c', 'd'
 ]);
-test('element', [{
+test('element()', [{
   result: ele(),
   expected: 'a',
   text: "first call: element(['a', 'b', 'c', 'd']) === " + 'a'
@@ -504,7 +516,7 @@ test('element', [{
 // collect
 let array = [];
 let col = collect(genFromTo(0, 2), array);
-test('collect', [{
+test('collect()', [{
   result: col(),
   expected: 0,
   text: "first call: collect(genFromTo(0, 2), array) === " + 0
@@ -530,7 +542,7 @@ test('collect', [{
 let third = val => val % 3 === 0;
 
 let fil = filter(genFromTo(0, 5), third);
-test('filter', [{
+test('filter()', [{
   result: fil(),
   expected: 0,
   text: "first call: filter(genFromTo(0, 5), third) === " + 0
@@ -546,7 +558,7 @@ test('filter', [{
 
 
 let filTail = filterTail(genFromTo(0, 5), third);
-test('filterTail', [{
+test('filterTail()', [{
   result: filTail(),
   expected: 0,
   text: "first call: filterTail(genFromTo(0, 5), third) === " + 0
@@ -562,7 +574,7 @@ test('filterTail', [{
 
 // concatTwo
 let conTwo = concatTwo(genFromTo(0, 3), genFromTo(0, 2));
-test('concatTwo', [{
+test('concatTwo()', [{
   result: conTwo(),
   expected: 0,
   text: 'first call: concatTwo(genFromTo(0, 3), genFromTo(0, 2)) === ' + 0
@@ -590,7 +602,7 @@ test('concatTwo', [{
 
 // concat
 let con = concat(genFromTo(0, 3), genFromTo(0, 2), genFromTo(5, 7));
-test('concat', [{
+test('concat()', [{
   result: con(),
   expected: 0,
   text: 'first call: concat(genFromTo(0, 3), genFromTo(0, 2), genFromTo(5, 7)) === ' + 0
@@ -626,7 +638,7 @@ test('concat', [{
 
 // concatTail
 let conTail = concatTail(genFromTo(0, 3), genFromTo(0, 2));
-test('concatTail', [{
+test('concatTail()', [{
   result: conTail(),
   expected: 0,
   text: 'first call: concatTail(genFromTo(0, 3), genFromTo(0, 2)) === ' + 0
@@ -655,7 +667,7 @@ test('concatTail', [{
 // gensymf
 let genG = gensymf('G');
 let genH = gensymf('H');
-test('gensymf', [{
+test('gensymf()', [{
   result: genG(),
   expected: 'G1',
   text: "first call gensymf('G') === " + 'G1'
@@ -677,7 +689,7 @@ test('gensymf', [{
 let gensymfFunc = gensymff(inc, 0);
 let genGG = gensymfFunc('GG');
 let genHH = gensymfFunc('HH');
-test('gensymff', [{
+test('gensymff()', [{
   result: genGG(),
   expected: 'GG1',
   text: "first call gensymff(inc, 0)('GG') === " + 'GG1'
@@ -697,7 +709,7 @@ test('gensymff', [{
 
 // fibonaccif
 let fib = fibonaccif(0, 1);
-test('fibonaccif', [{
+test('fibonaccif()', [{
   result: fib(),
   expected: 0,
   text: 'first call: fibonaccif(0, 1) === 0'
@@ -725,7 +737,7 @@ test('fibonaccif', [{
 
 // fibonaccif2
 let fib2 = fibonaccif2(0, 1);
-test('fibonaccif2', [{
+test('fibonaccif2()', [{
   result: fib2(),
   expected: 0,
   text: 'first call: fibonaccif2(0, 1) === 0'
@@ -753,7 +765,7 @@ test('fibonaccif2', [{
 
 // fibonaccif3
 let fib3 = fibonaccif3(0, 1);
-test('fibonaccif3', [{
+test('fibonaccif3()', [{
   result: fib3(),
   expected: 0,
   text: 'first call: fibonaccif3(0, 1) === 0'
@@ -781,7 +793,7 @@ test('fibonaccif3', [{
 
 // fibonaccif4
 let fib4 = fibonaccif4(0, 1);
-test('fibonaccif4', [{
+test('fibonaccif4()', [{
   result: fib4(),
   expected: 0,
   text: 'first call: fibonaccif4(0, 1) === 0'
@@ -809,7 +821,7 @@ test('fibonaccif4', [{
 
 // fibonaccif5
 let fib5 = fibonaccif5(0, 1);
-test('fibonaccif5', [{
+test('fibonaccif5()', [{
   result: fib5(),
   expected: 0,
   text: 'first call: fibonaccif5(0, 1) === 0'
@@ -837,7 +849,7 @@ test('fibonaccif5', [{
 
 // fibonaccif6
 let fib6 = fibonaccif6(0, 1);
-test('fibonaccif6', [{
+test('fibonaccif6()', [{
   result: fib6(),
   expected: 0,
   text: 'first call: fibonaccif6(0, 1) === 0'
@@ -867,7 +879,7 @@ test('fibonaccif6', [{
 let obj = counter(10);
 let up = obj.up;
 let down = obj.down;
-test('counter', [{
+test('counter()', [{
   result: up(),
   expected: 11,
   text: 'first call: counter(10).up === ' + 11
@@ -887,7 +899,7 @@ test('counter', [{
 
 // revocableb
 let revBin = revocableb(add);
-test('revocableb', [{
+test('revocableb()', [{
   result: revBin.invoke(3, 4),
   expected: 3 + 4,
   text: 'invocation: revocableb(add).invoke(3, 4) === ' + (3 + 4)
@@ -903,7 +915,7 @@ test('revocableb', [{
 
 // revocable
 let rev = revocable(add);
-test('revocable', [{
+test('revocable()', [{
   result: rev.invoke(1, 2, 4),
   expected: 1 + 2 + 4,
   text: 'invocation: revocable(add).invoke(1, 2, 4) === ' + (1 + 2 + 4)
@@ -919,7 +931,7 @@ test('revocable', [{
 
 // extract
 let people = [{ name: 'john'}, { name: 'bob' }];
-test('extract', [{
+test('extract()', [{
   result: extract(people, 'name')[0],
   expected: 'john',
   text: "extract([{ name: 'john'}, { name: 'bob' }], 'name')[0] === " + 'john'
@@ -930,7 +942,7 @@ test('extract', [{
 }]);
 
 // m
-test('m', [{
+test('m()', [{
   result: JSON.stringify(m(1)),
   expected: JSON.stringify({ value: 1, source: '1' }),
   text: 'JSON.stringify(m(1)) === ' + JSON.stringify({ value: 1, source: '1' })
@@ -941,7 +953,7 @@ test('m', [{
 }]);
 
 // addmTwo
-test('addmTwo', [{
+test('addmTwo()', [{
   result: JSON.stringify(addmTwo(m(3), m(4))),
   expected: JSON.stringify({ value: 3 + 4, source: '(3+4)' }),
   text: 'JSON.stringify(addmTwo(m(3), m(4))) === ' + JSON.stringify({ value: 3 + 4, source: '(3+4)' })
@@ -952,14 +964,14 @@ test('addmTwo', [{
 }]);
 
 // addm
-test('addm', [{
+test('addm()', [{
   result: JSON.stringify(addm(m(1), m(2), m(4))),
   expected: JSON.stringify({ value: (1 + 2 + 4), source: '(1+2+4)' }),
   text: 'JSON.stringify(addm(m(1), m(2), m(4))) === ' + JSON.stringify({ value: (1 + 2 + 4), source: '(1+2+4)' })
 }]);
 
 // liftmbM
-test('liftmbM', [{
+test('liftmbM()', [{
   result: JSON.stringify(liftmbM(addb, "+")(m(3), m(4))),
   expected: JSON.stringify({ value: (3 + 4), source: '(3+4)' }),
   text: 'JSON.stringify(liftmbM(addb, "+")(m(3), m(4))) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
@@ -970,7 +982,7 @@ test('liftmbM', [{
 }]);
 
 // liftmb
-test('liftmb', [{
+test('liftmb()', [{
   result: JSON.stringify(liftmb(addb, "+")(3, 4)),
   expected: JSON.stringify({ value: (3 + 4), source: '(3+4)' }),
   text: 'JSON.stringify(liftmb(addb, "+")(3, 4)) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
@@ -981,7 +993,7 @@ test('liftmb', [{
 }]);
 
 // liftm
-test('liftm', [{
+test('liftm()', [{
   result: JSON.stringify(liftm(add, "+")(3, 4)),
   expected: JSON.stringify({ value: (3 + 4), source: '(3+4)' }),
   text: 'JSON.stringify(liftm(add, "+")(3, 4)) === ' + JSON.stringify({ value: (3 + 4), source: '(3+4)' })
@@ -992,7 +1004,7 @@ test('liftm', [{
 }]);
 
 // exp
-test('exp', [{
+test('exp()', [{
   result: exp([mul, 1, 2, 4]),
   expected: 1 * 2 * 4,
   text: 'exp([mul, 1, 2, 4]) === ' + (1 * 2 * 4)
@@ -1004,14 +1016,14 @@ test('exp', [{
 
 // expn
 let nae = [ Math.sqrt, [ add, [square, 3], [square, 4] ] ];
-test('expn', [{
+test('expn()', [{
   result: expn([ Math.sqrt, [ add, [square, 3], [square, 4] ] ]),
   expected: Math.sqrt(((3*3)+(4*4))),
   text: 'expn([ Math.sqrt, [ add, [square, 3], [square, 4] ] ]) === ' + Math.sqrt(((3*3)+(4*4)))
 }]);
 
 // addg
-test('addg', [{
+test('addg()', [{
   result: addg(),
   expected: undefined,
   text: 'addg() === ' + undefined
@@ -1034,7 +1046,7 @@ test('addg', [{
 }]);
 
 // addg2
-test('addg2', [{
+test('addg2()', [{
   result: addg2(),
   expected: undefined,
   text: 'addg2() === ' + undefined
@@ -1057,7 +1069,7 @@ test('addg2', [{
 }]);
 
 // liftg
-test('liftg', [{
+test('liftg()', [{
   result: liftg(mulb)(),
   expected: undefined,
   text: 'liftg(mulb)() === ' + undefined
@@ -1076,7 +1088,7 @@ test('liftg', [{
 }]);
 
 // liftg2
-test('liftg2', [{
+test('liftg2()', [{
   result: liftg2(mulb)(),
   expected: undefined,
   text: 'liftg2(mulb)() === ' + undefined
@@ -1095,7 +1107,7 @@ test('liftg2', [{
 }]);
 
 // liftg3
-test('liftg3', [{
+test('liftg3()', [{
   result: liftg3(mulb)(),
   expected: undefined,
   text: 'liftg3(mulb)() === ' + undefined
@@ -1114,7 +1126,7 @@ test('liftg3', [{
 }]);
 
 // arrayg
-test('arrayg', [{
+test('arrayg()', [{
   result: JSON.stringify(arrayg()),
   expected: JSON.stringify([]),
   text: 'arrayg() === ' + JSON.stringify([])
@@ -1129,7 +1141,7 @@ test('arrayg', [{
 }]);
 
 // arrayg2
-test('arrayg2', [{
+test('arrayg2()', [{
   result: JSON.stringify(arrayg2()),
   expected: JSON.stringify([]),
   text: 'arrayg2() === ' + JSON.stringify([])
@@ -1144,7 +1156,7 @@ test('arrayg2', [{
 }]);
 
 // arrayg3
-test('arrayg3', [{
+test('arrayg3()', [{
   result: JSON.stringify(arrayg3()),
   expected: JSON.stringify([]),
   text: 'arrayg3() === ' + JSON.stringify([])
@@ -1159,14 +1171,14 @@ test('arrayg3', [{
 }]);
 
 // continuizeu
-test('continuizeu', [{
+test('continuizeu()', [{
   result: continuizeu(Math.sqrt)(identity, 81),
   expected: Math.sqrt(81),
   text: 'continuizeu(Math.sqrt)(identity, 81) === ' + Math.sqrt(81)
 }]);
 
 // continuize
-test('continuize', [{
+test('continuize()', [{
   result: continuize(add)(identity, 1, 2, 4),
   expected: add(1, 2, 4),
   text: 'continuize(add)(identity, 1, 2, 4) === ' + (1 + 2 + 4)
@@ -1176,7 +1188,7 @@ test('continuize', [{
 let v = vector();
 v.append(7);
 v.store(1, 8);
-test('vector', [{
+test('vector()', [{
   result: v.get(0),
   expected: 7,
   text: 'vector test 1'
@@ -1188,7 +1200,7 @@ test('vector', [{
 
 // vector exploitVector
 let data = exploitVector(v);
-test('vector exploitVector', [{
+test('vector exploitVector()', [{
   result: Array.isArray(data) &&
     data.length === 2 &&
     data[0] === v.get(0) &&
@@ -1201,7 +1213,7 @@ test('vector exploitVector', [{
 let vSafe = vectorSafe();
 vSafe.append(7);
 vSafe.store(1, 8);
-test('vectorSafe', [{
+test('vectorSafe()', [{
   result: vSafe.get(0),
   expected: 7,
   text: 'vectorSafe test 1'
@@ -1213,7 +1225,7 @@ test('vectorSafe', [{
 
 // vector exploit
 let dataTwo = exploitVector(vSafe);
-test('vector exploitVector', [{
+test('vector exploitVector()', [{
   result: dataTwo === undefined,
   expected: true,
   text: 'vectorSafe exploit is fixed'
@@ -1221,7 +1233,7 @@ test('vector exploitVector', [{
 
 // pubsub
 let ps = pubsub();
-test('pubsub', [{
+test('pubsub()', [{
   result: (function() {
     ps.publish = undefined;
     return typeof ps.publish;
@@ -1245,7 +1257,7 @@ test('pubsub', [{
 let mapRecurseArray = [ 1, 2, 3, 4 ];
 let mapPredicate = x => x * 2;
 let mapRecurseResult = mapRecurse(mapRecurseArray, mapPredicate);
-test('mapRecurse', [{
+test('mapRecurse()', [{
   result: mapRecurseResult.length === mapRecurseArray.length &&
           mapRecurseResult.every((item, idx) => item = mapPredicate(mapRecurseArray[idx])),
   expected: true,
@@ -1256,7 +1268,7 @@ test('mapRecurse', [{
 let filterRecurseArray = [ 1, 2, 3, 4 ];
 let filterPredicate = x => x % 2 === 0;
 let filterRecurseResult = filterRecurse(filterRecurseArray, filterPredicate);
-test('filterRecurse', [{
+test('filterRecurse()', [{
   result: filterRecurseResult.length === 2 &&
           filterRecurseResult[0] === 2  &&
           filterRecurseResult[1] === 4,
