@@ -1164,3 +1164,14 @@ test('pubsub', [{
   expected: 2,
   text: 'pubsub `this` is safe'
 }]);
+
+// mapRecurse
+let mapRecurseArray = [ 1, 2, 3, 4 ];
+let predicate = x => x * 2;
+let mapRecurseResult = mapRecurse(mapRecurseArray, predicate);
+test('mapRecurse', [{
+  result: mapRecurseResult.length === mapRecurseArray.length &&
+          mapRecurseResult.every((item, idx) => item = predicate(mapRecurseArray[idx])),
+  expected: true,
+  text: `mapRecurse([${mapRecurseArray}], ${predicate.toString()})`  
+}]);

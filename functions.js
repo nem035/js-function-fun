@@ -1681,3 +1681,23 @@ function pubsub() {
     subscribe
   });
 }
+
+/**
+Make a function `mapRecurse` that
+performs a transformation for each
+element of a given array, recursively
+
+@example
+mapRecurse([ 1, 2, 3, 4 ], x => x * 2) // [ 2, 4, 6, 8 ]
+
+@param {array} array
+@param {function} predicate
+@return {array}
+*/
+function mapRecurse(array, predicate) {
+  if (array.length < 1) {
+    return array;
+  }
+  const newArray = [predicate(array[0])];
+  return newArray.concat(mapRecurse(array.slice(1), predicate));
+}
