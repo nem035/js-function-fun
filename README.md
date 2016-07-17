@@ -1,5 +1,5 @@
 # js-function-fun
-Fun with JavaScript functions
+A list of small & fun functional programming exercises in JavaScript
 
 ## Functions
 
