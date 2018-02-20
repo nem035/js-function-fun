@@ -67,7 +67,7 @@ that takes two numbers and returns
 the smaller one
 
 @example
-minb(3, 4) // 1
+minb(3, 4) // 3
 
 @param {number} a
 @param {number} b
