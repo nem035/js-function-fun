@@ -490,7 +490,6 @@ Write a function `identity` that
 takes an argument and returns
 that argument
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -507,7 +506,6 @@ Write a binary function `addb`
 that takes two numbers and returns
 their sum
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -525,7 +523,6 @@ Write a binary function `subb`
 that takes two numbers and returns
 their difference
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -543,7 +540,6 @@ Write a binary function `mulb`
 that takes two numbers and returns
 their product
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -561,7 +557,6 @@ Write a binary function `minb`
 that takes two numbers and returns
 the smaller one
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -579,7 +574,6 @@ Write a binary function `maxb`
 that takes two numbers and returns
 the larger one
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -597,7 +591,6 @@ Write a function `add` that
 is generalized for any
 amount of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -614,7 +607,6 @@ Write a function `sub` that
 is generalized for any
 amount of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -631,7 +623,6 @@ Write a function `mul` that
 is generalized for any
 amount of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -648,7 +639,6 @@ Write a function `min` that
 is generalized for any
 amount of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -665,7 +655,6 @@ Write a function `max` that
 is generalized for any
 amount of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -682,7 +671,6 @@ Write a function `addRecurse` that
 is the generalized `add` function
 but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -699,7 +687,6 @@ Write a function `mulRecurse` that
 is the generalized `mul` function
 but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -716,7 +703,6 @@ Write a function `minRecurse` that
 is the generalized `min` function
 but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -733,7 +719,6 @@ Write a function `maxRecurse` that
 is the generalized `max` function
 but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -750,7 +735,6 @@ Write a function `not` that
 takes a function and returns
 the negation of its result
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -774,7 +758,6 @@ initial function on each
 argument, accumulating the
 result
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -800,7 +783,6 @@ of its arguments by applying the
 given function to all elements
 between start and end.
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -819,7 +801,6 @@ addSecondToThird(1, 2, 4, 8) // [ 1, 6, 8 ]
 Write a function `accRecurse` that
 does what `acc` does but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -843,7 +824,6 @@ an array with that many
 numbers equal to the given
 number
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -859,7 +839,6 @@ fill(3) // [ 3, 3, 3 ]
 Write a function `fillRecurse` that
 does what `fill` does but uses recursion
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -877,7 +856,6 @@ is given a list of arguments
 and returns an array with
 all duplicates removed
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -895,7 +873,6 @@ that takes an argument and
 returns a function that
 returns that argument
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -912,7 +889,6 @@ three(); // 3
 Write a function `addf` that
 adds from two invocations
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -930,7 +906,6 @@ takes a binary function, and
 makes it callable with two
 invocations
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -963,7 +938,6 @@ z; // 120
 impure(25);
 z; // 175</pre>
 
-**Kind**: global function  
 **Returns**: <code>array</code> - an array containing  `y` and `z`  
 
 | Param | Type |
@@ -985,7 +959,6 @@ an argument, and returns a
 function that can take a
 second argument
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1006,7 +979,6 @@ Write a function `curry` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1026,7 +998,6 @@ Without writting any new functions,
 show multiple ways to create the `inc`
 function
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1046,7 +1017,6 @@ and returns a unary function
 that passes its argument to
 the binary function twice
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1066,7 +1036,6 @@ square(11) // 121
 Use the function `twiceUnary` to
 create the `doubl` function
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1082,7 +1051,6 @@ doubl(11) // 22
 Use the function `twiceUnary` to
 create the `square` function
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1099,7 +1067,6 @@ Write a function `twice` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1117,7 +1084,6 @@ Write a function `reverseb` that
 reverses the arguments of a
 binary function
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1135,7 +1101,6 @@ Write a function `reverse` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1153,7 +1118,6 @@ takes two unary functions and
 returns a unary function that
 calls them both
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1171,7 +1135,6 @@ Write a function `composeu` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1189,7 +1152,6 @@ takes two binary functions and
 returns a function that calls
 them both
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1207,7 +1169,6 @@ Write a function `composeTwo` that
 takes two functions and returns a
 function that calls them both
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1229,7 +1190,6 @@ them to the first function, then
 that result to the second function
 and so on
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1252,7 +1212,6 @@ that allows a binary function
 to be called a limited number
 of times
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1272,7 +1231,6 @@ Write a function `limit` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1292,7 +1250,6 @@ Write a function `genFrom` that
 produces a generator that will
 produces a series of values
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1315,7 +1272,6 @@ limit, and returns a generator
 that will produce numbers up
 to that limit
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1337,7 +1293,6 @@ Write a function `genFromTo` that
 produces a generator that will
 produce values in a range
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1360,7 +1315,6 @@ takes an array and a generator
 and returns a generator that will
 produce elements from the array
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1387,7 +1341,6 @@ If a generator is not provided, then
 each of the elements of the array
 will be produced.
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1414,7 +1367,6 @@ generator and an array and produces
 a function that will collect the results
 in the array
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1439,7 +1391,6 @@ generator and a predicate and produces
 a generator that produces only the
 values approved by the predicate
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1460,7 +1411,6 @@ fil() // undefined
 Write a function `filterTail` that uses
 tail-recursion to perform the filtering
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1483,7 +1433,6 @@ Write a function `concatTwo` that takes
 two generators and produces a generator
 that combines the sequences
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1507,7 +1456,6 @@ Write a function `concat` that
 is generalized for any amount
 of arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1531,7 +1479,6 @@ con() // undefined
 Write a function `concatTail` that uses
 tail-recursion to perform the concating
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1556,7 +1503,6 @@ Write a function `gensymf` that
 makes a function that generates
 unique symbols
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1579,7 +1525,6 @@ Write a function `gensymff` that
 takes a unary function and a
 seed and returns a `gensymf`
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1604,7 +1549,6 @@ Write a function `fibonaccif` that
 returns a generator that will
 return the next fibonacci number
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1630,7 +1574,6 @@ two functions that implement
 an up/down counter, hiding
 the counter
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1656,7 +1599,6 @@ returns an object containing an
 function and a `revoke` function
 that disables the `invoke` function
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1677,7 +1619,6 @@ Write a function `revocable` that
 is generalized for any amount of
 arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1700,7 +1641,6 @@ object property name and converts
 each object in the array by
 extracting that property
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1721,7 +1661,6 @@ optional source string
 and returns them in an
 object
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1741,7 +1680,6 @@ Write a function `addmTwo` that
 adds two `m` objects and
 returns an `m` object
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1761,7 +1699,6 @@ Write a function `addm` that
 is generalized for any amount of
 arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1779,7 +1716,6 @@ takes a binary function and
 a string and returns a function
 that acts on `m` objects
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1802,7 +1738,6 @@ is a modified function `liftmbM`
 that can accept arguments that
 are either numbers or m objects
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1822,7 +1757,6 @@ Write a function `liftm` that
 is generalized for any amount of
 arguments
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1844,7 +1778,6 @@ Write a function `exp` that
 evaluates simple array
 expressions
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1864,7 +1797,6 @@ that is a modified `exp` that
 can evaluate nested array
 expressions
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1891,7 +1823,6 @@ adds from many invocations,
 until it sees an empty
 invocation
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1912,7 +1843,6 @@ Write a function `liftg` that
 will take a binary function
 and apply it to many invocations
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1932,7 +1862,6 @@ Write a function `arrayg` that
 will build an array from many
 invocations
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1953,7 +1882,6 @@ and returns a function that
 takes a callback and an
 argument
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1973,7 +1901,6 @@ returns a function that
 takes a callback and an
 argument
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -1993,7 +1920,6 @@ and `append`, such that an
 attacker cannot get access
 to the private array
 
-**Kind**: global function  
 **Example**  
 ```js
 let v = vector();
@@ -2034,7 +1960,6 @@ Hint*: Think about using `this` in a
 method invocation. Can we override a
 method of `vector`?
 
-**Kind**: global function  
 **Example**  
 ```js
 var v = vector();
@@ -2048,7 +1973,6 @@ var internalData = exploitVector(v); // [1, 2]
 How would you rewrite `vector` to deal
 with the issue from above?
 
-**Kind**: global function  
 **Example**  
 ```js
 var v = vectorSafe();
@@ -2065,7 +1989,6 @@ It will reliably deliver all
 publications to all subscribers
 in the right order.
 
-**Kind**: global function  
 **Example**  
 ```js
 let ps = pubsub();
@@ -2079,7 +2002,6 @@ Make a function `mapRecurse` that
 performs a transformation for each
 element of a given array, recursively
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
@@ -2099,7 +2021,6 @@ function and returns a new array by
 filtering out all items using the
 predicate, recursively.
 
-**Kind**: global function  
 
 | Param | Type |
 | --- | --- |
