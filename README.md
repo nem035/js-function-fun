@@ -570,7 +570,7 @@ the smaller one
 
 **Example**  
 ```js
-minb(3, 4) // 1
+minb(3, 4) // 3
 ```
 <a name="maxb"></a>
 
